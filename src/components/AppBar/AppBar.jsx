@@ -15,9 +15,9 @@ export const AppBar = () => {
   const [isUser, setUser] = useState('');
 
   //TODO: fix this
-  // useEffect(() => {
-  //   setUser({ name: 'Nick' });
-  // }, []);
+  useEffect(() => {
+    setUser({ name: 'Nick' });
+  }, []);
 
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
   const isMobile = useMediaQuery({ query: '(max-width: 426px)' });
