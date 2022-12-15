@@ -12,8 +12,9 @@ import { BottomSection } from './BottomSection/BottomSection';
 import { Menu } from './Menu/Menu';
 
 export const AppBar = () => {
-  const [isUser, setUser] = useState({ name: 'Nick' });
+  const [isUser, setUser] = useState('');
 
+  setUser({ name: 'Nick' });
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
   const isMobile = useMediaQuery({ query: '(max-width: 426px)' });
   const isTablet = useMediaQuery({
