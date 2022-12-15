@@ -1,11 +1,11 @@
 import React from 'react';
 import { ButtonEmpty, ButtonFull } from './Button.styled';
 
-export const Button = ({ children, full }) => {
+export const Button = ({ children, full, type }) => {
   return full ? (
-    <ButtonFull>{children}</ButtonFull>
+    <ButtonFull type={type}>{children}</ButtonFull>
   ) : (
-    <ButtonEmpty>{children}</ButtonEmpty>
+    <ButtonEmpty type={type}>{children}</ButtonEmpty>
   );
 };
 

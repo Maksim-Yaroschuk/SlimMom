@@ -7,8 +7,8 @@ export const ButtonFull = styled.button`
   font-family: ${p => p.theme.fonts.body};
   line-height: ${p => p.theme.lineHeights.body};
   font-size: ${p => p.theme.fontSizes[0]};
-  text-align: center;
   letter-spacing: 0.04em;
+  display: block;
 
   color: ${p => p.theme.colors.white};
   background: ${p => p.theme.colors.orange};
@@ -22,8 +22,8 @@ export const ButtonEmpty = styled.button`
   font-family: ${p => p.theme.fonts.body};
   line-height: ${p => p.theme.lineHeights.body};
   font-size: ${p => p.theme.fontSizes[0]};
-  text-align: center;
   letter-spacing: 0.04em;
+  display: block;
 
   background: ${p => p.theme.colors.white};
   border: ${p => p.theme.borders.btn};

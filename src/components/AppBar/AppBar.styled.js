@@ -1,20 +1,5 @@
 import styled from 'styled-components';
 
-export const H2 = styled.h2`
-  @media (max-width: 426px) {
-    font-size: 20px;
-    color: red;
-  }
-  @media (min-width: 426px) and (max-width: 1023px) {
-    font-size: 30px;
-    color: green;
-  }
-  @media (min-width: 1024px) {
-    font-size: 20px;
-    color: blue;
-  }
-`;
-
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
@@ -30,6 +15,7 @@ export const Header = styled.header`
     align-items: flex-end;
     padding: 80px 16px;
     border: none;
+    position: absolute;
   }
 `;
 

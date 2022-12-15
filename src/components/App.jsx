@@ -1,13 +1,12 @@
+import { First } from 'pages/First';
 import { AppBar } from './AppBar/AppBar';
-// import { Button } from './Button/Button';
+import { Box } from './Box';
 
 export const App = () => {
   return (
-    <div>
+    <Box maxWidth={'1280px'} m={'0 auto'}>
       <AppBar />
-
-      {/* <Example /> */}
-      {/* <Button full={false}>Hello from button</Button> */}
-    </div>
+      <First />
+    </Box>
   );
 };

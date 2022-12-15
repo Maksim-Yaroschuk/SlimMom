@@ -1,11 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
 
-/* @font-face {
-  font-family: 'GothamPro';
-  src: url('./fonts/GothamPro-Bold.ttf') format('truetype');
-  font-weight: bold;
-} */
-
 @font-face {
   font-family: 'GothamProBold';
   src: local('GothamProBold'),
@@ -33,6 +27,7 @@
 body {
   margin: 0;
   font-family: VerdanaBold;
+  box-sizing: border-box;
 }
 
 h1,

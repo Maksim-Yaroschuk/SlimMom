@@ -13,7 +13,7 @@ export const theme = {
     tertiary: 'GothamProBold',
   },
   space: [0, 4, 8, 16, 20, 32, 64, 128, 256, 512].map(n => n + 'px'),
-  fontSizes: [14, 18, 24, 36, 34].map(n => n + 'px'),
+  fontSizes: [14, 18, 24, 34, 36].map(n => n + 'px'),
   // fontWeights: {
   //   body: 400,
   //   heading: 700,
@@ -29,3 +29,9 @@ export const theme = {
     btn: '2px solid #FC842D',
   },
 };
+
+//  border-bottom: ${p => p.theme.borders.normal};
+// font-family: ${p => p.theme.fonts.body};
+// line-height: ${p => p.theme.lineHeights.body};
+// font-size: ${p => p.theme.fontSizes[0]};
+// color: ${p => p.theme.colors.black};
