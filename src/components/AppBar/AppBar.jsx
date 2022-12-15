@@ -5,7 +5,7 @@ import logoTabletRetina from '../../images/logo/logoTablet@2x.png';
 import logoDesktop from '../../images/logo/logoDesktop.png';
 import logoDesktopRetina from '../../images/logo/logoDesktop@2x.png';
 import { useMediaQuery } from 'react-responsive';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BtnList, Header, HeaderBtn, Logo } from './AppBar.styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BottomSection } from './BottomSection/BottomSection';
@@ -14,7 +14,11 @@ import { Menu } from './Menu/Menu';
 export const AppBar = () => {
   const [isUser, setUser] = useState('');
 
-  setUser({ name: 'Nick' });
+  //TODO: fix this
+  useEffect(() => {
+    setUser({ name: 'Nick' });
+  }, []);
+
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
   const isMobile = useMediaQuery({ query: '(max-width: 426px)' });
   const isTablet = useMediaQuery({
