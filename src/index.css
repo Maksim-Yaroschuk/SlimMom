@@ -1,15 +1,50 @@
 @import-normalize; /* bring in normalize.css styles */
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* @font-face {
+  font-family: 'GothamPro';
+  src: url('./fonts/GothamPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+} */
+
+@font-face {
+  font-family: 'GothamProBold';
+  src: local('GothamProBold'),
+    url('./fonts/GothamPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'GothamProLight';
+  src: local('GothamProLight'),
+    url('./fonts/GothamPro-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'VerdanaBold';
+  src: local('VerdanaBold'), url('./fonts/Verdana-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'VerdanaRegular';
+  src: local('VerdanaRegular'),
+    url('./fonts/Verdana-Regular.ttf') format('truetype');
+  font-weight: 400;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: VerdanaBold;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
