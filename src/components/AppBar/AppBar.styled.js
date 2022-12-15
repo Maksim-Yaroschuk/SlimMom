@@ -16,6 +16,8 @@ export const Header = styled.header`
     padding: 80px 16px;
     border: none;
     position: absolute;
+    width: 1280px;
+    margin: 0 auto;
   }
 `;
 

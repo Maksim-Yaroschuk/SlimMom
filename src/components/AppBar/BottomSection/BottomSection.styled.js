@@ -1,5 +1,25 @@
 import styled from 'styled-components';
 
+export const Section = styled.div`
+  display: flex;
+  gap: 32px;
+  justify-content: flex-end;
+  padding: 15px 20px 8px;
+  background-color: #eff1f3;
+
+  @media (min-width: 426px) and (max-width: 1023px) {
+    background: ${p => p.theme.colors.white};
+    margin-left: auto;
+    margin-right: 48px;
+    padding: 0;
+  }
+  @media (min-width: 1024px) {
+    background: ${p => p.theme.colors.white};
+    padding: 0;
+    margin-left: auto;
+  }
+`;
+
 export const Name = styled.button`
   padding: 0;
   border: ${p => p.theme.borders.none};
@@ -46,25 +66,5 @@ export const Exit = styled.button`
   }
   @media (min-width: 1024px) {
     background: ${p => p.theme.colors.white};
-  }
-`;
-
-export const Section = styled.div`
-  display: flex;
-  gap: 32px;
-  justify-content: flex-end;
-  padding: 15px 20px 8px;
-  background-color: #eff1f3;
-
-  @media (min-width: 426px) and (max-width: 1023px) {
-    background: ${p => p.theme.colors.white};
-    margin-left: auto;
-    margin-right: 48px;
-    padding: 0;
-  }
-  @media (min-width: 1024px) {
-    background: ${p => p.theme.colors.white};
-    padding: 0;
-    margin-left: auto;
   }
 `;

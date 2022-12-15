@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 32px 20px;
+  padding: 32px 20px 100px;
   @media (min-width: 426px) and (max-width: 1023px) {
-    padding: 100px 32px;
+    padding: 100px 32px 398px;
   }
   @media (min-width: 1024px) {
-    padding: 293px 16px;
+    padding: 293px 16px 110px;
   }
 `;
 

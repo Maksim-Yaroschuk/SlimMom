@@ -89,7 +89,9 @@ export const ButtonWrapper = styled.div`
   }
   @media (min-width: 1024px) {
     justify-content: flex-start;
+    display: inline-block;
     position: relative;
+    /* width: 100%; */
     left: 339px;
   }
 `;
