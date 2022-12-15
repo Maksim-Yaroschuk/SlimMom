@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/slimMom-1/static/css/main.ed7013ab.css",
+    "main.js": "/slimMom-1/static/js/main.a9f31f7e.js",
+    "static/media/Verdana-Regular.ttf": "/slimMom-1/static/media/Verdana-Regular.c0e9183897f25e2f42ab.ttf",
+    "static/media/Verdana-Bold.ttf": "/slimMom-1/static/media/Verdana-Bold.8aec3990e9cd04b52419.ttf",
+    "static/media/GothamPro-Bold.ttf": "/slimMom-1/static/media/GothamPro-Bold.764ba13de4409a990823.ttf",
+    "static/media/GothamPro-Light.ttf": "/slimMom-1/static/media/GothamPro-Light.dfbba8c980f43420d2d1.ttf",
+    "static/media/logoDesktop@2x.png": "/slimMom-1/static/media/logoDesktop@2x.c1f856addb611cbab936.png",
+    "index.html": "/slimMom-1/index.html",
+    "main.ed7013ab.css.map": "/slimMom-1/static/css/main.ed7013ab.css.map",
+    "main.a9f31f7e.js.map": "/slimMom-1/static/js/main.a9f31f7e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed7013ab.css",
+    "static/js/main.a9f31f7e.js"
+  ]
+}
