@@ -10,7 +10,7 @@ import {
   Label,
   Button,
   FormWrapper,
-} from './DairyAddProductForm.styled';
+} from './DiaryAddProductForm.styled';
 
 const schema = yup.object().shape({
     name: yup.string().required(),
