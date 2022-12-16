@@ -16,7 +16,7 @@ export const HeaderStyled = styled.header`
     padding: 80px 16px;
     border: none;
     position: absolute;
-    width: 1280px;
+    /* width: 1280px;  */ //! fix
     margin: 0 auto;
   }
 `;
