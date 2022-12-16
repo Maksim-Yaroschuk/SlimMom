@@ -10,9 +10,6 @@ export const App = () => {
     <Box maxWidth={'1280px'} m={'0 auto'}>
       <AppBar />
       <First />
-      <DiaryDateCalendar />
-      <DiaryAddProductForm />
-      <DiaryProductsList />
     </Box>
   );
 };
