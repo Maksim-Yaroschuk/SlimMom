@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, StyledLink } from './Menu.styled';
+import { Nav, StyledLink } from './Navigation.styled';
 
 export const Menu = () => {
   return (

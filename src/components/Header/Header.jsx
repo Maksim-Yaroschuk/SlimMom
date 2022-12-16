@@ -6,12 +6,13 @@ import logoDesktop from '../../images/logo/logoDesktop.png';
 import logoDesktopRetina from '../../images/logo/logoDesktop@2x.png';
 import { useMediaQuery } from 'react-responsive';
 import React, { useEffect, useState } from 'react';
-import { BtnList, Header, HeaderBtn, Logo } from './AppBar.styled';
+import { BtnList, HeaderStyled, HeaderBtn, Logo } from './Header.styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { BottomSection } from './BottomSection/BottomSection';
-import { Menu } from './Menu/Menu';
+import { BottomSection } from './UserInfo/UserInfo';
+import { Menu } from './Navigation/Navigation';
+import { Link } from 'react-router-dom';
 
-export const AppBar = () => {
+export const Header = () => {
   const [isUser, setUser] = useState('');
 
   //TODO: fix this
@@ -43,8 +44,11 @@ export const AppBar = () => {
 
   return (
     <>
-      <Header>
-        <Logo src={takeLogo()} />
+      <HeaderStyled>
+        <Link to={'/'}>
+          <Logo src={takeLogo()} />
+        </Link>
+
         {isUser ? (
           <>
             {isTablet && <BottomSection name={isUser.name} />}
@@ -68,7 +72,7 @@ export const AppBar = () => {
             </li>
           </BtnList>
         )}
-      </Header>
+      </HeaderStyled>
       {isMobile && isUser && <BottomSection name={isUser.name} />}
     </>
   );

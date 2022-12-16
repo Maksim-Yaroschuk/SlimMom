@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Header = styled.header`
+export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +16,7 @@ export const Header = styled.header`
     padding: 80px 16px;
     border: none;
     position: absolute;
-    width: 1280px;
+    /* width: 1280px;  */ //! fix
     margin: 0 auto;
   }
 `;
