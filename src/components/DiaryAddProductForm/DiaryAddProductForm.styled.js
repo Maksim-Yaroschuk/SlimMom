@@ -23,10 +23,12 @@ export const NameInput = styled(Field)`
   @media (min-width: 426px) and (max-width: 1023px) {
     margin-right: 22px;
     width: 240px;
+    margin-bottom: 0px;
   }
   @media (min-width: 1024px) {
     width: 240px;
     margin-right: 48px;
+    margin-bottom: 0px;
   }
 `;
 
@@ -51,11 +53,11 @@ export const GramsInput = styled(Field)`
 
   @media (min-width: 426px) and (max-width: 1023px) {
     width: 107px;
-
+    margin-bottom: 0px;
   }
   @media (min-width: 1024px) {
     width: 107px;
-
+    margin-bottom: 0px;
   }
 `;
 
