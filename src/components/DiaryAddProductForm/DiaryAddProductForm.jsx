@@ -1,4 +1,5 @@
 import { Box } from 'components/Box';
+import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Formik, ErrorMessage, } from 'formik';
 import * as yup from 'yup';
@@ -17,9 +18,8 @@ const schema = yup.object().shape({
     grams: yup.number().required()
 })
 
-export const DiaryAddProductForm = () => {
+export const DiaryAddProductForm = ({onClick, isModalOpened}) => {
   const mobile = useMediaQuery({ query: '(max-width: 426px)' });
-
   const initialValues = {
     name: '',
     grams: '',
@@ -29,10 +29,13 @@ export const DiaryAddProductForm = () => {
     const params = { ...values }
     schema.validate(params)
     console.log('params', params);
+    if(mobile) {
+      onClick()
+    }
   }
 
   return (
-    <Box w="503px" position="relative">
+      <Box position="relative">
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -60,5 +63,5 @@ export const DiaryAddProductForm = () => {
         </FormWrapper>
       </Formik>
     </Box>
-  )
+    )
 }

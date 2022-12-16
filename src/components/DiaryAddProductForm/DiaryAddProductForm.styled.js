@@ -135,9 +135,6 @@ export const Label = styled.label`
 
 export const FormWrapper = styled(Form)`
   display: block;
-  max-width: 285px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
 
   @media (min-width: 426px) and (max-width: 1023px) {
