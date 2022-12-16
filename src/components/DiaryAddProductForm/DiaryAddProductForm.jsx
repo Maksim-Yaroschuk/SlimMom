@@ -17,7 +17,7 @@ const schema = yup.object().shape({
     grams: yup.number().required()
 })
 
-export const DairyAddProductForm = () => {
+export const DiaryAddProductForm = () => {
   const mobile = useMediaQuery({ query: '(max-width: 426px)' });
 
   const initialValues = {
@@ -32,7 +32,7 @@ export const DairyAddProductForm = () => {
   }
 
   return (
-    <Box p="16px" w="503px" position="relative">
+    <Box w="503px" position="relative">
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}

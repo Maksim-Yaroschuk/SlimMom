@@ -1,0 +1,19 @@
+import styled from 'styled-components';
+
+export const DatePickerWrapper = styled.button`
+  padding: 0px;
+  border: ${p => p.theme.borders.none};
+  outline: none;
+  font-size: ${p => p.theme.fontSizes[1]};
+  font-family: ${p => p.theme.fonts.body};
+  @media (min-width: 426px) and (max-width: 1023px) {
+    font-size: ${p => p.theme.fontSizes[3]};
+  }
+  @media (min-width: 1024px) {
+    font-size: ${p => p.theme.fontSizes[3]};
+  }
+`
+
+export const Icon = styled.img`
+  margin-left: 20px;
+`
