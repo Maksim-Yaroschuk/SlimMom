@@ -12,6 +12,7 @@ export const Input = styled(Field)`
   font-size: ${p => p.theme.fontSizes[0]};
   color: ${p => p.theme.colors.black};
   letter-spacing: 0.04em;
+  background-color: transparent;
   &::placeholder {
     color: ${p => p.theme.colors.gray};
     opacity: 1;
