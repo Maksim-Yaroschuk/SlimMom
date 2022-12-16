@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/slimMom-1/static/css/main.ed7013ab.css",
-    "main.js": "/slimMom-1/static/js/main.7c196489.js",
-    "static/media/Strawberry@2x.png": "/slimMom-1/static/media/Strawberry@2x.810e8754ff3a5ece844c.png",
-    "static/media/banana@2x.png": "/slimMom-1/static/media/banana@2x.c9bae4c1d788895e7e32.png",
-    "static/media/leaves@2x.png": "/slimMom-1/static/media/leaves@2x.0ca97f526efa230ccff5.png",
-    "static/media/Verdana-Regular.ttf": "/slimMom-1/static/media/Verdana-Regular.c0e9183897f25e2f42ab.ttf",
-    "static/media/Verdana-Bold.ttf": "/slimMom-1/static/media/Verdana-Bold.8aec3990e9cd04b52419.ttf",
-    "static/media/banana.png": "/slimMom-1/static/media/banana.f24511a2d04fd6c36038.png",
-    "static/media/Strawberry.png": "/slimMom-1/static/media/Strawberry.1c284af98f1ce377ad10.png",
-    "static/media/leaves.png": "/slimMom-1/static/media/leaves.1110806d7ae1e54afcd7.png",
-    "static/media/GothamPro-Bold.ttf": "/slimMom-1/static/media/GothamPro-Bold.764ba13de4409a990823.ttf",
-    "static/media/GothamPro-Light.ttf": "/slimMom-1/static/media/GothamPro-Light.dfbba8c980f43420d2d1.ttf",
-    "static/media/Vector@2x.png": "/slimMom-1/static/media/Vector@2x.fc7e5303b42dbcc105cb.png",
-    "static/media/logoDesktop@2x.png": "/slimMom-1/static/media/logoDesktop@2x.c1f856addb611cbab936.png",
-    "index.html": "/slimMom-1/index.html",
-    "main.ed7013ab.css.map": "/slimMom-1/static/css/main.ed7013ab.css.map",
-    "main.7c196489.js.map": "/slimMom-1/static/js/main.7c196489.js.map"
+    "main.css": "/SlimMom/static/css/main.14a398c4.css",
+    "main.js": "/SlimMom/static/js/main.1daae98d.js",
+    "static/media/Strawberry@2x.png": "/SlimMom/static/media/Strawberry@2x.810e8754ff3a5ece844c.png",
+    "static/media/banana@2x.png": "/SlimMom/static/media/banana@2x.c9bae4c1d788895e7e32.png",
+    "static/media/leaves@2x.png": "/SlimMom/static/media/leaves@2x.0ca97f526efa230ccff5.png",
+    "static/media/Verdana-Regular.ttf": "/SlimMom/static/media/Verdana-Regular.c0e9183897f25e2f42ab.ttf",
+    "static/media/Verdana-Bold.ttf": "/SlimMom/static/media/Verdana-Bold.8aec3990e9cd04b52419.ttf",
+    "static/media/banana.png": "/SlimMom/static/media/banana.f24511a2d04fd6c36038.png",
+    "static/media/Strawberry.png": "/SlimMom/static/media/Strawberry.1c284af98f1ce377ad10.png",
+    "static/media/leaves.png": "/SlimMom/static/media/leaves.1110806d7ae1e54afcd7.png",
+    "static/media/GothamPro-Bold.ttf": "/SlimMom/static/media/GothamPro-Bold.764ba13de4409a990823.ttf",
+    "static/media/GothamPro-Light.ttf": "/SlimMom/static/media/GothamPro-Light.dfbba8c980f43420d2d1.ttf",
+    "static/media/Vector@2x.png": "/SlimMom/static/media/Vector@2x.fc7e5303b42dbcc105cb.png",
+    "static/media/logoDesktop@2x.png": "/SlimMom/static/media/logoDesktop@2x.c1f856addb611cbab936.png",
+    "index.html": "/SlimMom/index.html",
+    "main.14a398c4.css.map": "/SlimMom/static/css/main.14a398c4.css.map",
+    "main.1daae98d.js.map": "/SlimMom/static/js/main.1daae98d.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed7013ab.css",
-    "static/js/main.7c196489.js"
+    "static/css/main.14a398c4.css",
+    "static/js/main.1daae98d.js"
   ]
 }
