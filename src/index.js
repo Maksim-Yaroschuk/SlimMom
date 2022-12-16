@@ -10,7 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/slimMom-1">
+    <BrowserRouter basename="/slimMom">
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
