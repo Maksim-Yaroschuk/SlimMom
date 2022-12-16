@@ -1,5 +1,5 @@
 import React from 'react';
-import { Exit, Name, Section } from './BottomSection.styled';
+import { Exit, Name, Section } from './UserInfo.styled';
 
 export const BottomSection = ({ name }) => {
   return (
