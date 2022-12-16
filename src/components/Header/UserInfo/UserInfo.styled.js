@@ -51,6 +51,7 @@ export const Exit = styled.button`
   color: ${p => p.theme.colors.gray};
   text-transform: uppercase;
   position: relative;
+  cursor: pointer;
   &:before {
     content: '';
     position: absolute;
