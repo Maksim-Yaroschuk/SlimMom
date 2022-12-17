@@ -6,6 +6,9 @@ import React from 'react';
 import { useState } from 'react';
 import { DiaryModal } from 'components/DiaryModal/DiaryModal';
 import { useMediaQuery } from 'react-responsive';
+import { Button } from 'components/DiaryPage/DiaryPage.styled';
+import AddIcon from "../images/svg/add.svg"
+import { Box } from 'components/Box';
 
 const body = document.querySelector("body");
 
@@ -26,9 +29,11 @@ export const DiaryPage = () => {
   return (
     <Wrapper>
       <DiaryDateCalendar />
-      {!mobile && <DiaryAddProductForm onClick={onModalClose}/>}
-      <DiaryProductsList />
-      <button onClick={() => onModalOpen()}>+</button>
+      {!mobile && <DiaryAddProductForm />}
+      <Box textAlign="center">
+        <DiaryProductsList />
+        {mobile && <Button onClick={() => onModalOpen()}><img src={AddIcon} alt="add product" /></Button>}
+      </Box>
       {isModalOpened && <DiaryModal onClose={onModalClose} />}
     </Wrapper>
   );

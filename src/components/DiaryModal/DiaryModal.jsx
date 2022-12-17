@@ -24,7 +24,7 @@ const handleKeyDown = (e) => {
     <Overlay>
         <div>
             <button onClick={() => onClose()}>x</button>
-            <DiaryAddProductForm />
+            <DiaryAddProductForm onClose={onClose} />
         </div>
     </Overlay>, 
     modalRoot

@@ -21,7 +21,7 @@ export const NameInput = styled(Field)`
   }
 
   @media (min-width: 426px) and (max-width: 1023px) {
-    margin-right: 22px;
+    margin-right: 12px;
     width: 240px;
     margin-bottom: 0px;
   }
@@ -33,6 +33,7 @@ export const NameInput = styled(Field)`
 `;
 
 export const GramsInput = styled(Field)`
+  text-align: left;
   border: none;
   width: 280px;
   margin-bottom: 60px;
@@ -52,56 +53,60 @@ export const GramsInput = styled(Field)`
   }
 
   @media (min-width: 426px) and (max-width: 1023px) {
+    text-align: right;
     width: 107px;
     margin-bottom: 0px;
+    margin-right: 8px;
   }
   @media (min-width: 1024px) {
+    text-align: right;
     width: 107px;
     margin-bottom: 0px;
+    margin-right: 60px;
   }
 `;
 
-export const NameError = styled.div`
-  display: inline;
-  text-align: center;
-  top: 35px;
-  right: 15px;
-  position: absolute;
-  font-size: 10px;
-  color: white;
-  background-color: red;
-  padding: 5px;
-  border-radius: 5px;
-  width: 240px;
-  @media (min-width: 426px) and (max-width: 1023px) {
-    right: 20px;
-    text-align: left;
-  }
-  @media (min-width: 1024px) {
-    right: 45px;
-    text-align: left;
-  }
-`;
+// export const NameError = styled.div`
+//   display: inline;
+//   text-align: center;
+//   top: 35px;
+//   right: 15px;
+//   position: absolute;
+//   font-size: 10px;
+//   color: white;
+//   background-color: red;
+//   padding: 5px;
+//   border-radius: 5px;
+//   width: 240px;
+//   @media (min-width: 426px) and (max-width: 1023px) {
+//     right: 20px;
+//     text-align: left;
+//   }
+//   @media (min-width: 1024px) {
+//     right: 45px;
+//     text-align: left;
+//   }
+// `;
 
-export const GramsError = styled.div`
-  display: inline;
-  position: absolute;
-  top: 35px;
-  right: 65px;
-  font-size: 10px;
-  color: white;
-  background-color: red;
-  padding: 5px;
-  border-radius: 5px;
-  @media (min-width: 426px) and (max-width: 1023px) {
-    right: 0px;
-    width: 107px;
-  }
-  @media (min-width: 1024px) {
-    right: 0px;
-    width: 107px;
-  }
-`;
+// export const GramsError = styled.div`
+//   display: inline;
+//   position: absolute;
+//   top: 35px;
+//   right: 65px;
+//   font-size: 10px;
+//   color: white;
+//   background-color: red;
+//   padding: 5px;
+//   border-radius: 5px;
+//   @media (min-width: 426px) and (max-width: 1023px) {
+//     right: 0px;
+//     width: 107px;
+//   }
+//   @media (min-width: 1024px) {
+//     right: 0px;
+//     width: 107px;
+//   }
+// `;
 
 export const Button = styled.button`
   border-radius: 30px;
@@ -118,13 +123,11 @@ export const Button = styled.button`
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
 
   @media (min-width: 426px) and (max-width: 1023px) {
-    margin-left: 87px;
-    padding: 10px 12px;
+    padding: 12px 13px 11px;
     border-radius: 50%;
   }
   @media (min-width: 1024px) {
-    margin-left: 60px;
-    padding: 10px 12px;
+    padding: 12px 13px 11px;
     border-radius: 50%;
   }
 `
@@ -138,11 +141,12 @@ export const FormWrapper = styled(Form)`
   text-align: center;
 
   @media (min-width: 426px) and (max-width: 1023px) {
-    display: inline;
+    display: flex;
+    max-width: 503px;
+    justify-content: space-between;
 
   }
   @media (min-width: 1024px) {
-    display: inline;
-
+    display: flex;
   }
 `

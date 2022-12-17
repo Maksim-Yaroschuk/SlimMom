@@ -2,7 +2,7 @@ import React, { useState, forwardRef } from "react";
 import { DatePickerWrapper, Icon } from "./DiaryDateCalendar.styled";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import CalendarImage from "../../images/svg/calendar.svg"
+import CalendarIcon from "../../images/svg/calendar.svg"
 
 export const DiaryDateCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -14,7 +14,7 @@ export const DiaryDateCalendar = () => {
     <div>
       <DatePickerWrapper onClick={onClick} ref={ref}>
         {value}
-        <Icon src={CalendarImage} alt="calendar icon" />
+        <Icon src={CalendarIcon} alt="calendar icon" />
       </DatePickerWrapper>
     </div>
   ));

@@ -1,66 +1,67 @@
 import { Box } from 'components/Box';
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Formik, ErrorMessage, } from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
 import {
-  NameError,
-  GramsError,
   NameInput,
   GramsInput,
-  Label,
   Button,
   FormWrapper,
 } from './DiaryAddProductForm.styled';
+import AddIcon from "../../images/svg/add.svg"
+// import { useState } from 'react';
 
 const schema = yup.object().shape({
-    name: yup.string().required(),
-    grams: yup.number().required()
+  name: yup.string().required(),
+  grams: yup.number().required()
 })
 
-export const DiaryAddProductForm = ({onClick, isModalOpened}) => {
+export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
   const mobile = useMediaQuery({ query: '(max-width: 426px)' });
   const initialValues = {
     name: '',
     grams: '',
   };
 
-  const handleSubmit = (values) => {
+  // const [productName, setProductName] = useState('')
+
+  const handleSubmit = (values, { resetForm }) => {
     const params = { ...values }
     schema.validate(params)
     console.log('params', params);
-    if(mobile) {
-      onClick()
+    mobile && onClose()
+    resetForm()
+  }
+
+  const handleChange = (e) => {
+    if(e.target.name === "name") {
+      console.log(e.target.value);
     }
   }
 
   return (
-      <Box position="relative">
+      <Box position="relative" my="40px">
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
-        <FormWrapper>
-          <Label>
-            <NameInput 
-              type="text" 
+        {formikProps => (
+            <FormWrapper onChange={handleChange}>
+            <NameInput
+              type="text"
               placeholder="Enter product name"
               name="name"
             />
-            <ErrorMessage name="name" component={NameError} />
-          </Label>
-          <Label>
-            <GramsInput 
-              type="text" 
+            <GramsInput
+              type="text"
               placeholder="Grams"
               name="grams"
-             />
-            <ErrorMessage name="grams" component={GramsError} />
-          </Label>
-
-          {mobile ? <Button type="submit">Add</Button> : <Button type="submit">+</Button>}
-        </FormWrapper>
+            />
+            {mobile ? <Button type="submit">Add</Button> : <Button type="submit"><img src={AddIcon} alt="add product" /></Button>}
+          </FormWrapper>
+          )}
       </Formik>
     </Box>
     )
