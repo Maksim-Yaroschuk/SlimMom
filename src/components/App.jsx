@@ -7,7 +7,7 @@ import { CalculatorPage } from 'pages/CalculatorPage';
 
 export const App = () => {
   return (
-    <Box maxWidth={'1280px'} m={'0 auto'}>
+    <Box>
       <Header />
 
       <Routes>

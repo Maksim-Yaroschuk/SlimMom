@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,13 +14,19 @@ export const HeaderStyled = styled.header`
     padding: 20px 32px;
   }
   @media (min-width: 1024px) {
-    justify-content: flex-start;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    justify-content: space-between;
     align-items: flex-end;
     padding: 80px 16px;
     border: none;
-    position: absolute;
-    /* width: 1280px;  */ //! fix
+    min-width: 1024px;
     margin: 0 auto;
+  }
+  @media (min-width: 1280px) {
+    width: 1280px;
   }
 `;
 
