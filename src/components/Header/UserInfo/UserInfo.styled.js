@@ -17,7 +17,7 @@ export const Section = styled.div`
     padding: 0;
   }
   @media (min-width: 1024px) {
-    background: ${p => p.theme.colors.white};
+    background: transparent;
     padding: 0;
     margin-left: auto;
   }
@@ -38,7 +38,7 @@ export const Name = styled.button`
     background: ${p => p.theme.colors.white};
   }
   @media (min-width: 1024px) {
-    background: ${p => p.theme.colors.white};
+    background: transparent;
   }
 `;
 
@@ -69,6 +69,6 @@ export const Exit = styled.button`
     background: ${p => p.theme.colors.white};
   }
   @media (min-width: 1024px) {
-    background: ${p => p.theme.colors.white};
+    background: transparent;
   }
 `;
