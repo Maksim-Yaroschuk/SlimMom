@@ -6,6 +6,9 @@ export const DatePickerWrapper = styled.button`
   outline: none;
   font-size: ${p => p.theme.fontSizes[1]};
   font-family: ${p => p.theme.fonts.body};
+  @media (max-width: 425px) {
+    margin-bottom: 12px;
+  }
   @media (min-width: 426px) and (max-width: 1023px) {
     font-size: ${p => p.theme.fontSizes[3]};
   }
