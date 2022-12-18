@@ -28,11 +28,13 @@ export const DiaryPage = () => {
 
   return (
     <Wrapper>
-      <DiaryDateCalendar />
-      {!mobile && <DiaryAddProductForm />}
-      <Box textAlign="center">
-        <DiaryProductsList />
-        {mobile && <Button onClick={() => onModalOpen()}><img src={AddIcon} alt="add product" /></Button>}
+      <Box maxWidth={'1280px'} m={'0 auto'}>
+        <DiaryDateCalendar />
+        {!mobile && <DiaryAddProductForm />}
+        <Box textAlign="center">
+          <DiaryProductsList />
+          {mobile && <Button onClick={() => onModalOpen()}><img src={AddIcon} alt="add product" /></Button>}
+        </Box>
       </Box>
       {isModalOpened && <DiaryModal onClose={onModalClose} />}
     </Wrapper>

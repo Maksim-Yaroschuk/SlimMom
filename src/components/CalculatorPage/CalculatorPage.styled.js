@@ -1,21 +1,20 @@
 import styled from "styled-components";
 import leaves from '../../images/hero/desktop/leaves.png';
+// import leavesRetina from '../../images/hero/desktop/leaves@2x.png';
+// import leavesTabletRetina from '../../images/hero/tablet/leaves@2x.png';
 import leavesTablet from '../../images/hero/tablet/leaves.png';
 
-export const Wrapper = styled.div`
-  margin: 0px auto;
-  padding: 100px 15px 0;
-  @media (max-width: 425px) {
-    max-width: 280px;
-  }
+export const CalculatorPageWrapper  = styled.div`
+  padding: 32px 20px 100px;
+
   @media (min-width: 426px) and (max-width: 1023px) {
-    padding-top: 100px;
-    padding-left: 32px
+    padding: 100px 32px 0px;
   }
   @media (min-width: 1024px) {
-    padding-top: 250px;
-    padding-left: 16px
+    padding: 293px 16px 110px;
+      
   }
+
   &::before {
     @media (min-width: 426px) and (max-width: 1023px) {
       object-fit: fill;
@@ -36,7 +35,7 @@ export const Wrapper = styled.div`
       width: 358px;
       height: 687px;
       top: 170px;
-      left: 69%;
+      left: 72%;
       position: absolute;
       content: '';
       z-index: -1;
@@ -45,14 +44,26 @@ export const Wrapper = styled.div`
       background-position: center;
       background-size: auto;
     }
-` 
 
-export const Button = styled.button`
-  padding: 12px 13px 11px;
-  border-radius: 50%;
-  border: ${p => p.theme.borders.none};
-  background: ${p => p.theme.colors.orange};
-  cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  margin-top: 60px;
+  }
 `
+
+export const H2 = styled.h2`
+  line-height: ${p => p.theme.lineHeights.body};
+  font-size: ${p => p.theme.fontSizes[1]};
+  line-height: 1.4;
+  margin-bottom: 34px;
+
+  @media (min-width: 426px) and (max-width: 1023px) {
+    font-size: ${p => p.theme.fontSizes[3]};
+    line-height: 1.4;
+    margin-bottom: 68px;
+    max-width: 635px;
+  }
+  @media (min-width: 1024px) {
+    font-size: ${p => p.theme.fontSizes[3]};
+    line-height: 1.4;
+    margin-bottom: 68px;
+    max-width: 635px;
+  }
+`;
