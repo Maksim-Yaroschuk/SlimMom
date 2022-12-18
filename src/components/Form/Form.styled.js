@@ -20,6 +20,14 @@ export const Input = styled(Field)`
   &:focus-visible {
     outline: none;
   }
+  @media (min-width: 554px) and (max-width: 1023px) {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+  }
+  @media (min-width: 1024px) {
+    padding-bottom: 20px;
+    margin-bottom: 0;
+  }
 `;
 
 export const Paragraph = styled.p`
@@ -29,6 +37,17 @@ export const Paragraph = styled.p`
   font-size: ${p => p.theme.fontSizes[0]};
   color: ${p => p.theme.colors.gray};
   letter-spacing: 0.04em;
+
+  @media (min-width: 426px) and (max-width: 1023px) {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    width: 240px;
+  }
+  @media (min-width: 1024px) {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    width: 240px;
+  }
 `;
 
 export const Checkbox = styled(Field)`
@@ -49,7 +68,6 @@ export const CheckboxContainer = styled.div`
   display: flex;
   gap: 24px;
   align-items: center;
-  margin-bottom: 40px;
 `;
 
 export const Label = styled.label`
@@ -69,15 +87,20 @@ export const Error = styled.div`
 `;
 
 export const List = styled.ul`
-  @media (min-width: 426px) and (max-width: 1023px) {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 32px;
+  margin-bottom: 40px;
+  @media (min-width: 554px) and (max-width: 1023px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 40px;
+
+    padding-right: 224px;
   }
   @media (min-width: 1024px) {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 44px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 40px;
     width: 608px;
   }
 `;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
+import { useMediaQuery } from 'react-responsive';
 import * as yup from 'yup';
 import { Box } from 'components/Box';
 import { Button } from 'components/Button/Button';
@@ -43,6 +44,7 @@ const schema = yup.object().shape({
 });
 
 export const WeightForm = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 554px)' });
   const initialValues = {
     height: '',
     age: '',
@@ -67,21 +69,56 @@ export const WeightForm = () => {
       >
         <Form>
           <List>
-            <li>
+            <li
+              style={
+                isMobile
+                  ? null
+                  : {
+                      gridColumnStart: '1',
+                      gridColumnEnd: '1',
+                      gridRowStart: '1',
+                      gridRowEnd: '1',
+                    }
+              }
+            >
               <label>
                 <Input type="height" name="height" placeholder="Height, cm *" />
                 <ErrorMessage name="height" component={Error} />
               </label>
             </li>
 
-            <li>
+            <li
+              style={
+                isMobile
+                  ? null
+                  : {
+                      gridColumnStart: '1',
+                      gridColumnEnd: '1',
+                      gridRowStart: '2',
+                      gridRowEnd: '2',
+                    }
+              }
+            >
               <label>
                 <Input type="age" name="age" placeholder="Age *" />
                 <ErrorMessage name="age" component={Error} />
               </label>
             </li>
 
-            <li>
+            <li
+              style={
+                isMobile
+                  ? null
+                  : {
+                      gridColumnStart: '1',
+                      gridColumnEnd: '1',
+                      gridRowStart: '3',
+                      gridRowEnd: '3',
+                      position: 'relative',
+                      top: '-20px',
+                    }
+              }
+            >
               <label>
                 <Input
                   type="currentWeight"
