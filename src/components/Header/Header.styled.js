@@ -20,7 +20,7 @@ export const HeaderStyled = styled.header`
     transform: translate(-50%, 0);
     justify-content: space-between;
     align-items: flex-end;
-    padding: 80px 16px;
+    padding: 80px 16px 0 16px;
     border: none;
     min-width: 1024px;
     margin: 0 auto;
