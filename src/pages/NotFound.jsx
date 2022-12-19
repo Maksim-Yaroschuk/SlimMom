@@ -5,7 +5,7 @@ import { ButtonWrapper } from 'components/Form/Form.styled';
 
 export const NotFound = () => {
   return (
-    <section style={{ padding: '150px 0', background: '#fff' }}>
+    <section style={{ padding: '150px 0 50px', background: '#fff' }}>
       <h1 style={{ fontSize: '64px', textAlign: 'center' }}>404</h1>
       <div
         style={{
