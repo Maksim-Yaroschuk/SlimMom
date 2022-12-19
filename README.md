@@ -72,6 +72,24 @@
             <sub><b>🟨🟦</b></sub>
         </a>
     </td>
+    <td align="center">
+        <a href="https://github.com/Sashanikitenkova">
+            <img src="https://avatars.githubusercontent.com/u/81653543?v=4" width="100;" alt="Sasha"/>
+            <br />
+            <sub><b>Sasha Nikitenkova</b></sub>
+            <br />
+            <sub><b>🟨🟦</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/pixelboyXL">
+            <img src="https://avatars.githubusercontent.com/u/94831587?v=4" width="100;" alt="Dmytro"/>
+            <br />
+            <sub><b>Dmytro Kravchenko</b></sub>
+            <br />
+            <sub><b>🟨🟦</b></sub>
+        </a>
+    </td>
     </tr>
 </table>
 <!-- readme: contributors,ImgBotApp/- -end -->
