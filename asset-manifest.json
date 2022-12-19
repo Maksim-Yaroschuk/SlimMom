@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SlimMom/static/css/main.4c1f533e.css",
-    "main.js": "/SlimMom/static/js/main.ea224c32.js",
+    "main.js": "/SlimMom/static/js/main.ebc78556.js",
     "static/media/Strawberry@2x.png": "/SlimMom/static/media/Strawberry@2x.810e8754ff3a5ece844c.png",
     "static/media/banana@2x.png": "/SlimMom/static/media/banana@2x.c9bae4c1d788895e7e32.png",
     "static/media/leaves@2x.png": "/SlimMom/static/media/leaves@2x.0ca97f526efa230ccff5.png",
@@ -12,6 +12,7 @@
     "static/media/leaves.png": "/SlimMom/static/media/leaves.1110806d7ae1e54afcd7.png",
     "static/media/GothamPro-Bold.ttf": "/SlimMom/static/media/GothamPro-Bold.764ba13de4409a990823.ttf",
     "static/media/GothamPro-Light.ttf": "/SlimMom/static/media/GothamPro-Light.dfbba8c980f43420d2d1.ttf",
+    "static/media/leaf-desk.png": "/SlimMom/static/media/leaf-desk.07ec7143c40752d1b8ad.png",
     "static/media/Vector@2x.png": "/SlimMom/static/media/Vector@2x.fc7e5303b42dbcc105cb.png",
     "static/media/logoDesktop@2x.png": "/SlimMom/static/media/logoDesktop@2x.c1f856addb611cbab936.png",
     "index.html": "/SlimMom/index.html",
@@ -19,10 +20,10 @@
     "static/media/cross.svg": "/SlimMom/static/media/cross.8cdb920ca8331504fc3379915d48c780.svg",
     "static/media/add.svg": "/SlimMom/static/media/add.abbad4ece4830b88ccd984afbf9c2a1f.svg",
     "main.4c1f533e.css.map": "/SlimMom/static/css/main.4c1f533e.css.map",
-    "main.ea224c32.js.map": "/SlimMom/static/js/main.ea224c32.js.map"
+    "main.ebc78556.js.map": "/SlimMom/static/js/main.ebc78556.js.map"
   },
   "entrypoints": [
     "static/css/main.4c1f533e.css",
-    "static/js/main.ea224c32.js"
+    "static/js/main.ebc78556.js"
   ]
 }
