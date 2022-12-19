@@ -6,13 +6,18 @@ import { CalculatorPage } from 'pages/CalculatorPage';
 import { Layout } from './Layout/Layout';
 import { LoginPage } from 'pages/LoginPage';
 import { RegisterPage } from 'pages/RegisterPage';
+import { Suspense } from 'react';
+import { Loader } from './Loader/Loader';
+=======
 // import { christmasTheme } from './Theme/christmasTheme';
 import { NotFound } from 'pages/NotFound';
+
 
 export const App = () => {
   // christmasTheme();
   return (
     <Box>
+      <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="home" />} />
@@ -24,6 +29,7 @@ export const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      </Suspense>
     </Box>
   );
 };
