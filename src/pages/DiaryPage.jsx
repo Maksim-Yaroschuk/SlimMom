@@ -1,7 +1,8 @@
-import { Wrapper } from 'components/DiaryPage/DiaryPage.styled';
+import { Wrapper, WrapperAll } from 'components/DiaryPage/DiaryPage.styled';
 import { DiaryAddProductForm } from 'components/DiaryAddProductForm/DiaryAddProductForm';
 import { DiaryDateCalendar } from 'components/DiaryDateCalendar/DiaryDateCalendar';
 import { DiaryProductsList } from 'components/DiaryProductsList/DiaryProductsList';
+import { RightSideBar } from 'components/RightSideBar/RightSideBar';
 import React from 'react';
 import { useState } from 'react';
 import { DiaryModal } from 'components/DiaryModal/DiaryModal';
@@ -27,16 +28,19 @@ export const DiaryPage = () => {
   }
 
   return (
-    <Wrapper>
-      <Box maxWidth={'1280px'} m={'0 auto'}>
-        <DiaryDateCalendar />
-        {!mobile && <DiaryAddProductForm />}
-        <Box textAlign="center">
-          <DiaryProductsList />
-          {mobile && <Button onClick={() => onModalOpen()}><img src={AddIcon} alt="add product" /></Button>}
+    <WrapperAll>
+      <Wrapper>
+        <Box maxWidth={'1280px'} m={'0 auto'}>
+          <DiaryDateCalendar />
+          {!mobile && <DiaryAddProductForm />}
+          <Box textAlign="center">
+            <DiaryProductsList />
+            {mobile && <Button onClick={() => onModalOpen()}><img src={AddIcon} alt="add product" /></Button>}
+          </Box>
         </Box>
-      </Box>
-      {isModalOpened && <DiaryModal onClose={onModalClose} />}
-    </Wrapper>
+        {isModalOpened && <DiaryModal onClose={onModalClose} />}
+      </Wrapper>
+      <RightSideBar/>
+    </WrapperAll>
   );
 };
