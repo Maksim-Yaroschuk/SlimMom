@@ -31,5 +31,5 @@ const handleKeyDown = (e) => {
         </ModalWrapper>
     </Overlay>, 
     modalRoot
-)
+  )
 }
