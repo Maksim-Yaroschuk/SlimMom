@@ -6,8 +6,11 @@ import { CalculatorPage } from 'pages/CalculatorPage';
 import { Layout } from './Layout/Layout';
 import { LoginPage } from 'pages/LoginPage';
 import { RegisterPage } from 'pages/RegisterPage';
+// import { christmasTheme } from './Theme/christmasTheme';
+import { NotFound } from 'pages/NotFound';
 
 export const App = () => {
+  // christmasTheme();
   return (
     <Box>
       <Routes>
@@ -18,6 +21,7 @@ export const App = () => {
           <Route path="register" element={<RegisterPage />} />
           <Route path="diary" element={<DiaryPage />} />
           <Route path="calculator" element={<CalculatorPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Box>

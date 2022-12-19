@@ -1,7 +1,10 @@
 import { Box } from 'components/Box';
 import { WeightForm } from 'components/Form/Form';
 import React from 'react';
-import { CalculatorPageWrapper, H2 } from 'components/CalculatorPage/CalculatorPage.styled';
+import {
+  CalculatorPageWrapper,
+  H2,
+} from 'components/CalculatorPage/CalculatorPage.styled';
 
 export const CalculatorPage = () => {
   return (
