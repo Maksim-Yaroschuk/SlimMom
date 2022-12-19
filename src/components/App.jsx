@@ -6,10 +6,13 @@ import { CalculatorPage } from 'pages/CalculatorPage';
 import { Layout } from './Layout/Layout';
 import { LoginPage } from 'pages/LoginPage';
 import { RegisterPage } from 'pages/RegisterPage';
+import { Suspense } from 'react';
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
   return (
     <Box>
+      <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="home" />} />
@@ -20,6 +23,7 @@ export const App = () => {
           <Route path="calculator" element={<CalculatorPage />} />
         </Route>
       </Routes>
+      </Suspense>
     </Box>
   );
 };
