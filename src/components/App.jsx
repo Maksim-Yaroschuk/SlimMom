@@ -21,7 +21,7 @@ export const App = () => {
           <Route path="register" element={<RegisterPage />} />
           <Route path="diary" element={<DiaryPage />} />
           <Route path="calculator" element={<CalculatorPage />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
         </Route>
       </Routes>
     </Box>
