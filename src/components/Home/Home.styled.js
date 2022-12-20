@@ -17,8 +17,8 @@ import leavesTabletRetina from '../../images/hero/tablet/leaves@2x.png';
 import VectorTablet from '../../images/hero/tablet/Vector.png';
 import VectorTabletRetina from '../../images/hero/tablet/Vector@2x.png';
 
-export const Wrapper = styled.div`
-  padding: 32px 20px 100px;
+export const WrapperWtithFruits = styled.div`
+  padding: 32px 20px 100px 20px;
   @media (min-width: 426px) and (max-width: 1023px) {
     padding: 100px 32px 398px;
     background-image: url(${leavesTablet}), url(${StrawberryTablet}),
@@ -45,14 +45,14 @@ export const Wrapper = styled.div`
       url(${Vector});
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
     background-position: top 0px right 195px, top 506px right 30px,
-      top 0px right 0px, bottom 0px right 0px;
+      top 0px right 0px, bottom -43px right 0px;
     background-size: auto, auto, auto, 602px 816px;
     @media (min-resolution: 2dppx) {
       background-image: url(${leavesRetina}), url(${StrawberryRetina}),
         url(${bananaRetina}), url(${VectorRetina});
       background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
       background-position: top 0px right 195px, top 526px right 50px,
-        top 0px right 0px, bottom 0px right 0px;
+        top 0px right 0px, bottom -43px right 0px;
       background-size: 746px 846px, 286px 279px, 498px 450px, 602px 816px;
     }
   }
@@ -75,5 +75,6 @@ export const H2 = styled.h2`
     line-height: 1.4;
     margin-bottom: 68px;
     max-width: 635px;
+    height: 85px;
   }
 `;

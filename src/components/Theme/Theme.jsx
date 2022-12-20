@@ -6,6 +6,7 @@ export const theme = {
     blue: '#264061',
     backgroundGray: '#F0F1F3',
     white: '#ffffff',
+    hover: '#f07116',
   },
   fonts: {
     body: 'VerdanaBold, sans-serif',
@@ -27,6 +28,7 @@ export const theme = {
     none: 'none',
     normal: '1px solid #E0E0E0',
     btn: '2px solid #FC842D',
+    hover: '2px solid #f07116',
   },
 };
 
