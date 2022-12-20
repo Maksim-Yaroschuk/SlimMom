@@ -2,26 +2,23 @@ import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   border: 2px solid #e0e0e0;
   @media (max-width: 425px) {
-    justify-content: space-between;
-
     position: relative; // set position relative in order to see header when modal on phone is opened
     z-index: 22;
   }
   @media (min-width: 426px) and (max-width: 1023px) {
     padding: 20px 32px;
-    justify-content: space-between;
   }
   @media (min-width: 1024px) {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
-    /* justify-content: space-between; */
+    justify-content: flex-start;
     align-items: flex-end;
     padding: 80px 16px;
     border: none;
