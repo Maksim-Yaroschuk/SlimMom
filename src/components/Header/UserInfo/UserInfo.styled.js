@@ -8,7 +8,7 @@ export const Section = styled.div`
   background-color: #eff1f3;
   @media (max-width: 425px) {
     position: relative; // set position relative in order to see user section when modal on phone is opened
-    z-index: 22;
+    z-index: 21;
   }
   @media (min-width: 426px) and (max-width: 1023px) {
     background: ${p => p.theme.colors.white};

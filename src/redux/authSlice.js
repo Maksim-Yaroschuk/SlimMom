@@ -31,6 +31,7 @@ const authSlice = createSlice({
     },
     setCurrentUser: (state, action) => {
       state.user.name = action.payload.data.user.name;
+      state.userInfo = action.payload.data.infouser;
       state.isLogged = true;
     },
   },

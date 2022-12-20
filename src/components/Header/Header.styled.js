@@ -5,6 +5,7 @@ export const HeaderStyled = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  padding-bottom: 16px;
   border: 2px solid #e0e0e0;
   @media (max-width: 425px) {
     position: relative; // set position relative in order to see header when modal on phone is opened
@@ -12,6 +13,7 @@ export const HeaderStyled = styled.header`
   }
   @media (min-width: 426px) and (max-width: 1023px) {
     padding: 20px 32px;
+    width: calc(100% - 32px);
   }
   @media (min-width: 1024px) {
     position: absolute;
@@ -25,15 +27,17 @@ export const HeaderStyled = styled.header`
     width: calc(100% - 32px);
     margin: 0 auto;
   }
-  /* @media (min-width: 1280px) {
+  @media (min-width: 1280px) {
     width: 1280px;
-  } */
+  }
 `;
 
 export const Logo = styled.img`
+  height: 44px;
   @media (min-width: 426px) and (max-width: 1023px) {
   }
   @media (min-width: 1024px) {
+    height: 66px;
     margin-right: 40px;
   }
 `;
