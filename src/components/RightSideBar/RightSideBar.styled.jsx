@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import leavesTablet from '../../images/diary-page/leaf-tablet.png';
+// import leaves from '../../images/diary-page/leaf-desk.png';
+// import SideBarBgDesk from '../../images/diary-page/sidebar-bg-desk.png';
 
 export const Wrapper = styled.div`
     background-color: #F0F1F3;
@@ -7,10 +10,20 @@ export const Wrapper = styled.div`
     @media (min-width: 768px) and (max-width: 1023px) {
         padding: 80px 0px 80px 32px;
         display: flex;
+        background-image: url(${leavesTablet});
+        background-repeat: no-repeat;
+        background-position: bottom 0px left 385px;
+        background-size: auto;
     }
-    @media (min-width: 1024px) {
+    @media (min-width: 1024px) and (max-width: 1120px) {
         background-color: transparent;
-        padding: 0px;
+        padding: 0;
+        margin-right: 55px;
+    }
+    @media (min-width: 1121px) and (max-width: 1280px) {
+        margin-right: 105px;
+    }
+    @media (min-width: 1280px) {
         margin-right: 105px;
     }
 `;
@@ -22,6 +35,7 @@ export const SummaryWrap = styled.div`
     @media (min-width: 768px) and (max-width: 1023px) {
         width: 288px;
         margin: 0;
+        margin-right: 80px;
     }
     @media (min-width: 1024px) {
         margin-bottom: 60px;

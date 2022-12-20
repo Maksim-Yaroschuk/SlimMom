@@ -10,6 +10,8 @@ import { useMediaQuery } from 'react-responsive';
 import { Button } from 'components/DiaryPage/DiaryPage.styled';
 import AddIcon from "../images/svg/add.svg"
 import { Box } from 'components/Box';
+import Modal from 'components/Modal/Modal';
+
 
 const body = document.querySelector("body");
 
@@ -31,7 +33,7 @@ export const DiaryPage = () => {
     <WrapperAll>
       <Wrapper>
         <Box maxWidth={'1280px'} m={'0 auto'}>
-          <DiaryDateCalendar />
+         <DiaryDateCalendar />
           {!mobile && <DiaryAddProductForm />}
           <Box textAlign="center">
             <DiaryProductsList />
@@ -39,6 +41,7 @@ export const DiaryPage = () => {
           </Box>
         </Box>
         {isModalOpened && <DiaryModal onClose={onModalClose} />}
+            {isModalOpened && <Modal onClose={onModalClose} />}
       </Wrapper>
       <RightSideBar/>
     </WrapperAll>

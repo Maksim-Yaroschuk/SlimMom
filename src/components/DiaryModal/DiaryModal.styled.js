@@ -23,12 +23,10 @@ export const ModalWrapper = styled.div `
     
     background-color: #fff;
     text-align: center;
-
     @media (max-width: 426px) {
             height: 100vh;
             overflow: hidden;
     }
-
     @media (min-width:426px) and (max-width:1023px) {
         position: absolute;
         margin: 0;
