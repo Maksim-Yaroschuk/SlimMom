@@ -25,9 +25,9 @@ export const HeaderStyled = styled.header`
     min-width: 1024px;
     margin: 0 auto;
   }
-  @media (min-width: 1280px) {
+  /* @media (min-width: 1280px) {
     width: 1280px;
-  }
+  } */
 `;
 
 export const Logo = styled.img`
