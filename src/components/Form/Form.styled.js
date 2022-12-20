@@ -119,3 +119,21 @@ export const ButtonWrapper = styled.div`
     left: 339px;
   }
 `;
+
+
+
+export const ButtonForm = styled.button`
+  padding: 13px 25px;
+  border-radius: 30px;
+  border: ${p => p.theme.borders.none};
+  font-family: ${p => p.theme.fonts.body};
+  line-height: ${p => p.theme.lineHeights.body};
+  font-size: ${p => p.theme.fontSizes[0]};
+  letter-spacing: 0.04em;
+  display: block;
+  cursor: pointer;
+
+  color: ${p => p.theme.colors.white};
+  background: ${p => p.theme.colors.orange};
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+`;
