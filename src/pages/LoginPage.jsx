@@ -75,7 +75,7 @@ import { Button } from 'components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useLogInUserMutation } from 'redux/auth';
 import { useDispatch } from 'react-redux';
-import { setCredentials } from 'redux/authSlice';
+import { setUser } from 'redux/authSlice';
 import {
   ButtonWrapper,
   H2,
@@ -105,8 +105,8 @@ export const LoginPage = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     const user = await loginUser(values).unwrap();
-    dispatch(setCredentials(user));
-    navigate('/');
+    dispatch(setUser(user));
+    navigate('/diary');
     resetForm();
   };
 
@@ -118,7 +118,7 @@ export const LoginPage = () => {
     <WrapperWithFruits>
       {status === 'pending' && <Loader />}
       <Wrapper style={{ paddingBottom: '255px' }}>
-        <H2>Register</H2>
+        <H2>Log In</H2>
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}

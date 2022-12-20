@@ -119,7 +119,7 @@ export const RegisterPage = () => {
   const handleSubmit = async (values, { resetForm }) => {
     const user = await registerUser(values).unwrap();
     dispatch(setCredentials(user));
-    navigate('/');
+    navigate('/diary');
     resetForm();
   };
 

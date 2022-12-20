@@ -66,7 +66,7 @@ export const Header = () => {
           isDesktop ? null : (
           <BtnList>
             <li>
-              <StyledLink to="login">Sign in</StyledLink>
+              <StyledLink to="login">Log in</StyledLink>
             </li>
             <li>
               <StyledLink to="register">Registration</StyledLink>
