@@ -18,11 +18,11 @@ export const HeaderStyled = styled.header`
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-end;
     padding: 80px 16px;
     border: none;
-    min-width: 1024px;
+    width: calc(100% - 32px);
     margin: 0 auto;
   }
   /* @media (min-width: 1280px) {
@@ -41,6 +41,7 @@ export const Logo = styled.img`
 export const BtnList = styled.ul`
   display: flex;
   gap: 16px;
+  top: -4px;
 
   @media (min-width: 426px) and (max-width: 1023px) {
   }

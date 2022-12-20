@@ -12,7 +12,12 @@ export const ButtonFull = styled.button`
 
   color: ${p => p.theme.colors.white};
   background: ${p => p.theme.colors.orange};
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  min-width: 182px;
+  transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
+  &:hover,
+  &:focus {
+    background: ${p => p.theme.colors.hover};
+  }
 `;
 
 export const ButtonEmpty = styled.button`
@@ -29,4 +34,11 @@ export const ButtonEmpty = styled.button`
   border: ${p => p.theme.borders.btn};
   color: ${p => p.theme.colors.orange};
   box-shadow: none;
+  min-width: 182px;
+  transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
+  &:hover,
+  &:focus {
+    background: ${p => p.theme.colors.hover};
+    color: ${p => p.theme.colors.white};
+  }
 `;

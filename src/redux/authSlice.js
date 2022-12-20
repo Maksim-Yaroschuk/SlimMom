@@ -1,7 +1,7 @@
 const { createSlice } = require('@reduxjs/toolkit');
 
 const authState = {
-  user: { name: null, email: null },
+  user: { name: null },
   token: null,
   isLogged: false,
 };
@@ -11,20 +11,18 @@ const authSlice = createSlice({
   initialState: authState,
   reducers: {
     setCredentials: (state, action) => {
-      state.user.name = action.payload.name;
-      state.user.email = action.payload.email;
-      state.token = action.payload.token;
+      console.log(action);
+      state.user.name = action.payload.data.user.name;
+      state.token = action.payload.data.token;
       state.isLogged = true;
     },
     logOut: state => {
       state.user.name = null;
-      state.user.email = null;
       state.token = null;
       state.isLogged = false;
     },
     setCurrentUser: (state, action) => {
       state.user.name = action.payload.name;
-      state.user.email = action.payload.email;
       state.isLogged = true;
     },
   },

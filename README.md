@@ -28,7 +28,6 @@
 
 ![Repo size](https://img.shields.io/github/repo-size/Maksim-Yaroschuk/SlimMom?style=flat-square)
 ![GitHub top language](https://img.shields.io/github/languages/top/Maksim-Yaroschuk/SlimMom?style=flat-square)
-![GitHub contributors](https://img.shields.io/github/contributors/Maksim-Yaroschuk/SlimMom?style=flat-square)
 
 ### Contributors
 
@@ -86,6 +85,26 @@
             <img src="https://avatars.githubusercontent.com/u/94831587?v=4" width="100;" alt="Dmytro"/>
             <br />
             <sub><b>Dmytro Kravchenko</b></sub>
+            <br />
+            <sub><b>🟨🟦</b></sub>
+        </a>
+    </td>
+    </tr>
+    <tr>
+    <td align="center">
+        <a href="https://github.com/YevheniiLi">
+            <img src="https://avatars.githubusercontent.com/u/96422034?v=4" width="100;" alt="Yevhenii Lymarenko"/>
+            <br />
+            <sub><b>Yevhenii Lymarenko</b></sub>
+            <br />
+            <sub><b>🟨🟦</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/milintey">
+            <img src="https://avatars.githubusercontent.com/u/96431426?v=4" width="100;" alt="Illia Milintieiev"/>
+            <br />
+            <sub><b>Illia Milintieiev</b></sub>
             <br />
             <sub><b>🟨🟦</b></sub>
         </a>

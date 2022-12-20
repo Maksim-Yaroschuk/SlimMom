@@ -5,20 +5,20 @@ import logoTabletRetina from '../../images/logo/logoTablet@2x.png';
 import logoDesktop from '../../images/logo/logoDesktop.png';
 import logoDesktopRetina from '../../images/logo/logoDesktop@2x.png';
 import { useMediaQuery } from 'react-responsive';
-import React, { useEffect, useState } from 'react';
-import { BtnList, HeaderStyled, HeaderBtn, Logo } from './Header.styled';
+import React from 'react';
+import { BtnList, HeaderStyled, Logo } from './Header.styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BottomSection } from './UserInfo/UserInfo';
 import { Menu } from './Navigation/Navigation';
 import { Link } from 'react-router-dom';
+import { StyledLink } from './Navigation/Navigation.styled';
+import { useSelector } from 'react-redux';
+import { getUserName } from 'redux/authSelectors';
+import { useLocation } from 'react-router-dom';
 
 export const Header = () => {
-  const [isUser, setUser] = useState('');
-
-  //TODO: fix this
-  useEffect(() => {
-    setUser({ name: 'Nick' });
-  }, []);
+  const userName = useSelector(getUserName);
+  const { pathname } = useLocation();
 
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
   const isMobile = useMediaQuery({ query: '(max-width: 426px)' });
@@ -49,31 +49,32 @@ export const Header = () => {
           <Logo src={takeLogo()} />
         </Link>
 
-        {isUser ? (
+        {userName ? (
           <>
-            {isTablet && <BottomSection name={isUser.name} />}
+            {isTablet && <BottomSection name={userName} />}
             {isDesktop && (
               <>
                 <Menu />
-                <BottomSection name={isUser.name} />
+                <BottomSection name={userName} />
               </>
             )}
             {!isDesktop && (
               <GiHamburgerMenu style={{ width: '24px', height: '24px' }} />
             )}
           </>
-        ) : (
+        ) : (pathname === '/register' || pathname === '/login') &&
+          isDesktop ? null : (
           <BtnList>
             <li>
-              <HeaderBtn>Sign in</HeaderBtn>
+              <StyledLink to="login">Sign in</StyledLink>
             </li>
             <li>
-              <HeaderBtn>Registration</HeaderBtn>
+              <StyledLink to="register">Registration</StyledLink>
             </li>
           </BtnList>
         )}
       </HeaderStyled>
-      {isMobile && isUser && <BottomSection name={isUser.name} />}
+      {isMobile && userName && <BottomSection name={userName} />}
     </>
   );
 };

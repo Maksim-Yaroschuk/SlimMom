@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://slimmom-oz0k.onrender.com', //! <-- FIX IT
+    baseUrl: 'https://slimmom-oz0k.onrender.com/api',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -17,7 +17,7 @@ export const authApi = createApi({
   endpoints: builder => ({
     registerUser: builder.mutation({
       query: user => ({
-        url: `/api/users/signup`, //! <-- FIX IT
+        url: `/users/signup`,
         method: 'POST',
         body: user,
       }),
@@ -25,7 +25,7 @@ export const authApi = createApi({
 
     logInUser: builder.mutation({
       query: user => ({
-        url: `/api/users/login`, //! <-- FIX IT
+        url: `/users/login`,
         method: 'POST',
         body: user,
       }),
@@ -33,7 +33,7 @@ export const authApi = createApi({
 
     logOutUser: builder.mutation({
       query: () => ({
-        url: `/users/logout`, //! <-- FIX IT
+        url: `/users/logout`,
         method: 'POST',
       }),
       headers: {
@@ -42,7 +42,7 @@ export const authApi = createApi({
     }),
 
     getUser: builder.query({
-      query: a => `/users/current${a}`, //! <-- FIX IT
+      query: a => `/users/current${a}`,
     }),
   }),
 });

@@ -18,6 +18,10 @@ export const StyledLink = styled(NavLink)`
   &.active {
     color: ${p => p.theme.colors.gray};
   }
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.gray};
+  }
 `;
 
 export const Nav = styled.nav`
