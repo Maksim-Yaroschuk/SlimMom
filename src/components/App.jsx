@@ -11,11 +11,10 @@ import { Loader } from './Loader/Loader';
 // import { christmasTheme } from './Theme/christmasTheme';
 import { NotFound } from 'pages/NotFound';
 
-
 export const App = () => {
   // christmasTheme();
   return (
-    <Box>
+    <Box>           
       <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -27,7 +26,7 @@ export const App = () => {
           <Route path="calculator" element={<CalculatorPage />} />
           <Route path="/*" element={<NotFound />} />
         </Route>
-      </Routes>
+      </Routes>      
       </Suspense>
     </Box>
   );

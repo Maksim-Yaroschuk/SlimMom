@@ -3,7 +3,7 @@ import { Formik, ErrorMessage, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import * as yup from 'yup';
 import { Box } from 'components/Box';
-import { Button } from 'components/Button/Button';
+import { ButtonForm } from './Form.styled';
 import {
   ButtonWrapper,
   Checkbox,
@@ -43,7 +43,7 @@ const schema = yup.object().shape({
   bloodType: yup.string().required(),
 });
 
-export const WeightForm = () => {
+export const WeightForm = ({changeState}) => {
   const isMobile = useMediaQuery({ query: '(max-width: 554px)' });
   const initialValues = {
     height: '',
@@ -157,20 +157,16 @@ export const WeightForm = () => {
                 </Label>
               </CheckboxContainer>
             </li>
-
-            {/* <li style={{ textAlign: 'center' }}>
-              <Button type="submit" full={true}>
-                Start losing weight
-              </Button>
-            </li> */}
           </List>
-          <ButtonWrapper>
-            <Button type="submit" full={true}>
+          <ButtonWrapper onClick={() => changeState(true)}>
+          <ButtonForm type="submit" >
               Start losing weight
-            </Button>
-          </ButtonWrapper>
+          </ButtonForm>
+            </ButtonWrapper>
         </Form>
       </Formik>
     </Box>
   );
 };
+
+
