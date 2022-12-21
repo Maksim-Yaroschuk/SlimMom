@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import leaves from '../../images/hero/desktop/leaves.png';
 // import leavesRetina from '../../images/hero/desktop/leaves@2x.png';
 // import leavesTabletRetina from '../../images/hero/tablet/leaves@2x.png';
 import leavesTablet from '../../images/hero/tablet/leaves.png';
 
-export const CalculatorPageWrapper  = styled.div`
+export const CalculatorPageWrapper = styled.div`
   padding: 32px 20px 100px;
 
   @media (min-width: 426px) and (max-width: 1023px) {
@@ -12,7 +12,6 @@ export const CalculatorPageWrapper  = styled.div`
   }
   @media (min-width: 1024px) {
     padding: 293px 16px 110px;
-      
   }
 
   &::before {
@@ -21,7 +20,7 @@ export const CalculatorPageWrapper  = styled.div`
       width: 302px;
       height: 253px;
       bottom: 0;
-      right 10%;
+      right: 10%;
       position: absolute;
       content: '';
       z-index: -1;
@@ -44,16 +43,15 @@ export const CalculatorPageWrapper  = styled.div`
       background-position: center;
       background-size: auto;
     }
-
   }
-`
+`;
 
 export const H2 = styled.h2`
   line-height: ${p => p.theme.lineHeights.body};
   font-size: ${p => p.theme.fontSizes[1]};
   line-height: 1.4;
   margin-bottom: 34px;
-
+  color: ${p => p.theme.colors.black};
   @media (min-width: 426px) and (max-width: 1023px) {
     font-size: ${p => p.theme.fontSizes[3]};
     line-height: 1.4;

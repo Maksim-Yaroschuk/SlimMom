@@ -63,6 +63,7 @@ export const H2 = styled.h2`
   font-size: ${p => p.theme.fontSizes[1]};
   line-height: 1.4;
   margin-bottom: 34px;
+  color: ${p => p.theme.colors.black};
 
   @media (min-width: 426px) and (max-width: 1023px) {
     font-size: ${p => p.theme.fontSizes[3]};

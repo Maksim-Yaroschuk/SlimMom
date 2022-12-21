@@ -74,7 +74,7 @@
 //   );
 // };
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
 import * as yup from 'yup';
 import { Error, Input, List } from 'components/Form/Form.styled';
@@ -90,6 +90,8 @@ import {
 } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from 'components/RegisterPage/RegisterPage.styled';
 import { Loader } from 'components/Loader/Loader';
+import Snowfall from 'react-snowfall';
+import { ThemeContext } from 'components/Context/Context';
 
 const schema = yup.object().shape({
   name: yup
@@ -112,6 +114,8 @@ const initialValues = {
 };
 
 const RegisterPage = () => {
+  const { isChristmas } = useContext(ThemeContext);
+
   const navigate = useNavigate();
   const [registerUser, { status }] = useRegisterUserMutation();
   const dispatch = useDispatch();
@@ -129,6 +133,7 @@ const RegisterPage = () => {
 
   return (
     <WrapperWithFruits>
+      {isChristmas && <Snowfall />}
       {status === 'pending' && <Loader />}
       <Wrapper>
         <H2>Register</H2>

@@ -32,9 +32,11 @@ export const HeaderStyled = styled.header`
     width: 1280px;
   }
 `;
+//     filter: drop-shadow(0 0 0px white);
 
 export const Logo = styled.img`
   height: 44px;
+  filter: ${p => p.theme.colors.filter};
   @media (min-width: 426px) and (max-width: 1023px) {
   }
   @media (min-width: 1024px) {

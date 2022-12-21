@@ -33,7 +33,7 @@ export const Name = styled.button`
   letter-spacing: 0.04em;
 
   text-transform: uppercase;
-
+  color: ${p => p.theme.colors.black};
   @media (min-width: 426px) and (max-width: 1023px) {
     background: ${p => p.theme.colors.white};
   }
