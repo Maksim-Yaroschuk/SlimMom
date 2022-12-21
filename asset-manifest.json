@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/SlimMom/static/css/main.604db242.css",
-    "main.js": "/SlimMom/static/js/main.55f54588.js",
+    "main.css": "/SlimMom/static/css/main.fc30aee3.css",
+    "main.js": "/SlimMom/static/js/main.77cca5e3.js",
+    "static/js/637.82e035cb.chunk.js": "/SlimMom/static/js/637.82e035cb.chunk.js",
+    "static/js/432.e46f9e2f.chunk.js": "/SlimMom/static/js/432.e46f9e2f.chunk.js",
+    "static/js/254.cfa76687.chunk.js": "/SlimMom/static/js/254.cfa76687.chunk.js",
+    "static/js/864.c5e3863b.chunk.js": "/SlimMom/static/js/864.c5e3863b.chunk.js",
+    "static/js/805.674002a5.chunk.js": "/SlimMom/static/js/805.674002a5.chunk.js",
+    "static/css/44.54bb5762.chunk.css": "/SlimMom/static/css/44.54bb5762.chunk.css",
+    "static/js/44.317dc219.chunk.js": "/SlimMom/static/js/44.317dc219.chunk.js",
     "static/media/Strawberry@2x.png": "/SlimMom/static/media/Strawberry@2x.810e8754ff3a5ece844c.png",
     "static/media/banana@2x.png": "/SlimMom/static/media/banana@2x.c9bae4c1d788895e7e32.png",
     "static/media/leaves@2x.png": "/SlimMom/static/media/leaves@2x.0ca97f526efa230ccff5.png",
-    "static/media/KingthingsChristmas.ttf": "/SlimMom/static/media/KingthingsChristmas.c819285a8bbb1fa7057a.ttf",
     "static/media/Verdana-Regular.ttf": "/SlimMom/static/media/Verdana-Regular.c0e9183897f25e2f42ab.ttf",
-    "static/media/Snaps.otf": "/SlimMom/static/media/Snaps.50bb6af3ac1c0c36f3a6.otf",
     "static/media/Verdana-Bold.ttf": "/SlimMom/static/media/Verdana-Bold.8aec3990e9cd04b52419.ttf",
     "static/media/banana.png": "/SlimMom/static/media/banana.f24511a2d04fd6c36038.png",
-    "static/media/Christmas.ttf": "/SlimMom/static/media/Christmas.985b01255d6449557e7b.ttf",
     "static/media/Strawberry.png": "/SlimMom/static/media/Strawberry.1c284af98f1ce377ad10.png",
     "static/media/leaves.png": "/SlimMom/static/media/leaves.1110806d7ae1e54afcd7.png",
     "static/media/GothamPro-Bold.ttf": "/SlimMom/static/media/GothamPro-Bold.764ba13de4409a990823.ttf",
@@ -23,11 +27,18 @@
     "static/media/calendar.svg": "/SlimMom/static/media/calendar.f07abe41ca1bac88f7e6c38064355356.svg",
     "static/media/cross.svg": "/SlimMom/static/media/cross.8cdb920ca8331504fc3379915d48c780.svg",
     "static/media/add.svg": "/SlimMom/static/media/add.abbad4ece4830b88ccd984afbf9c2a1f.svg",
-    "main.604db242.css.map": "/SlimMom/static/css/main.604db242.css.map",
-    "main.55f54588.js.map": "/SlimMom/static/js/main.55f54588.js.map"
+    "main.fc30aee3.css.map": "/SlimMom/static/css/main.fc30aee3.css.map",
+    "main.77cca5e3.js.map": "/SlimMom/static/js/main.77cca5e3.js.map",
+    "637.82e035cb.chunk.js.map": "/SlimMom/static/js/637.82e035cb.chunk.js.map",
+    "432.e46f9e2f.chunk.js.map": "/SlimMom/static/js/432.e46f9e2f.chunk.js.map",
+    "254.cfa76687.chunk.js.map": "/SlimMom/static/js/254.cfa76687.chunk.js.map",
+    "864.c5e3863b.chunk.js.map": "/SlimMom/static/js/864.c5e3863b.chunk.js.map",
+    "805.674002a5.chunk.js.map": "/SlimMom/static/js/805.674002a5.chunk.js.map",
+    "44.54bb5762.chunk.css.map": "/SlimMom/static/css/44.54bb5762.chunk.css.map",
+    "44.317dc219.chunk.js.map": "/SlimMom/static/js/44.317dc219.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.604db242.css",
-    "static/js/main.55f54588.js"
+    "static/css/main.fc30aee3.css",
+    "static/js/main.77cca5e3.js"
   ]
 }
