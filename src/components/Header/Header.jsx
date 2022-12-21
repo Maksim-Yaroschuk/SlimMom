@@ -5,18 +5,20 @@ import logoTabletRetina from '../../images/logo/logoTablet@2x.png';
 import logoDesktop from '../../images/logo/logoDesktop.png';
 import logoDesktopRetina from '../../images/logo/logoDesktop@2x.png';
 import { useMediaQuery } from 'react-responsive';
-import React from 'react';
+import React, { useState } from 'react';
 import { BtnList, HeaderStyled, Logo } from './Header.styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { RxCross2 } from 'react-icons/rx';
 import { BottomSection } from './UserInfo/UserInfo';
 import { Menu } from './Navigation/Navigation';
 import { Link } from 'react-router-dom';
-import { StyledLink } from './Navigation/Navigation.styled';
+import { StyledLink } from './Header.styled';
 import { useSelector } from 'react-redux';
 import { getUserName } from 'redux/authSelectors';
 import { useLocation } from 'react-router-dom';
 
 export const Header = () => {
+  const [openNavigation, setOpenNavigation] = useState(false);
   const userName = useSelector(getUserName);
   const { pathname } = useLocation();
 
@@ -59,14 +61,29 @@ export const Header = () => {
               </>
             )}
             {!isDesktop && (
-              <GiHamburgerMenu style={{ width: '24px', height: '24px' }} />
+              <>
+                {openNavigation ? (
+                  <RxCross2
+                    style={{ width: '24px', height: '24px' }}
+                    onClick={() => setOpenNavigation(false)}
+                  />
+                ) : (
+                  <GiHamburgerMenu
+                    style={{ width: '24px', height: '24px' }}
+                    onClick={() => {
+                      setOpenNavigation(true);
+                    }}
+                  />
+                )}
+                {openNavigation && <Menu />}
+              </>
             )}
           </>
         ) : (pathname === '/register' || pathname === '/login') &&
           isDesktop ? null : (
           <BtnList>
             <li>
-              <StyledLink to="login">Sign in</StyledLink>
+              <StyledLink to="login">Log in</StyledLink>
             </li>
             <li>
               <StyledLink to="register">Registration</StyledLink>

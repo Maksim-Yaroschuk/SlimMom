@@ -8,40 +8,50 @@ import { useState } from 'react';
 import { DiaryModal } from 'components/DiaryModal/DiaryModal';
 import { useMediaQuery } from 'react-responsive';
 import { Button } from 'components/DiaryPage/DiaryPage.styled';
-import AddIcon from "../images/svg/add.svg"
+import AddIcon from '../images/svg/add.svg';
 import { Box } from 'components/Box';
 import Modal from 'components/Modal/Modal';
+import { ThemeContext } from 'components/Context/Context';
+import { useContext } from 'react';
+import Snowfall from 'react-snowfall';
 
+const body = document.querySelector('body');
 
-const body = document.querySelector("body");
-
-export const DiaryPage = () => {
-  const [isModalOpened, setIsModalOpened] = useState(false)
+const DiaryPage = () => {
+  const [isModalOpened, setIsModalOpened] = useState(false);
   const mobile = useMediaQuery({ query: '(max-width: 426px)' });
-  
+  const { isChristmas } = useContext(ThemeContext);
+
   const onModalOpen = () => {
-    setIsModalOpened(true)
-    body.style.overflow = "hidden";
-  }
+    setIsModalOpened(true);
+    body.style.overflow = 'hidden';
+  };
 
   const onModalClose = () => {
-    setIsModalOpened(isModalOpened => !isModalOpened)
-    body.style.overflow = "auto";
-  }
+    setIsModalOpened(isModalOpened => !isModalOpened);
+    body.style.overflow = 'auto';
+  };
 
   return (
     <WrapperAll>
+      {isChristmas && <Snowfall />}
       <Wrapper>
-         <DiaryDateCalendar />
-          {!mobile && <DiaryAddProductForm />}
-          <Box textAlign="center">
-            <DiaryProductsList />
-            {mobile && <Button onClick={() => onModalOpen()}><img src={AddIcon} alt="add product" /></Button>}
-          </Box>
+        {/* <Box maxWidth={'1280px'} m={'0 auto'}> */}
+        <DiaryDateCalendar />
+        {!mobile && <DiaryAddProductForm />}
+        <Box textAlign="center">
+          <DiaryProductsList />
+          {mobile && (
+            <Button onClick={() => onModalOpen()}>
+              <img src={AddIcon} alt="add product" />
+            </Button>
+          )}
+        </Box>
         {isModalOpened && <DiaryModal onClose={onModalClose} />}
-            {isModalOpened && <Modal onClose={onModalClose} />}
+        {isModalOpened && <Modal onClose={onModalClose} />}
       </Wrapper>
-      <RightSideBar/>
+      <RightSideBar />
     </WrapperAll>
   );
 };
+export default DiaryPage;

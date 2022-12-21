@@ -9,4 +9,3 @@ export const Layout = () => {
     </>
   );
 };
-// display="flex" flexDirection="column" minHeight="100%"

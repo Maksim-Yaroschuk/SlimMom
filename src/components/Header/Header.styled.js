@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
@@ -5,6 +6,7 @@ export const HeaderStyled = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  padding-bottom: 16px;
   border: 2px solid #e0e0e0;
   @media (max-width: 425px) {
     position: relative; // set position relative in order to see header when modal on phone is opened
@@ -12,6 +14,7 @@ export const HeaderStyled = styled.header`
   }
   @media (min-width: 426px) and (max-width: 1023px) {
     padding: 20px 32px;
+    width: calc(100% - 32px);
   }
   @media (min-width: 1024px) {
     position: absolute;
@@ -25,15 +28,19 @@ export const HeaderStyled = styled.header`
     width: calc(100% - 32px);
     margin: 0 auto;
   }
-  /* @media (min-width: 1280px) {
+  @media (min-width: 1280px) {
     width: 1280px;
-  } */
+  }
 `;
+//     filter: drop-shadow(0 0 0px white);
 
 export const Logo = styled.img`
+  height: 44px;
+  filter: ${p => p.theme.colors.filter};
   @media (min-width: 426px) and (max-width: 1023px) {
   }
   @media (min-width: 1024px) {
+    height: 66px;
     margin-right: 40px;
   }
 `;
@@ -75,5 +82,46 @@ export const HeaderBtn = styled.button`
   @media (min-width: 426px) and (max-width: 1023px) {
   }
   @media (min-width: 1024px) {
+  }
+`;
+
+export const StyledLink = styled(NavLink)`
+  padding: 0px;
+  border: none;
+  font-family: GothamProBold;
+  line-height: 1.2;
+  font-size: 14px;
+  text-align: right;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgb(255, 255, 255);
+  color: rgb(33, 33, 33);
+  text-decoration: none;
+  &.active {
+    color: ${p => p.theme.colors.white};
+  }
+  @media (min-width: 426px) and (max-width: 1023px) {
+  }
+  @media (min-width: 1024px) {
+    padding: 0;
+    border: ${p => p.theme.borders.none};
+    font-family: ${p => p.theme.fonts.tertiary};
+    line-height: ${p => p.theme.lineHeights.body};
+    font-size: ${p => p.theme.fontSizes[0]};
+    text-align: right;
+    letter-spacing: 0.04em;
+
+    text-transform: uppercase;
+    background: transparent;
+    color: ${p => p.theme.colors.black};
+    text-decoration: none;
+
+    &.active {
+      color: ${p => p.theme.colors.gray};
+    }
+    &:hover,
+    &:focus {
+      color: ${p => p.theme.colors.gray};
+    }
   }
 `;

@@ -11,9 +11,10 @@ export const ButtonFull = styled.button`
   display: block;
 
   color: ${p => p.theme.colors.white};
-  background: ${p => p.theme.colors.orange};
   min-width: 182px;
   transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
+  background: ${p => p.theme.colors.orange};
+
   &:hover,
   &:focus {
     background: ${p => p.theme.colors.hover};
@@ -30,10 +31,9 @@ export const ButtonEmpty = styled.button`
   letter-spacing: 0.04em;
   display: block;
 
-  background: ${p => p.theme.colors.white};
+  background: transparent;
   border: ${p => p.theme.borders.btn};
   color: ${p => p.theme.colors.orange};
-  box-shadow: none;
   min-width: 182px;
   transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
   &:hover,

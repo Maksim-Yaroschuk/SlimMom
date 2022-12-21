@@ -24,36 +24,13 @@
   font-weight: 400;
 }
 
-@font-face {
-  font-family: 'Christmas';
-  src: local('Christmas'),
-    url('./fonts/Christmas/KingthingsChristmas.ttf') format('truetype');
-  font-weight: 700;
-}
-@font-face {
-  font-family: 'Christmas1';
-  src: local('Christmas1'),
-    url('./fonts/Christmas/Christmas.ttf') format('truetype');
-  font-weight: 700;
-}
-@font-face {
-  font-family: 'Christmas2';
-  src: local('Christmas2'),
-    url('./fonts/Christmas/Snaps.otf') format('truetype');
-  font-weight: 700;
-}
-
 body {
   margin: 0;
   font-family: VerdanaBold;
   box-sizing: border-box;
 }
-
 body.christmas {
-  margin: 0;
-  font-family: Christmas2;
-  box-sizing: border-box;
-  /* text-transform: uppercase; */
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
 h1,
