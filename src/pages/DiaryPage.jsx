@@ -31,17 +31,16 @@ const DiaryPage = () => {
   return (
     <WrapperAll>
       <Wrapper>
-        <Box maxWidth={'1280px'} m={'0 auto'}>
-          <DiaryDateCalendar />
-          {!mobile && <DiaryAddProductForm />}
-          <Box textAlign="center">
-            <DiaryProductsList />
-            {mobile && (
-              <Button onClick={() => onModalOpen()}>
-                <img src={AddIcon} alt="add product" />
-              </Button>
-            )}
-          </Box>
+        {/* <Box maxWidth={'1280px'} m={'0 auto'}> */}
+        <DiaryDateCalendar />
+        {!mobile && <DiaryAddProductForm />}
+        <Box textAlign="center">
+          <DiaryProductsList />
+          {mobile && (
+            <Button onClick={() => onModalOpen()}>
+              <img src={AddIcon} alt="add product" />
+            </Button>
+          )}
         </Box>
         {isModalOpened && <DiaryModal onClose={onModalClose} />}
         {isModalOpened && <Modal onClose={onModalClose} />}

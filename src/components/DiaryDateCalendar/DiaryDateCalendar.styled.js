@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const DatePickerWrapper = styled.button`
   cursor: pointer;
+  background-color: ${p => p.theme.colors.white};
   padding: 0px;
   border: ${p => p.theme.borders.none};
   outline: none;
