@@ -140,8 +140,6 @@ export const ButtonWrapper = styled.div`
   }
 `;
 
-
-
 export const ButtonForm = styled.button`
   padding: 13px 25px;
   border-radius: 30px;

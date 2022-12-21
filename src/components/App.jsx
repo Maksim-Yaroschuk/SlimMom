@@ -3,8 +3,6 @@ import { Home } from 'pages/Home';
 import { Layout } from './Layout/Layout';
 import { Suspense, useEffect, lazy } from 'react';
 import { Loader } from './Loader/Loader';
-// import { christmasTheme } from './Theme/christmasTheme';
-// import { NotFound } from 'pages/NotFound';
 import { useDispatch, useSelector } from 'react-redux';
 import { getToken } from 'redux/authSelectors';
 import { useGetUserQuery } from 'redux/auth';
@@ -19,8 +17,6 @@ const Calculator = lazy(() => import('../pages/CalculatorPage'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const App = () => {
-  // christmasTheme();
-
   const dispatch = useDispatch();
   const token = useSelector(getToken);
 

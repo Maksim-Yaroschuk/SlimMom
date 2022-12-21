@@ -24,7 +24,7 @@
   font-weight: 400;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Christmas';
   src: local('Christmas'),
     url('./fonts/Christmas/KingthingsChristmas.ttf') format('truetype');
@@ -41,7 +41,7 @@
   src: local('Christmas2'),
     url('./fonts/Christmas/Snaps.otf') format('truetype');
   font-weight: 700;
-}
+} */
 
 body {
   margin: 0;
@@ -49,12 +49,11 @@ body {
   box-sizing: border-box;
 }
 
-body.christmas {
+/* body.christmas {
   margin: 0;
   font-family: Christmas2;
   box-sizing: border-box;
-  /* text-transform: uppercase; */
-}
+} */
 
 h1,
 h2,

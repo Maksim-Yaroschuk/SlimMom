@@ -8,6 +8,3 @@ export const Button = ({ children, full, type }) => {
     <ButtonEmpty type={type}>{children}</ButtonEmpty>
   );
 };
-
-//  <Button full={true}>Hello from button</Button>
-//  <Button full={false}>Hello from button</Button>

@@ -11,9 +11,10 @@ export const ButtonFull = styled.button`
   display: block;
 
   color: ${p => p.theme.colors.white};
-  background: ${p => p.theme.colors.orange};
   min-width: 182px;
   transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
+  background: ${p => p.theme.colors.orange};
+
   &:hover,
   &:focus {
     background: ${p => p.theme.colors.hover};
