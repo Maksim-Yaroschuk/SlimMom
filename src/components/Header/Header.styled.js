@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.header`
@@ -79,5 +80,46 @@ export const HeaderBtn = styled.button`
   @media (min-width: 426px) and (max-width: 1023px) {
   }
   @media (min-width: 1024px) {
+  }
+`;
+
+export const StyledLink = styled(NavLink)`
+  padding: 0px;
+  border: none;
+  font-family: GothamProBold;
+  line-height: 1.2;
+  font-size: 14px;
+  text-align: right;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgb(255, 255, 255);
+  color: rgb(33, 33, 33);
+  text-decoration: none;
+  &.active {
+    color: ${p => p.theme.colors.white};
+  }
+  @media (min-width: 426px) and (max-width: 1023px) {
+  }
+  @media (min-width: 1024px) {
+    padding: 0;
+    border: ${p => p.theme.borders.none};
+    font-family: ${p => p.theme.fonts.tertiary};
+    line-height: ${p => p.theme.lineHeights.body};
+    font-size: ${p => p.theme.fontSizes[0]};
+    text-align: right;
+    letter-spacing: 0.04em;
+
+    text-transform: uppercase;
+    background: transparent;
+    color: ${p => p.theme.colors.black};
+    text-decoration: none;
+
+    &.active {
+      color: ${p => p.theme.colors.gray};
+    }
+    &:hover,
+    &:focus {
+      color: ${p => p.theme.colors.gray};
+    }
   }
 `;
