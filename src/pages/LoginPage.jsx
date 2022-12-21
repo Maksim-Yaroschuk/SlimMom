@@ -98,7 +98,7 @@ const initialValues = {
   password: '',
 };
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const navigate = useNavigate();
   const [loginUser, { status }] = useLogInUserMutation();
   const dispatch = useDispatch();
@@ -160,3 +160,5 @@ export const LoginPage = () => {
     </WrapperWithFruits>
   );
 };
+
+export default LoginPage;

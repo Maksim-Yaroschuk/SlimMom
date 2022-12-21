@@ -1,18 +1,22 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Home } from 'pages/Home';
-import { DiaryPage } from 'pages/DiaryPage';
-import { CalculatorPage } from 'pages/CalculatorPage';
 import { Layout } from './Layout/Layout';
-import { LoginPage } from 'pages/LoginPage';
-import { RegisterPage } from 'pages/RegisterPage';
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, lazy } from 'react';
 import { Loader } from './Loader/Loader';
 // import { christmasTheme } from './Theme/christmasTheme';
-import { NotFound } from 'pages/NotFound';
+// import { NotFound } from 'pages/NotFound';
 import { useDispatch, useSelector } from 'react-redux';
 import { getToken } from 'redux/authSelectors';
 import { useGetUserQuery } from 'redux/auth';
 import { setCurrentUser } from 'redux/authSlice';
+import { PrivateRoute } from './Routes/PrivateRoute';
+import { PublicRoute } from './Routes/PublicRoute';
+
+const Login = lazy(() => import('../pages/LoginPage'));
+const Register = lazy(() => import('../pages/RegisterPage'));
+const Diary = lazy(() => import('../pages/DiaryPage'));
+const Calculator = lazy(() => import('../pages/CalculatorPage'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const App = () => {
   // christmasTheme();
@@ -37,10 +41,38 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="home" />} />
             <Route path="home" element={<Home />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
-            <Route path="diary" element={<DiaryPage />} />
-            <Route path="calculator" element={<CalculatorPage />} />
+            <Route
+              path="login"
+              element={
+                <PublicRoute restricted>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="register"
+              element={
+                <PublicRoute restricted>
+                  <Register />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="diary"
+              element={
+                <PrivateRoute>
+                  <Diary />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="calculator"
+              element={
+                <PrivateRoute>
+                  <Calculator />
+                </PrivateRoute>
+              }
+            />
             <Route path="/*" element={<NotFound />} />
           </Route>
         </Routes>

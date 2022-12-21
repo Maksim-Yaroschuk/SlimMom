@@ -111,7 +111,7 @@ const initialValues = {
   password: '',
 };
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
   const navigate = useNavigate();
   const [registerUser, { status }] = useRegisterUserMutation();
   const dispatch = useDispatch();
@@ -180,3 +180,5 @@ export const RegisterPage = () => {
     </WrapperWithFruits>
   );
 };
+
+export default RegisterPage;

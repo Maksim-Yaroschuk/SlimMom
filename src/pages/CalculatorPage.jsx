@@ -6,7 +6,7 @@ import {
   H2,
 } from 'components/CalculatorPage/CalculatorPage.styled';
 
-export const CalculatorPage = () => {
+const CalculatorPage = () => {
   return (
     <CalculatorPageWrapper>
       <Box maxWidth={'1280px'} m={'0 auto'}>
@@ -16,3 +16,4 @@ export const CalculatorPage = () => {
     </CalculatorPageWrapper>
   );
 };
+export default CalculatorPage;
