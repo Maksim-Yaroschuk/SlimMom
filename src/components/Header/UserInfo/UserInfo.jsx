@@ -20,8 +20,18 @@ export const BottomSection = ({ name }) => {
     navigate('/');
   };
   const disableChristmasTheme = () => {
-    setValue(false);
-    body.classList.remove('christmas');
+    const christmasThemeOn = () => {
+      const day = new Date().getDate();
+      const month = new Date().getMonth();
+      if (day >= 19 && month === 11) {
+        body.classList.add('christmas');
+      } else if (day >= 15 && month === 0) {
+        body.classList.remove('christmas');
+      }
+    };
+    christmasThemeOn();
+    setValue(true);
+    // body.classList.remove('christmas');
   };
   return (
     <Section>

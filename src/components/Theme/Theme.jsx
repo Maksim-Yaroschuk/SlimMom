@@ -1,15 +1,15 @@
-const body = document.querySelector('body');
+// const body = document.querySelector('body');
 
-const christmasThemeOn = () => {
-  const day = new Date().getDate();
-  const month = new Date().getMonth();
-  if (day >= 19 && month === 11) {
-    body.classList.add('christmas');
-  } else if (day >= 15 && month === 0) {
-    body.classList.remove('christmas');
-  }
-};
-christmasThemeOn();
+// const christmasThemeOn = () => {
+//   const day = new Date().getDate();
+//   const month = new Date().getMonth();
+//   if (day >= 19 && month === 11) {
+//     body.classList.add('christmas');
+//   } else if (day >= 15 && month === 0) {
+//     body.classList.remove('christmas');
+//   }
+// };
+// christmasThemeOn();
 
 export const theme = {
   colors: {
