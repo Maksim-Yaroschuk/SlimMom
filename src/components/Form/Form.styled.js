@@ -154,4 +154,59 @@ export const ButtonForm = styled.button`
   color: ${p => p.theme.colors.white};
   background: ${p => p.theme.colors.orange};
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  position: relative;
+  &:hover,
+  :focus {
+    background: ${p => p.theme.colors.hover};
+    /* &::before {
+      content: '';
+      position: ${p => p.theme.btnBefore.position};
+      top: ${p => p.theme.btnBefore.top};
+      left: ${p => p.theme.btnBefore.left};
+      width: ${p => p.theme.btnBefore.width};
+      height: ${p => p.theme.btnBefore.height};
+      background: ${p => p.theme.btnBefore.background};
+      border-radius: ${p => p.theme.btnBefore.borderRadius};
+      box-shadow: ${p => p.theme.btnBefore.boxShadow};
+      opacity: 0;
+    }
+    &::after {
+      content: '';
+      position: ${p => p.theme.btnAfter.position};
+      top: ${p => p.theme.btnAfter.top};
+      left: ${p => p.theme.btnAfter.left};
+      width: ${p => p.theme.btnAfter.width};
+      height: ${p => p.theme.btnAfter.height};
+      background: ${p => p.theme.btnAfter.background};
+      border-radius: ${p => p.theme.btnAfter.borderRadius};
+      box-shadow: ${p => p.theme.btnAfter.boxShadow};
+      opacity: 0;
+    } */
+  }
+  &::before {
+    content: '';
+    position: ${p => p.theme.btnBefore.position};
+    top: ${p => p.theme.btnBefore.top};
+    left: ${p => p.theme.btnBefore.left};
+    width: ${p => p.theme.btnBefore.width};
+    height: ${p => p.theme.btnBefore.height};
+    background: ${p => p.theme.btnBefore.background};
+    border-radius: ${p => p.theme.btnBefore.borderRadius};
+    box-shadow: ${p => p.theme.btnBefore.boxShadow};
+    opacity: 1;
+    transition: opacity 700ms linear;
+  }
+  &::after {
+    content: '';
+    position: ${p => p.theme.btnAfter.position};
+    top: ${p => p.theme.btnAfter.top};
+    left: ${p => p.theme.btnAfter.left};
+    width: ${p => p.theme.btnAfter.width};
+    height: ${p => p.theme.btnAfter.height};
+    background: ${p => p.theme.btnAfter.background};
+    border-radius: ${p => p.theme.btnAfter.borderRadius};
+    box-shadow: ${p => p.theme.btnAfter.boxShadow};
+    opacity: 1;
+    transition: opacity 700ms linear;
+  }
 `;

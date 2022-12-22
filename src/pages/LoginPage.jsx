@@ -15,7 +15,6 @@ import {
 import { WrapperWithFruits } from 'components/RegisterPage/RegisterPage.styled';
 import { Loader } from 'components/Loader/Loader';
 import { ThemeContext } from 'components/Context/Context';
-
 import Snowfall from 'react-snowfall';
 
 const schema = yup.object().shape({

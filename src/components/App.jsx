@@ -42,7 +42,14 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Navigate to="home" />} />
-            <Route path="home" element={<Home />} />
+            <Route
+              path="home"
+              element={
+                <PublicRoute restricted>
+                  <Home />
+                </PublicRoute>
+              }
+            />
             <Route
               path="login"
               element={

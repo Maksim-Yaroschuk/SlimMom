@@ -7,14 +7,14 @@ export const HeaderStyled = styled.header`
   align-items: center;
   padding: 20px;
   padding-bottom: 16px;
-  border: 2px solid #e0e0e0;
+  border-bottom: ${p => p.theme.borders.header};
   @media (max-width: 425px) {
     position: relative; // set position relative in order to see header when modal on phone is opened
     z-index: 22;
   }
   @media (min-width: 426px) and (max-width: 1023px) {
     padding: 20px 32px;
-    width: calc(100% - 32px);
+    /* width: calc(100% - 32px); */
   }
   @media (min-width: 1024px) {
     position: absolute;
@@ -32,7 +32,6 @@ export const HeaderStyled = styled.header`
     width: 1280px;
   }
 `;
-//     filter: drop-shadow(0 0 0px white);
 
 export const Logo = styled.img`
   height: 44px;
@@ -98,7 +97,7 @@ export const StyledLink = styled(NavLink)`
   color: rgb(33, 33, 33);
   text-decoration: none;
   &.active {
-    color: ${p => p.theme.colors.white};
+    color: ${p => p.theme.colors.gray};
   }
   @media (min-width: 426px) and (max-width: 1023px) {
   }

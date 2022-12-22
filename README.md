@@ -109,6 +109,15 @@
             <sub><b>🟨🟦</b></sub>
         </a>
     </td>
+    <td align="center">
+        <a href="https://github.com/salampego">
+            <img src="https://avatars.githubusercontent.com/u/55463651?v=4" width="100;" alt="Haik"/>
+            <br />
+            <sub><b>Haik</b></sub>
+            <br />
+            <sub><b>🟨🟦</b></sub>
+        </a>
+    </td>
     </tr>
 </table>
 <!-- readme: contributors,ImgBotApp/- -end -->
