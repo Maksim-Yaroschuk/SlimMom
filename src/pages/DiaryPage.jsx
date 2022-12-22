@@ -10,7 +10,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Button } from 'components/DiaryPage/DiaryPage.styled';
 import AddIcon from '../images/svg/add.svg';
 import { Box } from 'components/Box';
-import Modal from 'components/Modal/Modal';
+// import Modal from 'components/Modal/Modal';
 import { ThemeContext } from 'components/Context/Context';
 import { useContext } from 'react';
 import Snowfall from 'react-snowfall';
