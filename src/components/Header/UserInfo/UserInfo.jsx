@@ -61,6 +61,7 @@ export const BottomSection = ({ name }) => {
         checked={ischecked}
         onColor="#9B9FAA"
         offColor="#D6001C"
+        activeBoxShadow="0 0 2px 3px #D6001C"
         uncheckedIcon={
           <FaTree
             style={{
