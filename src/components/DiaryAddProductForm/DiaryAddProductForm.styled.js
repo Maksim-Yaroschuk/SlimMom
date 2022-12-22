@@ -150,3 +150,22 @@ export const FormWrapper = styled(Form)`
     display: flex;
   }
 `
+
+export const SearchBox = styled.ul`
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 450px;
+  &.visible {
+    display: block;
+  }
+`
+
+export const SearchItem = styled.li`
+  cursor: pointer;
+  padding: 5px 10px;
+  border-bottom: ${p => p.theme.borders.normal};
+  &:hover {
+    background-color: ${p => p.theme.colors.backgroundGray};
+  }
+`

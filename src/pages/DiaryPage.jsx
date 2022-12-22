@@ -48,7 +48,7 @@ const DiaryPage = () => {
           )}
         </Box>
         {isModalOpened && <DiaryModal onClose={onModalClose} />}
-        {isModalOpened && <Modal onClose={onModalClose} />}
+        {/* {isModalOpened && <Modal onClose={onModalClose} />} */}
       </Wrapper>
       <RightSideBar />
     </WrapperAll>

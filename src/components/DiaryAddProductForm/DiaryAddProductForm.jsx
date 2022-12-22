@@ -8,9 +8,14 @@ import {
   GramsInput,
   Button,
   FormWrapper,
+  SearchBox,
+  SearchItem
 } from './DiaryAddProductForm.styled';
 import AddIcon from "../../images/svg/add.svg"
-// import { useState } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
+
+
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -23,8 +28,19 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
     name: '',
     grams: '',
   };
+  const [products, setProducts] = useState([])
+  const [visible, setVisible] = useState(false)
 
-  // const [productName, setProductName] = useState('')
+  const search = async (value) => {
+    try {
+      const res = await axios(`https://slimmom-oz0k.onrender.com/api/products/searchProducts?title=${value}`)
+      const result = await res.data.data
+      setProducts(result)
+    } catch (error) {
+      setProducts([])
+    }
+  }
+
 
   const handleSubmit = (values, { resetForm }) => {
     const params = { ...values }
@@ -35,34 +51,52 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
   }
 
   const handleChange = (e) => {
-    if(e.target.name === "name") {
-      console.log(e.target.value);
+    const productName = e.target.value
+    if(productName !== "" && productName.length > 1) {
+      search(productName)
+      setVisible(true)
+    } else {
+      setVisible(false)
+      setProducts([])
     }
+  }
+
+  const handleClick = (setFieldValue, title) => {
+    setVisible(false)
+    setFieldValue("name", title)
   }
 
   return (
       <Box position="relative" my="40px">
       <Formik
+        enableReinitialize={true}
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
-        {formikProps => (
+        {({formikProps, setFieldValue }) => (
+          <Box>
             <FormWrapper onChange={handleChange}>
-            <NameInput
-              type="text"
-              placeholder="Enter product name"
-              name="name"
-            />
-            <GramsInput
-              type="text"
-              placeholder="Grams"
-              name="grams"
-            />
-            {mobile ? <Button type="submit">Add</Button> : <Button type="submit"><img src={AddIcon} alt="add product" /></Button>}
-          </FormWrapper>
-          )}
+              <NameInput
+                type="text"
+                placeholder="Enter product name"
+                name="name"
+              />
+              <GramsInput
+                type="text"
+                placeholder="Grams"
+                name="grams"
+              />
+              {mobile ? <Button type="submit">Add</Button> : <Button type="submit"><img src={AddIcon} alt="add product" /></Button>}
+            </FormWrapper>
+            <SearchBox className={visible ? "visible" : null}>
+              {products !=="" && products.length !== 0 && products.map((product) => {
+                return <SearchItem key={product._id} onClick={() => handleClick(setFieldValue, product.title.ua)}>{product.title.ua}</SearchItem>
+              })}
+            </SearchBox>
+          </Box>
+        )}
       </Formik>
     </Box>
-    )
+  )
 }
