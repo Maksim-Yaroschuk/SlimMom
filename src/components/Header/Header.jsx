@@ -5,7 +5,7 @@ import logoTabletRetina from '../../images/logo/logoTablet@2x.png';
 import logoDesktop from '../../images/logo/logoDesktop.png';
 import logoDesktopRetina from '../../images/logo/logoDesktop@2x.png';
 import { useMediaQuery } from 'react-responsive';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BtnList, HeaderStyled, Logo } from './Header.styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RxCross2 } from 'react-icons/rx';
@@ -16,6 +16,7 @@ import { StyledLink } from './Header.styled';
 import { useSelector } from 'react-redux';
 import { getUserName } from 'redux/authSelectors';
 import { useLocation } from 'react-router-dom';
+import { ThemeContext } from 'components/Context/Context';
 
 export const Header = () => {
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -43,6 +44,7 @@ export const Header = () => {
       return logoDesktopRetina;
     }
   };
+  const { isChristmas } = useContext(ThemeContext);
 
   return (
     <>
@@ -64,12 +66,20 @@ export const Header = () => {
               <>
                 {openNavigation ? (
                   <RxCross2
-                    style={{ width: '24px', height: '24px' }}
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      color: `${isChristmas ? '#D6001C' : 'black'}`,
+                    }}
                     onClick={() => setOpenNavigation(false)}
                   />
                 ) : (
                   <GiHamburgerMenu
-                    style={{ width: '24px', height: '24px' }}
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      color: `${isChristmas ? '#D6001C' : 'black'}`,
+                    }}
                     onClick={() => {
                       setOpenNavigation(true);
                     }}
