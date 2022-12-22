@@ -4,6 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import * as yup from 'yup';
 import { Box } from 'components/Box';
 import { ButtonForm } from './Form.styled';
+import { useNavigate } from 'react-router-dom';
 import {
   ButtonWrapper,
   Checkbox,
@@ -34,7 +35,7 @@ const schema = yup.object().shape({
     .max(500, 'Please enter a number less than or equal to 500')
     .required('Current weight is required field')
     .integer('Current weight must be a integer number'),
-  desiredtWeight: yup
+  desiredWeight: yup
     .number('Desired weight is use only number')
     .min(20, 'Please enter a number more than or equal to 20')
     .max(500, 'Please enter a number less than or equal to 500')
@@ -43,21 +44,29 @@ const schema = yup.object().shape({
   bloodType: yup.string().required(),
 });
 
-export const WeightForm = ({changeState}) => {
+export const WeightForm = ({changeState, initialValues}) => {
   const isMobile = useMediaQuery({ query: '(max-width: 554px)' });
-  const initialValues = {
-    height: '',
-    age: '',
-    currentWeight: '',
-    desiredtWeight: '',
-    bloodType: '1',
-  };
+  const navigate = useNavigate();
 
-  const handleSubmit = values => {
+  if(!initialValues) {
+    initialValues = {
+      height: '',
+      age: '',
+      currentWeight: '',
+      desiredWeight: '',
+      bloodType: '1',
+    };
+  }
+
+  const handleSubmit = (values, { resetForm }) => {
     const params = { ...values };
     schema.validate(params);
     console.log('params', params);
     // resetForm();
+    
+    if(!changeState) {
+      navigate('/diary')
+    }
   };
 
   return (
@@ -132,11 +141,11 @@ export const WeightForm = ({changeState}) => {
             <li>
               <label>
                 <Input
-                  type="desiredtWeight"
-                  name="desiredtWeight"
+                  type="desiredWeight"
+                  name="desiredWeight"
                   placeholder="Desired weight, kg *"
                 />
-                <ErrorMessage name="desiredtWeight" component={Error} />
+                <ErrorMessage name="desiredWeight" component={Error} />
               </label>
             </li>
 
@@ -162,7 +171,7 @@ export const WeightForm = ({changeState}) => {
           <ButtonForm type="submit" >
               Start losing weight
           </ButtonForm>
-            </ButtonWrapper>
+          </ButtonWrapper>
         </Form>
       </Formik>
     </Box>
