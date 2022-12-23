@@ -52,12 +52,14 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
 
   const handleChange = (e) => {
     const productName = e.target.value
-    if(productName !== "" && productName.length > 1) {
-      search(productName)
-      setVisible(true)
-    } else {
-      setVisible(false)
-      setProducts([])
+    if (e.target.name === "name") {
+      if(productName !== "" && productName.length > 1) {
+        search(productName)
+        setVisible(true)
+      } else {
+        setVisible(false)
+        setProducts([])
+      }
     }
   }
 
