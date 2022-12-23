@@ -1,12 +1,14 @@
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Wrapper, SummaryWrap, FoodWrap, Title, Item, Text } from './RightSideBar.styled';
 
 export const RightSideBar = () => {
 
+    const date = useSelector((state) => state.date);
+
     return (
         <Wrapper>
             <SummaryWrap>
-                <Title>Summary for 17.12.2022</Title>
+                <Title>Summary for {date}</Title>
                 <ul>
                     <Item>
                         <Text>Left</Text>
