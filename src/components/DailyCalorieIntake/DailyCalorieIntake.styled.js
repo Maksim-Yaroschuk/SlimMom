@@ -47,10 +47,6 @@ export const H4 = styled.h4`
   margin-bottom: 14px;
 `;
 
-export const UL = styled.ul`
-  margin: 0 0 40px 0;
-`;
-
 export const LI = styled.li`
   margin: 0 auto;
   max-width: 326px;
@@ -69,6 +65,7 @@ export const BOX = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 
