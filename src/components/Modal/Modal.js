@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
+// import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
 import { Overlay, ModalWindow } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -27,7 +27,7 @@ export const Modal = ({ onClose, children }) => {
   return createPortal(
     <Overlay onClick={handleBackDropClick}>
       <ModalWindow onClose={onClose}>
-        <DailyCalorieIntake />
+        {/* <DailyCalorieIntake /> */}
         {children}
       </ModalWindow>
     </Overlay>,
