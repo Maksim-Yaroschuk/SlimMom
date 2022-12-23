@@ -4,9 +4,9 @@ import * as yup from 'yup';
 import { Error, Input, List } from 'components/Form/Form.styled';
 import { Button } from 'components/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { useRegisterUserMutation } from 'redux/auth';
+import { useLogInUserMutation, useRegisterUserMutation } from 'redux/auth';
 import { useDispatch } from 'react-redux';
-import { setCredentials } from 'redux/authSlice';
+import { setCredentials, setUser } from 'redux/authSlice';
 import {
   ButtonWrapper,
   H2,
@@ -43,10 +43,16 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const [registerUser, { status }] = useRegisterUserMutation();
   const dispatch = useDispatch();
+  // !=============================================
+  const [loginUser] = useLogInUserMutation();
 
   const handleSubmit = async (values, { resetForm }) => {
     const user = await registerUser(values).unwrap();
+    const loginValues = { ...values };
+    delete loginValues.name;
+    const userLogin = await loginUser(loginValues).unwrap();
     dispatch(setCredentials(user));
+    dispatch(setUser(userLogin));
     navigate('/diary');
     resetForm();
   };

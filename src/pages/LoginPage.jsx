@@ -64,7 +64,10 @@ const LoginPage = () => {
               <li>
                 <label>
                   <Input type="email" name="email" placeholder="Email *" />
-                  <ErrorMessage name="age" component={Error} />
+                  <ErrorMessage name="email" component={Error} />
+                  {status === 'rejected' && (
+                    <Error>Email or password is wrong</Error>
+                  )}
                 </label>
               </li>
 
@@ -76,6 +79,9 @@ const LoginPage = () => {
                     placeholder="Password *"
                   />
                   <ErrorMessage name="password" component={Error} />
+                  {status === 'rejected' && (
+                    <Error>Email or password is wrong</Error>
+                  )}
                 </label>
               </li>
             </List>
