@@ -1,4 +1,5 @@
 import authReducer from './authSlice';
+import { dateReducer } from './dateSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
     auth: persistReducer(persistConfig, authReducer),
+    date: dateReducer,
   },
 
   middleware: getDefaultMiddleware => [
