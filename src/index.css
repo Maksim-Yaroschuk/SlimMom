@@ -60,6 +60,6 @@ ul {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #fc842d;
+  background: linear-gradient(0deg, rgb(212, 186, 171), rgb(70, 64, 50) 50%);
   border-radius: 10px;
 }
