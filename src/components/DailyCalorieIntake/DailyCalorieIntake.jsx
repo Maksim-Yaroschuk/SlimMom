@@ -1,18 +1,20 @@
-import { H1, H2, H4, LI, ModalWrapper } from './DailyCalorieIntake.styled';
-import { ButtonWrapper, ButtonForm } from '../Form/Form.styled';
-const DailyCalorieIntake = ({ changeState }) => {
-  // { dailyRate, notAllowedProducts }
-  const dailyRate = 1420;
-  const notAllowedProducts = [
-    'Пластівці Агро-Альянс 5 злаків',
-    'Каша 4-х зернова Myllyn Paras',
-    'Полба',
-    'Яйце куряче (варене всмятку)',
-    'Булгур приготований',
-  ];
-  // const calories = dailyRate;
+import { loadFromSession } from '../../services/session/storage';
+import {
+  H1,
+  H2,
+  H4,
+  LI,
+  BOX,
+  ModalWrapper,
+  ButtonWrapper,
+  ButtonForm,
+} from './DailyCalorieIntake.styled';
 
-  // const list = notAllowedProducts;
+const DailyCalorieIntake = ({ changeState }) => {
+  const response = loadFromSession('products');
+  const dailyRate = response.dailyRate;
+  const notAllowedProducts = response.notAllowedProducts;
+
   const calories = {
     fontSize: 15,
   };
@@ -28,35 +30,66 @@ const DailyCalorieIntake = ({ changeState }) => {
       </H1>
       <hr></hr>
       <H4>Foods you should not eat</H4>
+
       <ul>
         {notAllowedProducts.map((prod, index) => (
-          <LI>
-            {index + 1}. {prod}
+          <LI key={index}>
+            <BOX>
+              {index + 1}. {prod}
+            </BOX>
           </LI>
         ))}
       </ul>
       <ButtonWrapper onClick={() => changeState(true)}>
-        <ButtonForm type="submit">Start losing weight</ButtonForm>
+        <ButtonForm type="button">Start losing weight</ButtonForm>
       </ButtonWrapper>
     </ModalWrapper>
   );
 };
 export default DailyCalorieIntake;
-// color="gray"
-// <ul>
-// {/* {list.lice(0, 5)}  key={id}*/}
-// {list.foreach(({ id, catigorie }) => (
-// 	<li>
-// 		{id + 1}. {catigorie}
-// 	</li>
-// ))}
-// </ul>
-// {
-//   /* ,<LI>Пластівці Агро-Альянс 5 злаків</LI>
-//         <LI>Каша 4-х зернова Myllyn Paras</LI>
-//         <LI>Полба</LI>
-//         <LI>Яйце куряче (варене всмятку)</LI>
-//         <LI>Булгур приготований</LI> */
-// }
-// {index}. {prod}
-// console.log(index + 1, prod);
+
+// import { apiCalorieIntake } from '../../services/api/api';
+// import axios from 'axios';
+// import { useState, useEffect } from 'react';
+
+// axios.defaults.baseURL = 'https://slimmom-oz0k.onrender.com';
+// const [products, setProducts] = useState({});
+// const [error, setError] = useState(null);
+// const [loading, setLoading] = useState(true);
+// const params = loadFromSession('params');
+// // console.log('paramsApi', params);
+// axios
+//   .post('/api/products', params)
+//   .then(function (response) {
+//     setProducts(response.data);
+
+//     saveInSession('products', response.data);
+//     console.log('response', response.data);
+//     console.log('loadFromSession products', loadFromSession('products'));
+//     console.log('response', response.data);
+//   })
+//   .catch(function (error) {
+//     setError(error);
+//     console.log('error', error);
+//   })
+//   .finally(setLoading(false));
+
+// useEffect(() => {
+// const fetch = () => {
+//   setLoading(true);
+//   apiCalorieIntake(params)
+//     .then(res => {
+//       setProducts(res);
+//       console.log('productsRes', products);
+//       saveInSession('products', res);
+//     })
+//     .catch(error => {
+//       setError('UPS, this is pipez');
+//     })
+//     .finally(setLoading(false));
+// };
+
+// fetch();
+// }); //, [params]
+// console.log('products1', products);
+// const response = products;
