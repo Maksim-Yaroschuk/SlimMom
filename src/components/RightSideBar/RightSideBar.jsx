@@ -4,6 +4,9 @@ import { Wrapper, SummaryWrap, FoodWrap, Title, Item, Text } from './RightSideBa
 export const RightSideBar = () => {
 
     const date = useSelector((state) => state.date);
+    const dailyRate = useSelector((state) => state.auth.userInfo.dailyRate);
+
+    console.log(dailyRate);
 
     return (
         <Wrapper>
@@ -20,7 +23,7 @@ export const RightSideBar = () => {
                     </Item>
                     <Item>
                         <Text>Daily rate</Text>
-                        <Text>000 kcal</Text>
+                        <Text>{dailyRate ? Number.parseInt(dailyRate) : '000'} kcal</Text>
                     </Item>
                     <Item>
                         <Text>n% of normal</Text>
