@@ -11,6 +11,7 @@ export const NameInput = styled(Field)`
   line-height: ${p => p.theme.lineHeights.body};
   font-size: ${p => p.theme.fontSizes[0]};
   color: ${p => p.theme.colors.black};
+  background-color: transparent;
   letter-spacing: 0.04em;
   &::placeholder {
     color: ${p => p.theme.colors.gray};
@@ -43,6 +44,8 @@ export const GramsInput = styled(Field)`
   line-height: ${p => p.theme.lineHeights.body};
   font-size: ${p => p.theme.fontSizes[0]};
   color: ${p => p.theme.colors.black};
+  background-color: transparent;
+
   letter-spacing: 0.04em;
   &::placeholder {
     color: ${p => p.theme.colors.gray};
@@ -130,7 +133,7 @@ export const Button = styled.button`
     padding: 12px 13px 11px;
     border-radius: 50%;
   }
-`
+`;
 
 export const Label = styled.label`
   position: relative;
@@ -144,12 +147,11 @@ export const FormWrapper = styled(Form)`
     display: flex;
     max-width: 503px;
     justify-content: space-between;
-
   }
   @media (min-width: 1024px) {
     display: flex;
   }
-`
+`;
 
 export const SearchBox = styled.ul`
   display: none;
@@ -159,7 +161,7 @@ export const SearchBox = styled.ul`
   &.visible {
     display: block;
   }
-`
+`;
 
 export const SearchItem = styled.li`
   cursor: pointer;
@@ -168,4 +170,4 @@ export const SearchItem = styled.li`
   &:hover {
     background-color: ${p => p.theme.colors.backgroundGray};
   }
-`
+`;

@@ -21,6 +21,9 @@ export const BottomSection = ({ name }) => {
     logOutUser();
     dispatch(logOut());
     navigate('/');
+    const body = document.querySelector('body');
+    body.classList.remove('christmas');
+    setValue(false);
   };
   const christmasTheme = () => {
     const christmasThemeOn = () => {
@@ -36,6 +39,7 @@ export const BottomSection = ({ name }) => {
     setValue(true);
   };
   const [ischecked, setIsChecked] = useState(false);
+
   const handleChange = () => {
     setIsChecked(!ischecked);
   };
