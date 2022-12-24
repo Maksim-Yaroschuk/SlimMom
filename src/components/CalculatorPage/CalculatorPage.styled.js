@@ -34,7 +34,9 @@ export const CalculatorPageWrapper = styled.div`
       width: 358px;
       height: 687px;
       top: 170px;
-      left: 72%;
+      /* left: 72%;
+       */
+      right: 0;
       position: absolute;
       content: '';
       z-index: -1;
