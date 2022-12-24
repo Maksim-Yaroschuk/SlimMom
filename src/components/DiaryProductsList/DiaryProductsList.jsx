@@ -2,81 +2,47 @@ import axios from "axios"
 import { DiaryProductsListItem } from "components/DiaryProductsListItem/DiaryProductsListItem"
 // import moment from "moment/moment"
 import { useEffect } from "react"
-import { useState } from "react"
-import { useSelector } from "react-redux"
+// import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { getToken } from "redux/authSelectors"
-import { selectDate } from "redux/dateSelectors"
+import { getProducts, selectDate } from "redux/productsSelectors"
+import { setProducts } from "redux/productsSlice"
 import { List } from "./DiaryProductsList.styled"
 
-
-// const products = [
-//   {
-//     id: 1,
-//     name: "Egg",
-//     grams: 67,
-//     calories: 145
-//   },
-//   {
-//     id: 2,
-//     name: "Bacon",
-//     grams: 131,
-//     calories: 542
-//   },
-//   {
-//     id: 3,
-//     name: "Bread",
-//     grams: 83,
-//     calories: 223
-//   },
-//   {
-//     id: 4,
-//     name: "Puncakes",
-//     grams: 246,
-//     calories: 672
-//   },
-//   {
-//     id: 5,
-//     name: "Ice cream",
-//     grams: 143,
-//     calories: 254
-//   },
-//   {
-//     id: 6,
-//     name: "Cabbage",
-//     grams: 94,
-//     calories: 104
-//   },
-// ]
-
 export const DiaryProductsList = () => {
-  const [products, setProducts] = useState([])
+  // const [products, setProducts] = useState([])
   const token = useSelector(getToken)
   const date = useSelector(selectDate)
-  const getProducts = async () => {
-    console.log(typeof date);
-    try {
-      const res = await axios.get(`https://slimmom-oz0k.onrender.com/api/myProducts/`, {
-      headers: {
-        Authorization: `Bearer ${token}` 
-      },
-      params: { "date": date },
-    })
-    const result = await res.data.data
-    setProducts(result)
-    } catch (error) {
-      console.log(error);
-    }
-    
-  } 
-
+  const dispatch = useDispatch()
+  const products = useSelector(getProducts)
   useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.post(`https://slimmom-oz0k.onrender.com/api/myProducts/`, {
+         "date": date 
+        }, {
+        headers: {
+          Authorization: `Bearer ${token}` 
+        },
+      })
+      
+      const result = await res.data.productList
+      if(result.length>0) {
+        dispatch(setProducts(result[0].productInfo))
+      } else {
+        dispatch(setProducts([]))
+      }
+      } catch (error) {
+        console.log(error);
+      }
+    } 
     getProducts()
-  })
+  }, [date, dispatch, token])
 
   return (
     <List>
-      {products.map((product) => {
-        return <DiaryProductsListItem key={product.id} id={product.id} name={product.name} grams={product.grams} calories={product.calories} />
+      {products.length !== 0 && products.map((product) => {
+        return <DiaryProductsListItem key={product._id} id={product._id} name={product.productName} grams={product.productWeight} calories={product.productCalories} />
       })}
     </List>
   )

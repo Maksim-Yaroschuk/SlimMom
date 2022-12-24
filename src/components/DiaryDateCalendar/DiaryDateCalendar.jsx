@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import CalendarIcon from "../../images/svg/calendar.svg"
 import { useDispatch } from "react-redux";
-import { setDate } from "redux/dateSlice";
+import { setDate } from "redux/productsSlice";
 import moment from "moment/moment";
 
 export const DiaryDateCalendar = () => {
@@ -13,10 +13,9 @@ export const DiaryDateCalendar = () => {
   const handleChange = (date) => {
     const formattedDate = moment(date).format("DD.MM.YYYY")
     setSelectedDate(date);
-    console.log(date);
     dispatch(setDate(formattedDate)) 
-
   }
+  
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <div>
       <DatePickerWrapper onClick={onClick} ref={ref}>
