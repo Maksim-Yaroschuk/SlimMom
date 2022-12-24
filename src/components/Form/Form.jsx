@@ -1,13 +1,9 @@
 import React from 'react';
-// import { useState, useEffect } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import * as yup from 'yup';
-// import { apiCalorieIntake } from '../../services/api/api';
-// import { saveInSession, loadFromSession } from '../../services/session/storage';
 import { Box } from 'components/Box';
 import { ButtonForm } from './Form.styled';
-// import { useNavigate } from 'react-router-dom';
 import {
   ButtonWrapper,
   Checkbox,
@@ -49,10 +45,8 @@ const schema = yup.object().shape({
 });
 
 export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
-  // const [param, setParam] = useState([]);
   const isMobile = useMediaQuery({ query: '(max-width: 554px)' });
-  // const navigate = useNavigate();
-  // if (!initialValues) {
+
   const startValues = {
     height: '',
     age: '',
@@ -60,35 +54,14 @@ export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
     desiredWeight: '',
     bloodType: '1',
   };
-  // }
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = values => {
     const params = { ...values };
     schema.validate(params);
     setUserParams(params);
     saveInStor('params', params);
   };
-  // setParam(params);
-  // saveInSession('params', params);
-  // resetForm();
 
-  //   if (!changeState) {
-  //     navigate('/diary');
-  //   }
-
-  // useEffect(() => {
-  //   const fetch = () => {
-  //     apiCalorieIntake(param)
-  //       .then(res => {
-  //         saveInSession('products', res);
-  //       })
-  //       .catch(error => {
-  //         console.log('error', error);
-  //       });
-  //   };
-  //   fetch();
-  // }, [param]);
-  // console.log('loadFromSession', loadFromSession('products'));
   return (
     <Box>
       <Formik
@@ -195,20 +168,3 @@ export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
     </Box>
   );
 };
-// import axios from 'axios';
-// axios.defaults.baseURL = 'https://slimmom-oz0k.onrender.com';
-// axios
-//   .post('/api/products', param)
-//   .then(function (response) {
-//     // setProducts(response.data);
-
-//     saveInSession('products', response.data);
-//     console.log('response', response.data);
-//     console.log('loadFromSession products', loadFromSession('products'));
-//     console.log('response', response.data);
-//   })
-//   .catch(function (error) {
-//     // setError(error);
-//     console.log('error', error);
-//   });
-// // .finally(setLoading(false));

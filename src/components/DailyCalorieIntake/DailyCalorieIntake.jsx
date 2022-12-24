@@ -1,5 +1,3 @@
-// import { loadFromSession } from '../../services/session/storage';
-// import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   H1,

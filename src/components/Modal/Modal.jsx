@@ -45,7 +45,6 @@ export const Modal = ({ onClose, children, userParams }) => {
       onClose(false);
     }
   };
-  // console.log('backResponse', backResponse);
 
   return createPortal(
     <Overlay onClick={handleBackDropClick}>
