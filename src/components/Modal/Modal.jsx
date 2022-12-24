@@ -1,11 +1,33 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-// import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
+import { apiCalorieIntake } from 'services/api/api';
+import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
 import { Overlay, ModalWindow } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ onClose, children }) => {
+export const Modal = ({ onClose, children, userParams }) => {
+  const [backResponse, setBackResponse] = useState(null);
+
+  useEffect(() => {
+    if (!userParams) {
+      return;
+    }
+    const fetchData = async () => {
+      const data = await apiCalorieIntake(userParams);
+      if (data) {
+        setBackResponse(data);
+      }
+    };
+    fetchData();
+  }, [userParams]);
+
+  useEffect(() => {
+    if (backResponse === null) {
+      return;
+    }
+  }, [backResponse]);
+
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') onClose();
@@ -27,7 +49,7 @@ export const Modal = ({ onClose, children }) => {
   return createPortal(
     <Overlay onClick={handleBackDropClick}>
       <ModalWindow onClose={onClose}>
-        {/* <DailyCalorieIntake /> */}
+        {backResponse && <DailyCalorieIntake backResponse={backResponse} />}
         {children}
       </ModalWindow>
     </Overlay>,

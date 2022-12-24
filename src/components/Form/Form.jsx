@@ -1,13 +1,9 @@
 import React from 'react';
-// import { useState, useEffect } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import * as yup from 'yup';
-// import { apiCalorieIntake } from '../../services/api/api';
-// import { saveInSession, loadFromSession } from '../../services/session/storage';
 import { Box } from 'components/Box';
 import { ButtonForm } from './Form.styled';
-// import { useNavigate } from 'react-router-dom';
 import {
   ButtonWrapper,
   Checkbox,
@@ -18,6 +14,7 @@ import {
   List,
   Paragraph,
 } from './Form.styled';
+import { saveInStor } from 'services/local/storage';
 
 const schema = yup.object().shape({
   height: yup
@@ -47,50 +44,28 @@ const schema = yup.object().shape({
   bloodType: yup.string().required(),
 });
 
-export const WeightForm = ({ changeState, initialValues }) => {
-  // const [param, setParam] = useState([]);
+export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 554px)' });
-  // const navigate = useNavigate();
 
-  if (!initialValues) {
-    initialValues = {
-      height: '',
-      age: '',
-      currentWeight: '',
-      desiredWeight: '',
-      bloodType: '1',
-    };
-  }
-
-  const handleSubmit = (values, { resetForm }) => {
-    const params = { ...values };
-    schema.validate(params);
-    // setParam(params);
-    // saveInSession('params', params);
-    // resetForm();
-
-  //   if (!changeState) {
-  //     navigate('/diary');
-  //   }
+  const startValues = {
+    height: '',
+    age: '',
+    currentWeight: '',
+    desiredWeight: '',
+    bloodType: '1',
   };
 
-  // useEffect(() => {
-  //   const fetch = () => {
-  //     apiCalorieIntake(param)
-  //       .then(res => {
-  //         saveInSession('products', res);
-  //       })
-  //       .catch(error => {
-  //         console.log('error', error);
-  //       });
-  //   };
-  //   fetch();
-  // }, [param]);
-  // console.log('loadFromSession', loadFromSession('products'));
+  const handleSubmit = values => {
+    const params = { ...values };
+    schema.validate(params);
+    setUserParams(params);
+    saveInStor('params', params);
+  };
+
   return (
     <Box>
       <Formik
-        initialValues={initialValues}
+        initialValues={initialValues ? initialValues : startValues}
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
@@ -185,13 +160,7 @@ export const WeightForm = ({ changeState, initialValues }) => {
               </CheckboxContainer>
             </li>
           </List>
-          <ButtonWrapper
-            onClick={() =>
-              // setTimeout(() => {
-                changeState(true)
-              // }, 1000)
-            }
-          >
+          <ButtonWrapper onClick={() => openModal(true)}>
             <ButtonForm type="submit">Start losing weight</ButtonForm>
           </ButtonWrapper>
         </Form>
@@ -199,20 +168,3 @@ export const WeightForm = ({ changeState, initialValues }) => {
     </Box>
   );
 };
-// import axios from 'axios';
-// axios.defaults.baseURL = 'https://slimmom-oz0k.onrender.com';
-// axios
-//   .post('/api/products', param)
-//   .then(function (response) {
-//     // setProducts(response.data);
-
-//     saveInSession('products', response.data);
-//     console.log('response', response.data);
-//     console.log('loadFromSession products', loadFromSession('products'));
-//     console.log('response', response.data);
-//   })
-//   .catch(function (error) {
-//     // setError(error);
-//     console.log('error', error);
-//   });
-// // .finally(setLoading(false));

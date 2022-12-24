@@ -9,6 +9,7 @@ import { ThemeContext } from 'components/Context/Context';
 
 export const Home = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
+  const [userParams, setUserParams] = useState(null);
   const { isChristmas } = useContext(ThemeContext);
 
   const body = document.querySelector('body');
@@ -22,9 +23,14 @@ export const Home = () => {
     <WrapperWtithFruits>
       {isChristmas && <Snowfall />}
       <Box maxWidth={'1280px'} m={'0 auto'}>
-        {isModalOpened && <Modal onClose={onModalClose} />}
+        {isModalOpened && (
+          <Modal onClose={onModalClose} userParams={userParams} />
+        )}
         <H2>Calculate your daily calorie intake right now</H2>
-        <WeightForm changeState={setIsModalOpened} />
+        <WeightForm
+          openModal={setIsModalOpened}
+          setUserParams={setUserParams}
+        />
       </Box>
     </WrapperWtithFruits>
   );
