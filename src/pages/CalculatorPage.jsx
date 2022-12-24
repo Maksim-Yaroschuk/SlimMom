@@ -1,6 +1,6 @@
 import { Box } from 'components/Box';
 import { WeightForm } from 'components/Form/Form';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CalculatorPageWrapper,
   H2,
@@ -8,19 +8,40 @@ import {
 import { ThemeContext } from 'components/Context/Context';
 import { useContext } from 'react';
 import Snowfall from 'react-snowfall';
-import { getUserInfo } from 'redux/authSelectors';
-import { useSelector } from 'react-redux';
+// import { getUserInfo } from 'redux/authSelectors';
+// import { useSelector } from 'react-redux';
+import { loadFromStor } from 'services/local/storage';
+import Modal from 'components/Modal/Modal';
 
 const CalculatorPage = () => {
   const { isChristmas } = useContext(ThemeContext);
-  const userInfo = useSelector(getUserInfo)
+
+  // !==========================================
+  const [isModalOpened, setIsModalOpened] = useState(false);
+  const [userParams, setUserParams] = useState(null);
+  // const userInfo = useSelector(getUserInfo);
+  const info = loadFromStor('params');
+
+  const body = document.querySelector('body');
+
+  const onModalClose = () => {
+    setIsModalOpened(isModalOpened => !isModalOpened);
+    body.style.overflow = 'auto';
+  };
 
   return (
     <CalculatorPageWrapper>
       {isChristmas && <Snowfall />}
+      {isModalOpened && (
+        <Modal onClose={onModalClose} userParams={userParams} />
+      )}
       <Box maxWidth={'1280px'} m={'0 auto'}>
         <H2>Calculate your daily calorie intake right now</H2>
-        <WeightForm initialValues={userInfo}/>
+        <WeightForm
+          initialValues={info}
+          openModal={setIsModalOpened}
+          setUserParams={setUserParams}
+        />
       </Box>
     </CalculatorPageWrapper>
   );

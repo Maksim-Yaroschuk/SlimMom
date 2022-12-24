@@ -1,4 +1,6 @@
-import { loadFromSession } from '../../services/session/storage';
+// import { loadFromSession } from '../../services/session/storage';
+// import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   H1,
   H2,
@@ -10,14 +12,16 @@ import {
   ButtonForm,
 } from './DailyCalorieIntake.styled';
 
-const DailyCalorieIntake = ({ changeState }) => {
-  const response = loadFromSession('products');
-  const dailyRate = response.dailyRate;
-  const notAllowedProducts = response.notAllowedProducts;
+const DailyCalorieIntake = ({ backResponse }) => {
+  const navigate = useNavigate();
+  const dailyRate = backResponse.dailyRate;
+  const notAllowedProducts = backResponse.notAllowedProducts;
 
   const calories = {
     fontSize: 15,
   };
+
+  const location = useLocation();
   return (
     <ModalWrapper>
       <H2>
@@ -40,56 +44,12 @@ const DailyCalorieIntake = ({ changeState }) => {
           </LI>
         ))}
       </ul>
-      <ButtonWrapper onClick={() => changeState(true)}>
-        <ButtonForm type="button">Start losing weight</ButtonForm>
-      </ButtonWrapper>
+      {location.pathname !== '/calculator' && (
+        <ButtonWrapper onClick={() => navigate('/register')}>
+          <ButtonForm type="button">Start losing weight</ButtonForm>
+        </ButtonWrapper>
+      )}
     </ModalWrapper>
   );
 };
 export default DailyCalorieIntake;
-
-// import { apiCalorieIntake } from '../../services/api/api';
-// import axios from 'axios';
-// import { useState, useEffect } from 'react';
-
-// axios.defaults.baseURL = 'https://slimmom-oz0k.onrender.com';
-// const [products, setProducts] = useState({});
-// const [error, setError] = useState(null);
-// const [loading, setLoading] = useState(true);
-// const params = loadFromSession('params');
-// // console.log('paramsApi', params);
-// axios
-//   .post('/api/products', params)
-//   .then(function (response) {
-//     setProducts(response.data);
-
-//     saveInSession('products', response.data);
-//     console.log('response', response.data);
-//     console.log('loadFromSession products', loadFromSession('products'));
-//     console.log('response', response.data);
-//   })
-//   .catch(function (error) {
-//     setError(error);
-//     console.log('error', error);
-//   })
-//   .finally(setLoading(false));
-
-// useEffect(() => {
-// const fetch = () => {
-//   setLoading(true);
-//   apiCalorieIntake(params)
-//     .then(res => {
-//       setProducts(res);
-//       console.log('productsRes', products);
-//       saveInSession('products', res);
-//     })
-//     .catch(error => {
-//       setError('UPS, this is pipez');
-//     })
-//     .finally(setLoading(false));
-// };
-
-// fetch();
-// }); //, [params]
-// console.log('products1', products);
-// const response = products;
