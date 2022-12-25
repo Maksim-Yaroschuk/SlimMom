@@ -10,11 +10,9 @@ import { useMediaQuery } from 'react-responsive';
 import { Button } from 'components/DiaryPage/DiaryPage.styled';
 import AddIcon from '../images/svg/add.svg';
 import { Box } from 'components/Box';
-// import Modal from 'components/Modal/Modal';
 import { ThemeContext } from 'components/Context/Context';
 import { useContext } from 'react';
 import Snowfall from 'react-snowfall';
-
 
 const body = document.querySelector('body');
 
@@ -37,7 +35,6 @@ const DiaryPage = () => {
     <WrapperAll>
       {isChristmas && <Snowfall />}
       <Wrapper>
-        {/* <Box maxWidth={'1280px'} m={'0 auto'}> */}
         <DiaryDateCalendar />
         {!mobile && <DiaryAddProductForm />}
         <Box textAlign="center">
@@ -49,7 +46,6 @@ const DiaryPage = () => {
           )}
         </Box>
         {isModalOpened && <DiaryModal onClose={onModalClose} />}
-        {/* {isModalOpened && <Modal onClose={onModalClose} />} */}
       </Wrapper>
       <RightSideBar />
     </WrapperAll>

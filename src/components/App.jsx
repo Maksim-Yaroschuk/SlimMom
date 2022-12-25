@@ -12,7 +12,6 @@ import { PublicRoute } from './Routes/PublicRoute';
 import { ThemeProvider } from 'styled-components';
 import { theme, christmasTheme } from './Theme/Theme';
 import { ThemeContext } from './Context/Context';
-// import { ThemeContextProvider } from './Context/Context';
 
 const Login = lazy(() => import('../pages/LoginPage'));
 const Register = lazy(() => import('../pages/RegisterPage'));
