@@ -3,10 +3,14 @@ import { Wrapper, SummaryWrap, FoodWrap, Title, Item, Text } from './RightSideBa
 
 export const RightSideBar = () => {
 
-    const date = useSelector((state) => state.date);
+    const date = useSelector((state) => state.products.date);
     const dailyRate = useSelector((state) => state.auth.userInfo.dailyRate);
-
-    console.log(dailyRate);
+    const notAllowedProducts = useSelector((state) => state.auth.userInfo.notAllowedProducts);
+    const productsList = useSelector((state) => state.products.productsList);
+    const totalCalories = productsList.map(product => product.productCalories)
+        .reduce((prev, product) => { return Number.parseInt(prev) + Number.parseInt(product) }, 0);
+    const leftCalories = dailyRate - totalCalories;
+    const nOfNorm = (totalCalories / dailyRate) * 100;
 
     return (
         <Wrapper>
@@ -15,25 +19,34 @@ export const RightSideBar = () => {
                 <ul>
                     <Item>
                         <Text>Left</Text>
-                        <Text>000 kcal</Text>
+                        <Text>{leftCalories ? leftCalories : '000'} kcal</Text>
                     </Item>
                     <Item>
                         <Text>Consumed</Text>
-                        <Text>000 kcal</Text>
+                        <Text>{totalCalories ? totalCalories : '000'} kcal</Text>
                     </Item>
                     <Item>
                         <Text>Daily rate</Text>
-                        <Text>{dailyRate ? Number.parseInt(dailyRate) : '000'} kcal</Text>
+                        <Text>{dailyRate ? dailyRate : '000'} kcal</Text>
                     </Item>
                     <Item>
                         <Text>n% of normal</Text>
-                        <Text>000 kcal</Text>
+                        <Text>{nOfNorm ? Math.round(nOfNorm) : '000'} %</Text>
                     </Item>
                 </ul>
             </SummaryWrap>
             <FoodWrap>
                 <Title>Food not recommended</Title>
-                <Text>Your diet will be displayed here</Text>
+                {notAllowedProducts ? 
+                    <ul>
+                        {notAllowedProducts.map((prod, index) => (
+                            <Text key={index}>
+                                {index + 1}. {prod}
+                            </Text>
+                        ))}
+                    </ul> :
+                    <Text>Your diet will be displayed here</Text>
+                }
             </FoodWrap>
         </Wrapper>
     )

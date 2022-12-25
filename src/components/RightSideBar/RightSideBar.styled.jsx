@@ -17,23 +17,25 @@ export const Wrapper = styled.div`
   }
   @media (min-width: 1024px) and (max-width: 1120px) {
     background-color: transparent;
-    padding: 0;
+    padding: 0px;
     margin-right: 55px;
   }
   @media (min-width: 1121px) and (max-width: 1280px) {
     margin-right: 105px;
+    padding: 0px;
   }
   @media (min-width: 1280px) {
     margin-right: 105px;
+    padding: 0px;
   }
 `;
 
 export const SummaryWrap = styled.div`
-  /* width: 280px; */
+  width: 280px;
   margin: 0 auto;
   margin-bottom: 40px;
   @media (min-width: 768px) and (max-width: 1023px) {
-    /* width: 288px; */
+    width: 288px;
     margin: 0;
     margin-right: 80px;
   }
@@ -43,7 +45,7 @@ export const SummaryWrap = styled.div`
 `;
 
 export const FoodWrap = styled.div`
-  /* width: 280px; */
+  width: 280px;
   margin: 0 auto;
   @media (min-width: 768px) and (max-width: 1023px) {
     margin: 0;
