@@ -31,6 +31,7 @@ export const DiaryDateCalendar = () => {
         onChange={(date) => handleChange(date)} 
         dateFormat="dd.MM.yyyy"
         customInput={<ExampleCustomInput />}
+        maxDate={new Date()}
       />
     </div>
   )
