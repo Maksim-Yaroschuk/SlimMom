@@ -113,11 +113,13 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
                 type="productName"
                 placeholder="Enter product name"
                 name="productName"
+                autocomplete="off"
               />
               <GramsInput
                 type="productWeight"
                 placeholder="Grams"
                 name="productWeight"
+                autocomplete="off"
               />
               {mobile ? <Button type="submit">Add</Button> : <Button type="submit"><img src={AddIcon} alt="add product" /></Button>}
             </FormWrapper>
