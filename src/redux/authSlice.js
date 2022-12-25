@@ -16,6 +16,11 @@ const authSlice = createSlice({
       state.token = action.payload.data.token;
       state.isLogged = true;
     },
+    setUserGoogle: (state, action) => {
+      state.user.name = action.payload.name;
+      state.token = action.payload.token;
+      state.isLogged = true;
+    },
     setUser: (state, action) => {
       state.user.name = action.payload.data.name;
       state.token = action.payload.data.token;
@@ -36,7 +41,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { setCredentials, logOut, setCurrentUser, setUser } =
+export const { setCredentials, logOut, setCurrentUser, setUser, setUserGoogle } =
   authSlice.actions;
 
 export default authSlice.reducer;

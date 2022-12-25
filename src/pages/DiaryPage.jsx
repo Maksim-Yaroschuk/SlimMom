@@ -15,6 +15,7 @@ import { ThemeContext } from 'components/Context/Context';
 import { useContext } from 'react';
 import Snowfall from 'react-snowfall';
 
+
 const body = document.querySelector('body');
 
 const DiaryPage = () => {

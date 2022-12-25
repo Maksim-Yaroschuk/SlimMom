@@ -7,10 +7,15 @@ import Modal from 'components/Modal/Modal';
 import Snowfall from 'react-snowfall';
 import { ThemeContext } from 'components/Context/Context';
 
+import { setUserGoogle } from 'redux/authSlice';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react'
+
 export const Home = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [userParams, setUserParams] = useState(null);
   const { isChristmas } = useContext(ThemeContext);
+  const dispatch = useDispatch();
 
   const body = document.querySelector('body');
 
@@ -18,6 +23,28 @@ export const Home = () => {
     setIsModalOpened(isModalOpened => !isModalOpened);
     body.style.overflow = 'auto';
   };
+
+  useEffect(() => {
+    const queryStr = window
+    .location
+    .search
+    .replace('?','')
+    .split('&')
+    .reduce(
+        function(p,e){
+            var a = e.split('=');
+            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+            return p;
+        },
+        {}
+    );
+
+  if (!queryStr.name) {
+    return;
+  }
+
+  dispatch(setUserGoogle(queryStr));
+  }, [dispatch]);
 
   return (
     <WrapperWtithFruits>
