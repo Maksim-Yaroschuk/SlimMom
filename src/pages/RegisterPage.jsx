@@ -41,12 +41,11 @@ const initialValues = {
 const RegisterPage = () => {
   const { isChristmas } = useContext(ThemeContext);
   const location = useLocation();
-  const userDataForRegister = location.state.userDataForRegister;
+  const userDataForRegister = location.state?.userDataForRegister;
 
   const navigate = useNavigate();
   const [registerUser, { status }] = useRegisterUserMutation();
   const dispatch = useDispatch();
-  // !=============================================
   const [loginUser] = useLogInUserMutation();
 
   const handleSubmit = async (values, { resetForm }) => {
