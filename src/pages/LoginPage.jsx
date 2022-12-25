@@ -12,6 +12,7 @@ import {
   H2,
   Wrapper,
 } from '../components/RegisterPage/RegisterPage.styled';
+import { ButtonGoogle } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from 'components/RegisterPage/RegisterPage.styled';
 import { Loader } from 'components/Loader/Loader';
 import { ThemeContext } from 'components/Context/Context';
@@ -94,6 +95,9 @@ const LoginPage = () => {
                   Register
                 </Button>
               </div>
+              <ButtonGoogle href="https://slimmom-oz0k.onrender.com/api/auth/google-login">
+                log in Google
+              </ButtonGoogle>
             </ButtonWrapper>
           </Form>
         </Formik>

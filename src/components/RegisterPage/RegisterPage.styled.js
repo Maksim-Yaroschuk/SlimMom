@@ -193,3 +193,24 @@ export const WrapperWithFruits = styled.div`
     }
   }
 `;
+
+export const ButtonGoogle = styled.a`
+  text-decoration: none;
+  font-family: ${p => p.theme.fonts.body};
+  line-height: ${p => p.theme.lineHeights.body};
+  font-size: ${p => p.theme.fontSizes[0]};
+
+  border-radius: 30px;
+  border: ${p => p.theme.borders.btn};
+  color: ${p => p.theme.colors.orange};
+  min-width: 182px;
+  transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover,
+  &:focus {
+    background: ${p => p.theme.colors.hover};
+    color: ${p => p.theme.colors.white};
+  }
+`;
