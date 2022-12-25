@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { apiCalorieIntake } from 'services/api/api';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
-import { Overlay, ModalWindow,  CloseArrow, ButtonClose } from './Modal.styled';
+import { Overlay, ModalWindow, CloseArrow, ButtonClose } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -49,10 +49,15 @@ export const Modal = ({ onClose, children, userParams }) => {
   return createPortal(
     <Overlay onClick={handleBackDropClick}>
       <ModalWindow onClose={onClose}>
-        {backResponse && <DailyCalorieIntake backResponse={backResponse} />}
+        {backResponse && (
+          <DailyCalorieIntake
+            backResponse={backResponse}
+            userParams={userParams}
+          />
+        )}
         {children}
         <ButtonClose type="button" onClick={onClose}></ButtonClose>
-        <CloseArrow color="black" size="20px" left="20px"  onClick={onClose} />
+        <CloseArrow color="black" size="20px" left="20px" onClick={onClose} />
       </ModalWindow>
     </Overlay>,
     modalRoot
