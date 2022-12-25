@@ -161,6 +161,9 @@ export const SearchBox = styled.ul`
   &.visible {
     display: block;
   }
+  @media(max-width: 425px) {
+    top: 40px;
+  }
 `;
 
 export const SearchItem = styled.li`

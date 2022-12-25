@@ -2,7 +2,7 @@ import { createPortal } from "react-dom"
 import { useEffect } from "react"
 import { Overlay } from "./DiaryModal.styled"
 import { DiaryAddProductForm } from "components/DiaryAddProductForm/DiaryAddProductForm"
-import { ModalWrapper } from "./DiaryModal.styled"
+import { BackBtn } from "./DiaryModal.styled"
 
 const modalRoot = document.querySelector('#modal-root')
 
@@ -25,10 +25,10 @@ const handleKeyDown = (e) => {
 
   return createPortal(
     <Overlay>
-        <ModalWrapper>
-            <button onClick={() => onClose()}>x</button>
+        <div>
+            <BackBtn onClick={() => onClose()}>←</BackBtn>
             <DiaryAddProductForm onClose={onClose} />
-        </ModalWrapper>
+        </div>
     </Overlay>, 
     modalRoot
   )
