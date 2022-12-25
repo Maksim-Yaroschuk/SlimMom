@@ -12,3 +12,10 @@ export const List = styled.ul`
     height: 244px;
   }
 ` 
+
+export const NoProductsContainer = styled.div`
+  & p {
+    font-size: ${p => p.theme.fontSizes[1]};
+    font-family: ${p => p.theme.fonts.body};
+  }
+`
