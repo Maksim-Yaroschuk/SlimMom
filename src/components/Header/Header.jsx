@@ -58,7 +58,7 @@ export const Header = () => {
             {isTablet && <BottomSection name={userName} />}
             {isDesktop && (
               <>
-                <Menu />
+                <Menu setOpenNavigation={setOpenNavigation} />
                 <BottomSection name={userName} />
               </>
             )}
@@ -85,7 +85,9 @@ export const Header = () => {
                     }}
                   />
                 )}
-                {openNavigation && <Menu />}
+                {openNavigation && (
+                  <Menu setOpenNavigation={setOpenNavigation} />
+                )}
               </>
             )}
           </>

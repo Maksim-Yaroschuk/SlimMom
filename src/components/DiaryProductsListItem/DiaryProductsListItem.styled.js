@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
   font-size: ${p => p.theme.fontSizes[0]};
+  color: ${p => p.theme.colors.black};
 
   @media (min-width: 426px) and (max-width: 1023px) {
     padding-right: 40px;
@@ -22,12 +23,10 @@ export const Item = styled.li`
     @media (min-width: 426px) and (max-width: 1023px) {
       width: 240px;
       padding: 20px 0;
-
     }
     @media (min-width: 1024px) {
       width: 240px;
       padding: 20px 0;
-  
     }
   }
 
@@ -42,12 +41,10 @@ export const Item = styled.li`
     @media (min-width: 426px) and (max-width: 1023px) {
       width: 107px;
       padding: 20px 0;
-
     }
     @media (min-width: 1024px) {
       width: 107px;
       padding: 20px 0;
-
     }
   }
 
@@ -61,28 +58,26 @@ export const Item = styled.li`
     @media (min-width: 426px) and (max-width: 1023px) {
       width: 107px;
       padding: 20px 0;
-
     }
     @media (min-width: 1024px) {
       width: 107px;
       padding: 20px 0;
-
     }
 
     & span {
       font-size: 10px;
     }
   }
-`
+`;
 
 export const Icon = styled.img`
   cursor: pointer;
   margin-left: 15px;
 
-    @media (min-width: 426px) and (max-width: 1023px) {
-      margin-left: 30px;
-    }
-    @media (min-width: 1024px) {
-      margin-left: 30px;
-    }
-`
+  @media (min-width: 426px) and (max-width: 1023px) {
+    margin-left: 30px;
+  }
+  @media (min-width: 1024px) {
+    margin-left: 30px;
+  }
+`;

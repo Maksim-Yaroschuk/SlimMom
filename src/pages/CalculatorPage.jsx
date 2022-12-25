@@ -8,19 +8,16 @@ import {
 import { ThemeContext } from 'components/Context/Context';
 import { useContext } from 'react';
 import Snowfall from 'react-snowfall';
-// import { getUserInfo } from 'redux/authSelectors';
-// import { useSelector } from 'react-redux';
-import { loadFromStor } from 'services/local/storage';
+import { getUserInfo } from 'redux/authSelectors';
+import { useSelector } from 'react-redux';
 import Modal from 'components/Modal/Modal';
 
 const CalculatorPage = () => {
   const { isChristmas } = useContext(ThemeContext);
 
-  // !==========================================
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [userParams, setUserParams] = useState(null);
-  // const userInfo = useSelector(getUserInfo);
-  const info = loadFromStor('params');
+  const info = useSelector(getUserInfo);
 
   const body = document.querySelector('body');
 
