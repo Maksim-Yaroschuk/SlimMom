@@ -1,3 +1,4 @@
+import { CloseArrow, ButtonClose } from './Modal.styled';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 // import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
@@ -29,6 +30,8 @@ export const Modal = ({ onClose, children }) => {
       <ModalWindow onClose={onClose}>
         {/* <DailyCalorieIntake /> */}
         {children}
+        <ButtonClose type="button" onClick={onClose}></ButtonClose>
+        <CloseArrow color="black" size="20px" left="20px"  onClick={onClose} />
       </ModalWindow>
     </Overlay>,
     modalRoot

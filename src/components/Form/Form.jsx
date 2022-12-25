@@ -65,6 +65,7 @@ export const WeightForm = ({ changeState, initialValues }) => {
   const handleSubmit = (values, { resetForm }) => {
     const params = { ...values };
     schema.validate(params);
+
     // setParam(params);
     // saveInSession('params', params);
     // resetForm();
@@ -109,7 +110,7 @@ export const WeightForm = ({ changeState, initialValues }) => {
               }
             >
               <label>
-                <Input type="height" name="height" placeholder="Height, cm *" />
+                <Input type="height" name="height" placeholder="Height, cm *" required/>
                 <ErrorMessage name="height" component={Error} />
               </label>
             </li>
@@ -127,7 +128,7 @@ export const WeightForm = ({ changeState, initialValues }) => {
               }
             >
               <label>
-                <Input type="age" name="age" placeholder="Age *" />
+                <Input type="age" name="age" placeholder="Age *" required/>
                 <ErrorMessage name="age" component={Error} />
               </label>
             </li>
@@ -151,6 +152,7 @@ export const WeightForm = ({ changeState, initialValues }) => {
                   type="currentWeight"
                   name="currentWeight"
                   placeholder="Current weight, kg *"
+                  required
                 />
                 <ErrorMessage name="currentWeight" component={Error} />
               </label>
@@ -162,6 +164,7 @@ export const WeightForm = ({ changeState, initialValues }) => {
                   type="desiredWeight"
                   name="desiredWeight"
                   placeholder="Desired weight, kg *"
+                  required
                 />
                 <ErrorMessage name="desiredWeight" component={Error} />
               </label>
