@@ -73,3 +73,11 @@ export const Text = styled.p`
   letter-spacing: 0.04em;
   color: #9b9faa;
 `;
+
+export const RedText = styled.p`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #fd0000;
+`;

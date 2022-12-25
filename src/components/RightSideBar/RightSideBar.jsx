@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Wrapper, SummaryWrap, FoodWrap, Title, Item, Text } from './RightSideBar.styled';
+import { Wrapper, SummaryWrap, FoodWrap, Title, Item, Text, RedText } from './RightSideBar.styled';
 
 export const RightSideBar = () => {
 
@@ -19,7 +19,10 @@ export const RightSideBar = () => {
                 <ul>
                     <Item>
                         <Text>Left</Text>
-                        <Text>{leftCalories ? leftCalories : '000'} kcal</Text>
+                        {leftCalories < 0 ?
+                            <RedText>{leftCalories} kcal</RedText> :
+                            <Text>{leftCalories} kcal</Text> 
+                        }
                     </Item>
                     <Item>
                         <Text>Consumed</Text>
@@ -31,7 +34,11 @@ export const RightSideBar = () => {
                     </Item>
                     <Item>
                         <Text>n% of normal</Text>
-                        <Text>{nOfNorm ? Math.round(nOfNorm) : '000'} %</Text>
+                        {/* <Text>{nOfNorm ? Math.round(nOfNorm) : '000'} %</Text> */}
+                        {nOfNorm > 100 ?
+                            <RedText>{Math.round(nOfNorm)} %</RedText> :
+                            <Text>{Math.round(nOfNorm)} %</Text> 
+                        }
                     </Item>
                 </ul>
             </SummaryWrap>
