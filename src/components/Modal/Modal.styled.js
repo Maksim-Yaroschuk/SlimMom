@@ -49,8 +49,13 @@ export const ButtonClose = styled(MdClose)`
   height: 20px;
   padding: 0;
   z-index: 10;
+  &:hover,
+  :focus {
+    color: ${p => p.theme.colors.hover};
+  }
   @media screen and (max-width: 767px) {
     display: none;
+
   }
 `
 
@@ -58,6 +63,10 @@ export const CloseArrow = styled(FiCornerDownLeft)`
   position: absolute;
   top: -30px;
   left: 20px;
+  &:hover,
+  :focus {
+    color: ${p => p.theme.colors.hover};
+  }
   @media only screen and (min-width: 767px) {
     display: none;
     visibility: hidden;
