@@ -10,16 +10,17 @@ import {
   ButtonForm,
 } from './DailyCalorieIntake.styled';
 
-const DailyCalorieIntake = ({ backResponse }) => {
+const DailyCalorieIntake = ({ backResponse, userParams }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const dailyRate = backResponse.dailyRate;
   const notAllowedProducts = backResponse.notAllowedProducts;
+  const userDataForRegister = { ...userParams, ...backResponse };
 
   const calories = {
     fontSize: 15,
   };
 
-  const location = useLocation();
   return (
     <ModalWrapper>
       <H2>
@@ -43,7 +44,11 @@ const DailyCalorieIntake = ({ backResponse }) => {
         ))}
       </ul>
       {location.pathname !== '/calculator' && (
-        <ButtonWrapper onClick={() => navigate('/register')}>
+        <ButtonWrapper
+          onClick={() =>
+            navigate('/register', { state: { userDataForRegister } })
+          }
+        >
           <ButtonForm type="button">Start losing weight</ButtonForm>
         </ButtonWrapper>
       )}

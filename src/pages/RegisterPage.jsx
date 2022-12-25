@@ -3,7 +3,7 @@ import { Formik, ErrorMessage, Form } from 'formik';
 import * as yup from 'yup';
 import { Error, Input, List } from 'components/Form/Form.styled';
 import { Button } from 'components/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useLogInUserMutation, useRegisterUserMutation } from 'redux/auth';
 import { useDispatch } from 'react-redux';
 import { setCredentials, setUser } from 'redux/authSlice';
@@ -40,6 +40,8 @@ const initialValues = {
 
 const RegisterPage = () => {
   const { isChristmas } = useContext(ThemeContext);
+  const location = useLocation();
+  const userDataForRegister = location.state.userDataForRegister;
 
   const navigate = useNavigate();
   const [registerUser, { status }] = useRegisterUserMutation();
@@ -48,7 +50,8 @@ const RegisterPage = () => {
   const [loginUser] = useLogInUserMutation();
 
   const handleSubmit = async (values, { resetForm }) => {
-    const user = await registerUser(values).unwrap();
+    const userDataForRegisterAll = { ...values, ...userDataForRegister };
+    const user = await registerUser(userDataForRegisterAll).unwrap();
     const loginValues = { ...values };
     delete loginValues.name;
     const userLogin = await loginUser(loginValues).unwrap();

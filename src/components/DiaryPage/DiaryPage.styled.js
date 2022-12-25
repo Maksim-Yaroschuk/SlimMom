@@ -229,7 +229,7 @@ export const WrapperAll = styled.div`
   @media (min-width: 1024px) and (max-width: 1120px) {
     padding: 300px 16px 55px 16px;
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: space-between;
     background-image: url(${leaves}), url(${SideBarBgDesk});
     background-repeat: no-repeat, no-repeat;
@@ -238,7 +238,7 @@ export const WrapperAll = styled.div`
   }
   @media (min-width: 1121px) and (max-width: 1280px) {
     margin: 0 auto;
-    height: 100vh;
+    /* height: 100vh; */
     padding: 300px 16px 55px 16px;
     display: flex;
     justify-content: space-between;
@@ -251,7 +251,7 @@ export const WrapperAll = styled.div`
     margin: 0 auto;
     padding: 300px 16px 55px 16px;
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: space-between;
     background-image: url(${leaves}), url(${SideBarBgDesk});
     background-repeat: no-repeat, no-repeat;
