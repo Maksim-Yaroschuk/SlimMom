@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { apiCalorieIntake } from 'services/api/api';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
-import { Overlay, ModalWindow } from './Modal.styled';
+import { Overlay, ModalWindow,  CloseArrow, ButtonClose } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 

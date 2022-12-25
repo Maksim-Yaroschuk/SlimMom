@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { MdClose } from 'react-icons/md';
+import { FiCornerDownLeft } from 'react-icons/fi';
 
 export const Overlay = styled.div`
   position: fixed;
@@ -25,7 +27,7 @@ export const ModalWindow = styled.div`
   width: 100vw;
   height: 100vh;
   @media screen and (max-width: 767px) {
-    top: 485px;
+    top: 435px;
     border-radius: 0px;
     box-shadow: none;
   }
@@ -38,3 +40,26 @@ export const ModalWindow = styled.div`
   }
 `;
 
+export const ButtonClose = styled(MdClose)`
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  z-index: 10;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+`
+
+export const CloseArrow = styled(FiCornerDownLeft)`
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  @media only screen and (min-width: 767px) {
+    display: none;
+    visibility: hidden;
+  }
+`;
