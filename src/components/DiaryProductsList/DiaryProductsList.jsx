@@ -1,16 +1,14 @@
 import axios from "axios"
 import { DiaryProductsListItem } from "components/DiaryProductsListItem/DiaryProductsListItem"
-// import moment from "moment/moment"
 import { useEffect } from "react"
-// import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getToken } from "redux/authSelectors"
 import { getProducts, selectDate } from "redux/productsSelectors"
 import { setProducts } from "redux/productsSlice"
-import { List } from "./DiaryProductsList.styled"
+import { List, NoProductsContainer } from "./DiaryProductsList.styled"
+import arrowUp from "../../images/diary-page/arrow-up.png"
 
 export const DiaryProductsList = () => {
-  // const [products, setProducts] = useState([])
   const token = useSelector(getToken)
   const date = useSelector(selectDate)
   const dispatch = useDispatch()
@@ -41,9 +39,12 @@ export const DiaryProductsList = () => {
 
   return (
     <List>
-      {products.length !== 0 && products.map((product) => {
+      {products.length !== 0 ? products.map((product) => {
         return <DiaryProductsListItem key={product._id} id={product._id} name={product.productName} grams={product.productWeight} calories={product.productCalories} />
-      })}
+      }) : <NoProductsContainer>
+          <img src={arrowUp} alt="arrow up" width="64px"/>
+          <p>Let's add some products!</p>
+        </NoProductsContainer>}
     </List>
   )
 }
