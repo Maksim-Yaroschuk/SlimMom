@@ -1,7 +1,11 @@
 import { Box } from 'components/Box';
 import { WeightForm } from 'components/Form/Form';
 import React, { useState } from 'react';
-import { CalculatorPageWrapper, H2, WrapperAll } from 'components/CalculatorPage/CalculatorPage.styled';
+import {
+  CalculatorPageWrapper,
+  H2,
+  WrapperAll,
+} from 'components/CalculatorPage/CalculatorPage.styled';
 import { ThemeContext } from 'components/Context/Context';
 import { useContext } from 'react';
 import Snowfall from 'react-snowfall';
@@ -15,8 +19,13 @@ const CalculatorPage = () => {
 
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [userParams, setUserParams] = useState(null);
+  console.log('userParams', userParams);
   const info = useSelector(getUserInfo);
-
+  const userInfo = { ...info };
+  delete userInfo.dailyRate;
+  delete userInfo.notAllowedProducts;
+  delete userInfo.notAllowedProductsAll;
+  // console.log(a);
   const body = document.querySelector('body');
 
   const onModalClose = () => {
@@ -34,7 +43,7 @@ const CalculatorPage = () => {
         <Box maxWidth={'1280px'} m={'0 auto'}>
           <H2>Calculate your daily calorie intake right now</H2>
           <WeightForm
-            initialValues={info}
+            initialValues={userInfo}
             openModal={setIsModalOpened}
             setUserParams={setUserParams}
           />
