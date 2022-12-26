@@ -203,7 +203,8 @@ export const ButtonGoogle = styled.a`
   border-radius: 30px;
   border: ${p => p.theme.borders.btn};
   color: ${p => p.theme.colors.orange};
-  min-width: 182px;
+  width: 182px;
+  height: 44px;
   transition: background 250ms cubic-bezier(0.42, 0, 1, 1);
   display: flex;
   align-items: center;

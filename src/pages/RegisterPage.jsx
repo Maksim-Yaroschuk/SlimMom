@@ -42,6 +42,7 @@ const RegisterPage = () => {
   const { isChristmas } = useContext(ThemeContext);
   const location = useLocation();
   const userDataForRegister = location.state?.userDataForRegister;
+  localStorage.setItem('params', JSON.stringify(userDataForRegister));
 
   const navigate = useNavigate();
   const [registerUser, { status }] = useRegisterUserMutation();
