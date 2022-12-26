@@ -13,6 +13,8 @@ import { ThemeProvider } from 'styled-components';
 import { theme, christmasTheme } from './Theme/Theme';
 import { ThemeContext } from './Context/Context';
 
+// import "./i18n"
+
 const Login = lazy(() => import('../pages/LoginPage'));
 const Register = lazy(() => import('../pages/RegisterPage'));
 const Diary = lazy(() => import('../pages/DiaryPage'));
