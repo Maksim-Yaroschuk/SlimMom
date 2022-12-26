@@ -8,10 +8,11 @@ import { setProducts } from 'redux/productsSlice';
 import { List, NoProductsContainer } from './DiaryProductsList.styled';
 import { ThemeContext } from 'components/Context/Context';
 import { HiArrowUp } from 'react-icons/hi';
+import { useMediaQuery } from 'react-responsive';
 
 export const DiaryProductsList = () => {
   const { isChristmas } = useContext(ThemeContext);
-
+  const mobile = useMediaQuery({ query: '(max-width: 426px)' });
   const token = useSelector(getToken);
   const date = useSelector(selectDate);
   const dispatch = useDispatch();
@@ -60,13 +61,13 @@ export const DiaryProductsList = () => {
         })
       ) : (
         <NoProductsContainer>
-          <HiArrowUp
+          {!mobile && <HiArrowUp
             style={{
               width: '64px',
               height: '64px',
               color: `${isChristmas ? '#9B9FAA' : 'black'}`,
             }}
-          />
+          />}
           <p
             style={{
               color: `${isChristmas ? '#9B9FAA' : 'black'}`,
@@ -74,6 +75,13 @@ export const DiaryProductsList = () => {
           >
             Let's add some products!
           </p>
+          {mobile && <HiArrowUp
+            style={{
+              width: '64px',
+              height: '64px',
+              color: `${isChristmas ? '#9B9FAA' : 'black'}`,
+            }}
+          />}
         </NoProductsContainer>
       )}
     </List>

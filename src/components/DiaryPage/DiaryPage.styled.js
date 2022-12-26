@@ -93,5 +93,5 @@ export const Button = styled.button`
   background: ${p => p.theme.colors.orange};
   cursor: pointer;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  margin-top: 60px;
+  margin-top: 40px;
 `;
