@@ -14,6 +14,7 @@ export const Modal = ({ onClose, children, userParams }) => {
     if (!userParams) {
       return;
     }
+
     const fetchData = async () => {
       const data = await apiCalorieIntake(userParams);
       if (data) {
