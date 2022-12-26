@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/SlimMom/static/css/main.32d2a96c.css",
-    "main.js": "/SlimMom/static/js/main.2f07b893.js",
+    "main.js": "/SlimMom/static/js/main.f7dd33d8.js",
     "static/js/637.166ba1c7.chunk.js": "/SlimMom/static/js/637.166ba1c7.chunk.js",
     "static/js/432.89fc0cde.chunk.js": "/SlimMom/static/js/432.89fc0cde.chunk.js",
-    "static/js/503.ddcc1b89.chunk.js": "/SlimMom/static/js/503.ddcc1b89.chunk.js",
+    "static/js/503.bb9a48b3.chunk.js": "/SlimMom/static/js/503.bb9a48b3.chunk.js",
     "static/js/864.2df7e7f6.chunk.js": "/SlimMom/static/js/864.2df7e7f6.chunk.js",
     "static/js/805.f316252a.chunk.js": "/SlimMom/static/js/805.f316252a.chunk.js",
     "static/css/444.fe5a221e.chunk.css": "/SlimMom/static/css/444.fe5a221e.chunk.css",
@@ -28,10 +28,10 @@
     "static/media/cross.svg": "/SlimMom/static/media/cross.8cdb920ca8331504fc3379915d48c780.svg",
     "static/media/add.svg": "/SlimMom/static/media/add.abbad4ece4830b88ccd984afbf9c2a1f.svg",
     "main.32d2a96c.css.map": "/SlimMom/static/css/main.32d2a96c.css.map",
-    "main.2f07b893.js.map": "/SlimMom/static/js/main.2f07b893.js.map",
+    "main.f7dd33d8.js.map": "/SlimMom/static/js/main.f7dd33d8.js.map",
     "637.166ba1c7.chunk.js.map": "/SlimMom/static/js/637.166ba1c7.chunk.js.map",
     "432.89fc0cde.chunk.js.map": "/SlimMom/static/js/432.89fc0cde.chunk.js.map",
-    "503.ddcc1b89.chunk.js.map": "/SlimMom/static/js/503.ddcc1b89.chunk.js.map",
+    "503.bb9a48b3.chunk.js.map": "/SlimMom/static/js/503.bb9a48b3.chunk.js.map",
     "864.2df7e7f6.chunk.js.map": "/SlimMom/static/js/864.2df7e7f6.chunk.js.map",
     "805.f316252a.chunk.js.map": "/SlimMom/static/js/805.f316252a.chunk.js.map",
     "444.fe5a221e.chunk.css.map": "/SlimMom/static/css/444.fe5a221e.chunk.css.map",
@@ -39,6 +39,6 @@
   },
   "entrypoints": [
     "static/css/main.32d2a96c.css",
-    "static/js/main.2f07b893.js"
+    "static/js/main.f7dd33d8.js"
   ]
 }
