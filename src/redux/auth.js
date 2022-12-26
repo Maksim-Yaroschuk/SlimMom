@@ -4,6 +4,7 @@ export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://slimmom-oz0k.onrender.com/api',
+    // baseUrl: 'http://localhost:3001/api',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -44,6 +45,14 @@ export const authApi = createApi({
     getUser: builder.query({
       query: a => `/users/current${a}`,
     }),
+
+    updateGoogleUser: builder.mutation({
+      query: user => ({
+        url: `/auth/update/user`,
+        method: 'POST',
+        body: user,
+      }),
+    }),
   }),
 });
 
@@ -52,4 +61,5 @@ export const {
   useLogInUserMutation,
   useLogOutUserMutation,
   useGetUserQuery,
+  useUpdateGoogleUserMutation,
 } = authApi;
