@@ -43,10 +43,11 @@ export const Home = () => {
 
     const paramsLocalStorage = JSON.parse(localStorage.getItem('params'));
 
-    if (!paramsLocalStorage) {
-      dispatch(setUserGoogle(queryStr));
-      return;
-    }
+    // if (!paramsLocalStorage) {
+    //   dispatch(setUserGoogle(queryStr));
+    //   return;
+    // }
+    console.log(paramsLocalStorage);
 
     if (!queryStr.userid) {
       dispatch(setUserGoogle(queryStr));
