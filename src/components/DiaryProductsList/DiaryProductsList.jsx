@@ -21,7 +21,7 @@ export const DiaryProductsList = () => {
     const getProducts = async () => {
       try {
         const res = await axios.post(
-          `https://slimmom-oz0k.onrender.com/api/myProducts/`,
+          `https://slimmom-oz0k.onrender.com/api/myProducts/listMyProduct`,
           {
             date: date,
           },

@@ -62,7 +62,7 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
         Authorization: `Bearer ${token}` 
       },
       })
-      const res = await axios.post(`https://slimmom-oz0k.onrender.com/api/myProducts/`, {
+      const res = await axios.post(`https://slimmom-oz0k.onrender.com/api/myProducts/listMyProduct`, {
          "date": date 
         }, {
         headers: {

@@ -20,7 +20,7 @@ export const DiaryProductsListItem = ({id, name, grams, calories}) => {
           date
         }
       })
-      const res = await axios.post(`https://slimmom-oz0k.onrender.com/api/myProducts/`, {
+      const res = await axios.post(`https://slimmom-oz0k.onrender.com/api/myProducts/listMyProduct`, {
          "date": date 
         }, {
         headers: {
