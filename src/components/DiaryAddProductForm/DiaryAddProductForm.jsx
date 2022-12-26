@@ -1,7 +1,7 @@
 import { Box } from 'components/Box';
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 import * as yup from 'yup';
 import {
   NameInput,
@@ -9,7 +9,9 @@ import {
   Button,
   FormWrapper,
   SearchBox,
-  SearchItem
+  SearchItem,
+  NameError,
+  GramsError
 } from './DiaryAddProductForm.styled';
 import AddIcon from "../../images/svg/add.svg"
 import axios from 'axios';
@@ -115,12 +117,14 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
                 name="productName"
                 autoComplete="off"
               />
+              <ErrorMessage name='productName' component={NameError} />
               <GramsInput
                 type="productWeight"
                 placeholder="Grams"
                 name="productWeight"
                 autoComplete="off"
               />
+              <ErrorMessage name='productWeight' component={GramsError} />
               {mobile ? <Button type="submit">Add</Button> : <Button type="submit"><img src={AddIcon} alt="add product" /></Button>}
             </FormWrapper>
             <SearchBox className={visible ? "visible" : null}>

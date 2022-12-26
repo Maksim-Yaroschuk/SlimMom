@@ -17,5 +17,14 @@ export const NoProductsContainer = styled.div`
   & p {
     font-size: ${p => p.theme.fontSizes[1]};
     font-family: ${p => p.theme.fonts.body};
+    @media(max-width: 425px) {
+      padding: 20px 0 30px;
+    }
+  }
+
+  & svg {
+    @media(max-width: 425px) {
+      transform: rotate(180deg);
+    }
   }
 `
