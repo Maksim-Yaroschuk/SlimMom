@@ -14,12 +14,12 @@ import {
   GramsError
 } from './DiaryAddProductForm.styled';
 import AddIcon from "../../images/svg/add.svg"
-import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getToken } from 'redux/authSelectors';
 import { selectDate } from 'redux/productsSelectors';
 import { setProducts } from 'redux/productsSlice';
+import { apiAddMyProduct, apiGetSearchProducts } from 'services/api/api';
 
 const schema = yup.object().shape({
   productName: yup.string().required(),
@@ -40,36 +40,19 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
 
   const search = async (value) => {
     try {
-      const res = await axios(`https://slimmom-oz0k.onrender.com/api/products/searchProducts?title=${value}`)
-      const result = await res.data.data
+      const result = await apiGetSearchProducts(value)
       setSearchProducts(result)
     } catch (error) {
       setSearchProducts([])
     }
   }
 
-
   const handleSubmit = async (values, { resetForm }) => {
     schema.validate(values)
     const {productName, productWeight} = values
+    const body = {productName, productWeight, date}
     try {
-      await axios.post(`https://slimmom-oz0k.onrender.com/api/myProducts/addProduct`, {
-        productName,
-        productWeight,
-        date
-      }, {
-      headers: {
-        Authorization: `Bearer ${token}` 
-      },
-      })
-      const res = await axios.post(`https://slimmom-oz0k.onrender.com/api/myProducts/listMyProduct`, {
-         "date": date 
-        }, {
-        headers: {
-          Authorization: `Bearer ${token}` 
-        },
-      })
-      const result = await res.data.productList
+      const result = await apiAddMyProduct(body, token, date)
       if(result.length>0) {
         dispatch(setProducts(result[0].productInfo))
       } else {
