@@ -21,6 +21,7 @@ const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const App = () => {
   const { isChristmas } = useContext(ThemeContext);
+  const dailyRate = useSelector(state => state.auth.userInfo.dailyRate);
 
   const dispatch = useDispatch();
   const token = useSelector(getToken);
@@ -32,8 +33,12 @@ export const App = () => {
     if (!data) {
       return;
     }
+    if (dailyRate) {
+      return;
+    }
+
     dispatch(setCurrentUser(data));
-  }, [data, dispatch]);
+  }, [dailyRate, data, dispatch]);
 
   return (
     <ThemeProvider theme={isChristmas ? christmasTheme : theme}>
