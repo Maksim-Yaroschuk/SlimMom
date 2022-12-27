@@ -11,6 +11,9 @@ export const List = styled.ul`
     overflow-y: scroll;
     height: 244px;
   }
+  &.hidden {
+    overflow: hidden;
+  }
 ` 
 
 export const NoProductsContainer = styled.div`

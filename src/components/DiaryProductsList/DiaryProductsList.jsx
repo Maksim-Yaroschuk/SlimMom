@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { DiaryProductsListItem } from 'components/DiaryProductsListItem/DiaryProductsListItem';
 import { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +8,7 @@ import { List, NoProductsContainer } from './DiaryProductsList.styled';
 import { ThemeContext } from 'components/Context/Context';
 import { HiArrowUp } from 'react-icons/hi';
 import { useMediaQuery } from 'react-responsive';
+import { apiListMyProducts } from 'services/api/api';
 
 export const DiaryProductsList = () => {
   const { isChristmas } = useContext(ThemeContext);
@@ -20,19 +20,7 @@ export const DiaryProductsList = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.post(
-          `https://slimmom-oz0k.onrender.com/api/myProducts/listMyProduct`,
-          {
-            date: date,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        const result = await res.data.productList;
+        const result = await apiListMyProducts(date, token)
         if (result.length > 0) {
           dispatch(setProducts(result[0].productInfo));
         } else {
@@ -46,7 +34,7 @@ export const DiaryProductsList = () => {
   }, [date, dispatch, token]);
 
   return (
-    <List>
+    <List className={products.length !== 0 ? null : "hidden"}>
       {products.length !== 0 ? (
         products.map(product => {
           return (
