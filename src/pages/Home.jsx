@@ -7,15 +7,18 @@ import Modal from 'components/Modal/Modal';
 import Snowfall from 'react-snowfall';
 import { ThemeContext } from 'components/Context/Context';
 
-import { setUserGoogle } from 'redux/authSlice';
+import { setUserGoogle, setInfoUser } from 'redux/authSlice';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import { useUpdateGoogleUserMutation } from '../redux/auth';
 
 export const Home = () => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [userParams, setUserParams] = useState(null);
   const { isChristmas } = useContext(ThemeContext);
   const dispatch = useDispatch();
+
+  const [updateGoogleUser] = useUpdateGoogleUserMutation();
 
   const body = document.querySelector('body');
 
@@ -25,26 +28,45 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    const queryStr = window
-    .location
-    .search
-    .replace('?','')
-    .split('&')
-    .reduce(
-        function(p,e){
-            var a = e.split('=');
-            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
-            return p;
-        },
-        {}
-    );
+    const queryStr = window.location.search
+      .replace('?', '')
+      .split('&')
+      .reduce(function (p, e) {
+        var a = e.split('=');
+        p[decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+        return p;
+      }, {});
 
-  if (!queryStr.name) {
-    return;
-  }
+    if (!queryStr.name) {
+      return;
+    }
 
-  dispatch(setUserGoogle(queryStr));
-  }, [dispatch]);
+    const paramsLocalStorage = JSON.parse(localStorage.getItem('params'));
+
+    // if (!paramsLocalStorage) {
+    //   dispatch(setUserGoogle(queryStr));
+    //   return;
+    // }
+    console.log(paramsLocalStorage);
+
+    if (!queryStr.userid) {
+      dispatch(setUserGoogle(queryStr));
+      return;
+    }
+
+    const newUser = {
+      ...queryStr,
+      ...paramsLocalStorage,
+    };
+    delete newUser.name;
+    delete newUser.token;
+    delete newUser.email;
+
+    updateGoogleUser(newUser).unwrap();
+
+    dispatch(setInfoUser(paramsLocalStorage));
+    dispatch(setUserGoogle(queryStr));
+  }, [dispatch, updateGoogleUser]);
 
   return (
     <WrapperWtithFruits>
