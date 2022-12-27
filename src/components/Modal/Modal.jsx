@@ -32,13 +32,17 @@ export const Modal = ({ onClose, children, userParams }) => {
 
   useEffect(() => {
     const handleKeyDown = e => {
-      if (e.code === 'Escape') onClose();
+      if (e.code === 'Escape');
+      onClose();
     };
 
     window.addEventListener('keydown', handleKeyDown);
+    const body = document.querySelector('body');
+    body.style.overflow = 'hidden';
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      body.style.overflow = 'auto';
     };
   }, [onClose]);
 

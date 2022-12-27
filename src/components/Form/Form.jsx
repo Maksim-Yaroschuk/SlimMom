@@ -16,6 +16,8 @@ import {
 } from './Form.styled';
 import { saveInStor } from 'services/local/storage';
 
+
+
 const schema = yup.object().shape({
   height: yup
     .number('Height is use only number')
@@ -43,7 +45,6 @@ const schema = yup.object().shape({
     .integer('Desired weight must be a integer number'),
   bloodType: yup.string().required(),
 });
-const bloodTypes = [1, 2, 3, 4];
 
 export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 554px)' });
@@ -61,6 +62,7 @@ export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
     schema.validate(params);
     setUserParams(params);
     saveInStor('params', params);
+    openModal(true);
   };
 
   return (
@@ -146,21 +148,23 @@ export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
             <li>
               <Paragraph>Blood type *</Paragraph>
               <CheckboxContainer role="group" aria-labelledby="my-radio-group">
-                {bloodTypes.map(item => (
-                  <Label key={item}>
-                    <Checkbox
-                      type="radio"
-                      name="bloodType"
-                      value={item}
-                      checked={item === 1 ? true : false}
-                    />
-                    {item}
-                  </Label>
-                ))}
+                <Label>
+                  <Checkbox type="radio" name="bloodType" value="1" checked />1
+                </Label>
+                <Label>
+                  <Checkbox type="radio" name="bloodType" value="2" />2
+                </Label>
+                <Label>
+                  <Checkbox type="radio" name="bloodType" value="3" />3
+                </Label>
+                <Label>
+                  <Checkbox type="radio" name="bloodType" value="4" />4
+                </Label>
               </CheckboxContainer>
             </li>
           </List>
-          <ButtonWrapper onClick={() => openModal(true)}>
+          <ButtonWrapper disabled={!initialValues}
+              onClick={() => openModal()}>
             <ButtonForm type="submit">Start losing weight</ButtonForm>
           </ButtonWrapper>
         </Form>
