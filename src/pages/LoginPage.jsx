@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
 import * as yup from 'yup';
-import { Error, Input, List } from 'components/Form/Form.styled';
-import { Button } from 'components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useLogInUserMutation } from 'redux/auth';
 import { useDispatch } from 'react-redux';
 import { setUser } from 'redux/authSlice';
+import Snowfall from 'react-snowfall';
+import { Error, Input, List } from 'components/Form/Form.styled';
+import { Button } from 'components/Button/Button';
 import {
   ButtonWrapper,
   H2,
@@ -16,7 +17,7 @@ import { ButtonGoogle } from '../components/RegisterPage/RegisterPage.styled';
 import { WrapperWithFruits } from 'components/RegisterPage/RegisterPage.styled';
 import { Loader } from 'components/Loader/Loader';
 import { ThemeContext } from 'components/Context/Context';
-import Snowfall from 'react-snowfall';
+import { routes } from 'components/Routes/routes';
 
 const schema = yup.object().shape({
   email: yup.string().email().required('Email is required field'),
@@ -42,12 +43,12 @@ const LoginPage = () => {
     const user = await loginUser(values).unwrap();
     console.log('login user', user);
     dispatch(setUser(user));
-    navigate('/diary');
+    navigate(routes.diary);
     resetForm();
   };
 
   const handleClick = () => {
-    navigate('/register');
+    navigate(routes.register);
   };
 
   return (

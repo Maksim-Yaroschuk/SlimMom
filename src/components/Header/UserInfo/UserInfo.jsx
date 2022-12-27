@@ -8,15 +8,25 @@ import { Exit, Name, Section } from './UserInfo.styled';
 import Switch from 'react-switch';
 import { FaTree } from 'react-icons/fa';
 import { GiFruitBowl } from 'react-icons/gi';
+import { ExitModal } from 'components/ExitModal/ExitModal';
 
 export const BottomSection = ({ name }) => {
   const { setValue } = useContext(ThemeContext);
 
   const body = document.querySelector('body');
 
+  // !================================
+  const [isModalOpened, setIsModalOpened] = useState(false);
+
+  const onModalClose = () => {
+    setIsModalOpened(isModalOpened => !isModalOpened);
+    body.style.overflow = 'auto';
+  };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [logOutUser] = useLogOutUserMutation();
+
   const handleLogout = () => {
     logOutUser();
     dispatch(logOut());
@@ -25,6 +35,7 @@ export const BottomSection = ({ name }) => {
     body.classList.remove('christmas');
     setValue(false);
   };
+
   const christmasTheme = () => {
     const christmasThemeOn = () => {
       const day = new Date().getDate();
@@ -58,8 +69,11 @@ export const BottomSection = ({ name }) => {
 
   return (
     <Section>
+      {isModalOpened && (
+        <ExitModal onClose={onModalClose} handleLogout={handleLogout} />
+      )}
       <Name>{name}</Name>
-      <Exit onClick={handleLogout}>Exit</Exit>
+      <Exit onClick={() => setIsModalOpened(true)}>Exit</Exit>
       <Switch
         onChange={handleChange}
         checked={ischecked}

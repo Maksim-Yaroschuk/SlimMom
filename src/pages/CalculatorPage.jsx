@@ -19,13 +19,11 @@ const CalculatorPage = () => {
 
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [userParams, setUserParams] = useState(null);
-  console.log('userParams', userParams);
   const info = useSelector(getUserInfo);
   const userInfo = { ...info };
   delete userInfo.dailyRate;
   delete userInfo.notAllowedProducts;
   delete userInfo.notAllowedProductsAll;
-  // console.log(a);
   const body = document.querySelector('body');
 
   const onModalClose = () => {

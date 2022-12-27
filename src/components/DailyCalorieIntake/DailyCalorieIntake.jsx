@@ -1,3 +1,4 @@
+import { routes } from 'components/Routes/routes';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   H1,
@@ -43,10 +44,10 @@ const DailyCalorieIntake = ({ backResponse, userParams }) => {
           </LI>
         ))}
       </ul>
-      {location.pathname !== '/calculator' && (
+      {location.pathname !== routes.calculator && (
         <ButtonWrapper
           onClick={() =>
-            navigate('/register', { state: { userDataForRegister } })
+            navigate(routes.register, { state: { userDataForRegister } })
           }
         >
           <ButtonForm type="button">Start losing weight</ButtonForm>
