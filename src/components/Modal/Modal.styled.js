@@ -13,6 +13,7 @@ export const Overlay = styled.div`
   align-items: center;
   background-color: rgba(33, 33, 33, 0.12);
   z-index: 1200;
+ 
 `;
 
 export const ModalWindow = styled.div`
@@ -26,6 +27,7 @@ export const ModalWindow = styled.div`
   background: #ffffff;
   width: 100vw;
   height: 100vh;
+  border-radius: 5px;
   @media screen and (max-width: 767px) {
     top: 435px;
     border-radius: 0px;
@@ -49,6 +51,10 @@ export const ButtonClose = styled(MdClose)`
   height: 20px;
   padding: 0;
   z-index: 10;
+  &:hover,
+  :focus {
+    color: ${p => p.theme.colors.hover};
+  }
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -58,6 +64,10 @@ export const CloseArrow = styled(FiCornerDownLeft)`
   position: absolute;
   top: -30px;
   left: 20px;
+  &:hover,
+  :focus {
+    color: ${p => p.theme.colors.hover};
+  }
   @media only screen and (min-width: 767px) {
     display: none;
     visibility: hidden;

@@ -5,10 +5,13 @@ export const MainLoader = styled.div`
   z-index: 10;
   top: 0;
   left: 0;
-
+  border-radius: 0 px;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  @media screen and (min-width: 767px) {
+    border-radius: 5px;
+  }
 `;
 
 export const LoaderWrapper = styled.div`
