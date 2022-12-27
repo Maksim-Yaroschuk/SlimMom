@@ -19,7 +19,6 @@ const CalculatorPage = () => {
 
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [userParams, setUserParams] = useState(null);
-  console.log('userParams', userParams);
   const info = useSelector(getUserInfo);
   const userInfo = { ...info };
   delete userInfo.dailyRate;
