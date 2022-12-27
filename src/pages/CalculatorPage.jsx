@@ -25,7 +25,6 @@ const CalculatorPage = () => {
   delete userInfo.dailyRate;
   delete userInfo.notAllowedProducts;
   delete userInfo.notAllowedProductsAll;
-  // console.log(a);
   const body = document.querySelector('body');
 
   const onModalClose = () => {

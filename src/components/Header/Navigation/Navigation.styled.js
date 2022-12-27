@@ -56,10 +56,12 @@ export const Nav = styled.nav`
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
+  padding-bottom: 752px;
 
   @media (min-width: 426px) and (max-width: 1023px) {
     padding-top: 100px;
     margin-left: -35px;
+    padding-bottom: 752px;
   }
   @media (min-width: 1024px) {
     top: 0px;

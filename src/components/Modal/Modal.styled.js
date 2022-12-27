@@ -55,9 +55,8 @@ export const ButtonClose = styled(MdClose)`
   }
   @media screen and (max-width: 767px) {
     display: none;
-
   }
-`
+`;
 
 export const CloseArrow = styled(FiCornerDownLeft)`
   position: absolute;
@@ -71,4 +70,8 @@ export const CloseArrow = styled(FiCornerDownLeft)`
     display: none;
     visibility: hidden;
   }
+`;
+
+export const InnerInfo = styled.div`
+  padding: 10px;
 `;

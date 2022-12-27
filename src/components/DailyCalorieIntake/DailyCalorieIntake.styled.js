@@ -4,7 +4,9 @@ export const ModalWrapper = styled.div`
   position: relative;
   border-radius: 10px;
   max-width: 70vw;
-  margin: 60px auto 20px auto;
+  /* margin: 60px auto 20px auto; */
+  padding-top: 64px;
+  padding-bottom: 80px;
   flex-wrap: wrap;
   background-color: #fff;
   text-align: center;
@@ -18,11 +20,11 @@ export const H2 = styled.h2`
   line-height: 1.4;
   margin-bottom: 24px;
   @media (min-width: 426px) {
-    margin-bottom: 28px;
+    margin-bottom: 20px;
   }
   @media (min-width: 768px) {
     font-size: 26px;
-    margin-bottom: 34px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -90,4 +92,8 @@ export const ButtonForm = styled.button`
   color: ${p => p.theme.colors.white};
   background: ${p => p.theme.colors.orange};
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  &:hover,
+  &:focus {
+    background: ${p => p.theme.colors.hover};
+  }
 `;

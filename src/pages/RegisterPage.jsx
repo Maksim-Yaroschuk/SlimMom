@@ -17,6 +17,7 @@ import { WrapperWithFruits } from 'components/RegisterPage/RegisterPage.styled';
 import { Loader } from 'components/Loader/Loader';
 import Snowfall from 'react-snowfall';
 import { ThemeContext } from 'components/Context/Context';
+import { routes } from 'components/Routes/routes';
 
 const schema = yup.object().shape({
   name: yup
@@ -57,11 +58,11 @@ const RegisterPage = () => {
     const userLogin = await loginUser(loginValues).unwrap();
     dispatch(setCredentials(user));
     dispatch(setUser(userLogin));
-    navigate('/diary');
+    navigate(routes.diary);
     resetForm();
   };
   const handleClick = () => {
-    navigate('/login');
+    navigate(routes.login);
   };
 
   return (

@@ -44,6 +44,7 @@ export const Header = () => {
       return logoDesktopRetina;
     }
   };
+
   const { isChristmas } = useContext(ThemeContext);
 
   return (

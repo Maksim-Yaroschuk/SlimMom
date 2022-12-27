@@ -43,6 +43,7 @@ const schema = yup.object().shape({
     .integer('Desired weight must be a integer number'),
   bloodType: yup.string().required(),
 });
+const bloodTypes = [1, 2, 3, 4];
 
 export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 554px)' });
@@ -145,18 +146,17 @@ export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
             <li>
               <Paragraph>Blood type *</Paragraph>
               <CheckboxContainer role="group" aria-labelledby="my-radio-group">
-                <Label>
-                  <Checkbox type="radio" name="bloodType" value="1" checked />1
-                </Label>
-                <Label>
-                  <Checkbox type="radio" name="bloodType" value="2" />2
-                </Label>
-                <Label>
-                  <Checkbox type="radio" name="bloodType" value="3" />3
-                </Label>
-                <Label>
-                  <Checkbox type="radio" name="bloodType" value="4" />4
-                </Label>
+                {bloodTypes.map(item => (
+                  <Label key={item}>
+                    <Checkbox
+                      type="radio"
+                      name="bloodType"
+                      value={item}
+                      checked={item === 1 ? true : false}
+                    />
+                    {item}
+                  </Label>
+                ))}
               </CheckboxContainer>
             </li>
           </List>
