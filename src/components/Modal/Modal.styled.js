@@ -63,6 +63,7 @@ export const CloseArrow = styled(FiCornerDownLeft)`
   position: absolute;
   top: -30px;
   left: 20px;
+  color: ${p => p.theme.colors.black};
   &:hover,
   :focus {
     color: ${p => p.theme.colors.hover};
