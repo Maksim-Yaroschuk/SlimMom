@@ -59,7 +59,7 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
     try {
       const result = await apiAddMyProduct(body, token, date)
       if(result.length>0) {
-        dispatch(setProducts(result[0].productInfo))
+        dispatch(setProducts(result))
       } else {
         dispatch(setProducts([]))
       }

@@ -17,24 +17,18 @@ export const apiCalorieIntake = async body => {
 };
 
 export const apiAddMyProduct = async (body, token, date) => {
-  await axios.post(END_POINTS.AddMyProduct, body, {
+  const res = await axios.post(END_POINTS.AddMyProduct, body, {
     headers: {
       Authorization: `Bearer ${token}`
     },
   })
-  const res = await axios.post(END_POINTS.ListMyProducts, {
-         date
-        }, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        },
-      })
-  const result = await res.data.productList
+
+  const result = await res.data.newProduct.productInfo
   return result
 }
 
 export const apiDeleteMyProduct = async (id, token, date) => {
-  await axios.delete(END_POINTS.DeleteMyProduct + id, {
+  const res = await axios.delete(END_POINTS.DeleteMyProduct + id, {
     headers: {
     Authorization: `Bearer ${token}` 
   },
@@ -42,14 +36,7 @@ export const apiDeleteMyProduct = async (id, token, date) => {
     date
   }
   })
-  const res = await axios.post(END_POINTS.ListMyProducts, {
-    date
-   }, {
-   headers: {
-     Authorization: `Bearer ${token}`
-   },
-  })
-  const result = await res.data.productList[0].productInfo
+  const result = await res.data.newProduct.productInfo
   return result
 }
 
