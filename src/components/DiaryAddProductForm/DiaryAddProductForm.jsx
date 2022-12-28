@@ -22,8 +22,13 @@ import { setProducts } from 'redux/productsSlice';
 import { apiAddMyProduct, apiGetSearchProducts } from 'services/api/api';
 
 const schema = yup.object().shape({
-  productName: yup.string().required(),
-  productWeight: yup.number().required()
+  productName: yup
+    .string()
+    .required('Name is required field'),
+  productWeight: yup
+    .number('Grams must be a number')
+    .typeError('Grams must be a number')
+    .required('Grams is required field')
 })
 
 export const DiaryAddProductForm = ({onClose, isModalOpened}) => {

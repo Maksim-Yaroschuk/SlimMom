@@ -163,6 +163,7 @@ export const SearchBox = styled.ul`
   position: absolute;
   background-color: white;
   width: 450px;
+  box-shadow: 5px 4px 9px -3px rgba(0,0,0,0.53);
   &.visible {
     display: block;
   }
@@ -174,6 +175,7 @@ export const SearchBox = styled.ul`
 export const SearchItem = styled.li`
   cursor: pointer;
   padding: 5px 10px;
+  font-family: ${p => p.theme.fonts.body};
   border-bottom: ${p => p.theme.borders.normal};
   &:hover {
     background-color: ${p => p.theme.colors.backgroundGray};
