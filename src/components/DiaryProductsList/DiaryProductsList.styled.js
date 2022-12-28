@@ -17,6 +17,10 @@ export const List = styled.ul`
 ` 
 
 export const NoProductsContainer = styled.div`
+  text-align: center;
+  @media(min-width: 426px) {
+    text-align: start;
+  }
   & p {
     font-size: ${p => p.theme.fontSizes[1]};
     font-family: ${p => p.theme.fonts.body};
@@ -28,6 +32,9 @@ export const NoProductsContainer = styled.div`
   & svg {
     @media(max-width: 425px) {
       transform: rotate(180deg);
+    }
+    @media(min-width: 426px) {
+      margin-left: 90px;
     }
   }
 `
