@@ -25,12 +25,16 @@ const schema = yup.object().shape({
     .min(4, 'Name must be more than or equal to 4 letters')
     .max(50, 'Name must be less than or equal to 50 letters')
     .required('Name is required field'),
-  email: yup.string().email().required('Email is required field'),
+
   password: yup
     .string()
     .min(6, 'Password must be more than or equal to 6 letters')
-    .max(16, 'Pame must be more than or equal to 16 letters')
+    .max(16, 'Password must be less than or equal to 16 letters')
     .required('Password is required field'),
+  email: yup
+    .string()
+    .email('Invalid email')
+    .required('Email is required field'),
 });
 
 const initialValues = {
