@@ -15,8 +15,8 @@ export const BottomSection = ({ name }) => {
 
   const body = document.querySelector('body');
 
-  // !================================
   const [isModalOpened, setIsModalOpened] = useState(false);
+  const [isShowSwitch, setisShowSwitch] = useState(true);
 
   const onModalClose = () => {
     setIsModalOpened(isModalOpened => !isModalOpened);
@@ -36,28 +36,32 @@ export const BottomSection = ({ name }) => {
     setValue(false);
   };
 
-  const christmasTheme = () => {
-    const christmasThemeOn = () => {
-      const day = new Date().getDate();
-      const month = new Date().getMonth();
-      if (day >= 19 && month === 11) {
-        body.classList.add('christmas');
-      } else if (day >= 15 && month === 0) {
-        body.classList.remove('christmas');
-      }
-    };
-    christmasThemeOn();
-    setValue(true);
+  const christmasThemeOn = () => {
+    const day = new Date().getDate();
+    const month = new Date().getMonth();
+    if (day >= 19 && month === 11) {
+      body.classList.add('christmas');
+      setValue(true);
+      setisShowSwitch(true);
+    } else if (day <= 19 && month === 11) {
+      body.classList.remove('christmas');
+      setValue(false);
+      setisShowSwitch(false);
+    } else if (day >= 15 && month === 0) {
+      body.classList.remove('christmas');
+      setValue(false);
+      setisShowSwitch(false);
+    }
   };
-  const [ischecked, setIsChecked] = useState(false);
+
+  const [ischecked, setIsChecked] = useState(true);
 
   const handleChange = () => {
     setIsChecked(!ischecked);
   };
   if (ischecked) {
     setTimeout(() => {
-      christmasTheme();
-      setValue(true);
+      christmasThemeOn();
     }, 100);
   } else {
     setTimeout(() => {
@@ -74,37 +78,39 @@ export const BottomSection = ({ name }) => {
       )}
       <Name>{name}</Name>
       <Exit onClick={() => setIsModalOpened(true)}>Exit</Exit>
-      <Switch
-        onChange={handleChange}
-        checked={ischecked}
-        onColor="#9B9FAA"
-        offColor="#D6001C"
-        activeBoxShadow="0 0 2px 3px #D6001C"
-        uncheckedIcon={
-          <FaTree
-            style={{
-              height: '70%',
-              width: '70%',
-              position: 'relative',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          />
-        }
-        checkedIcon={
-          <GiFruitBowl
-            style={{
-              height: '70%',
-              width: '70%',
-              position: 'relative',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-            }}
-          />
-        }
-      />
+      {isShowSwitch && (
+        <Switch
+          onChange={handleChange}
+          checked={ischecked}
+          onColor="#9B9FAA"
+          offColor="#D6001C"
+          activeBoxShadow="0 0 2px 3px #D6001C"
+          uncheckedIcon={
+            <FaTree
+              style={{
+                height: '70%',
+                width: '70%',
+                position: 'relative',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+          }
+          checkedIcon={
+            <GiFruitBowl
+              style={{
+                height: '70%',
+                width: '70%',
+                position: 'relative',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+          }
+        />
+      )}
     </Section>
   );
 };
