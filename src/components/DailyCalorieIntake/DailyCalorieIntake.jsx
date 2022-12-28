@@ -44,13 +44,21 @@ const DailyCalorieIntake = ({ backResponse, userParams }) => {
           </LI>
         ))}
       </ul>
-      {location.pathname !== routes.calculator && (
+      {location.pathname !== routes.calculator ? (
         <ButtonWrapper
           onClick={() =>
             navigate(routes.register, { state: { userDataForRegister } })
           }
         >
           <ButtonForm type="button">Start losing weight</ButtonForm>
+        </ButtonWrapper>
+      ) : (
+        <ButtonWrapper
+          onClick={() =>
+            navigate(routes.diary)
+          }
+        >
+          <ButtonForm type="button">Go to Diary</ButtonForm>
         </ButtonWrapper>
       )}
     </ModalWrapper>
