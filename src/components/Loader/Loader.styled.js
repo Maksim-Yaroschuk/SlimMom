@@ -8,7 +8,7 @@ export const MainLoader = styled.div`
   border-radius: 0 px;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(192, 192, 192);
   @media screen and (min-width: 767px) {
     border-radius: 5px;
   }

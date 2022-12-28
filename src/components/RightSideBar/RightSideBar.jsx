@@ -21,7 +21,7 @@ export const RightSideBar = () => {
                         <Text>Left</Text>
                         {leftCalories < 0 ?
                             <RedText>{leftCalories} kcal</RedText> :
-                            <Text>{leftCalories} kcal</Text> 
+                            <Text>{leftCalories ? leftCalories : '000'} kcal</Text> 
                         }
                     </Item>
                     <Item>
@@ -36,8 +36,8 @@ export const RightSideBar = () => {
                         <Text>n% of normal</Text>
                         {/* <Text>{nOfNorm ? Math.round(nOfNorm) : '000'} %</Text> */}
                         {nOfNorm > 100 ?
-                            <RedText>{Math.round(nOfNorm)} %</RedText> :
-                            <Text>{Math.round(nOfNorm)} %</Text> 
+                            <RedText>{nOfNorm ? Math.round(nOfNorm) : '0'} %</RedText> :
+                            <Text>{nOfNorm ? Math.round(nOfNorm) : '0'} %</Text> 
                         }
                     </Item>
                 </ul>

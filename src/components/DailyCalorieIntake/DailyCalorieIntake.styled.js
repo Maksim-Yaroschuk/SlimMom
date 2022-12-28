@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const ModalWrapper = styled.div`
   position: relative;
   border-radius: 10px;
-  max-width: 70vw;
   /* margin: 60px auto 20px auto; */
   padding-top: 64px;
   padding-bottom: 80px;
