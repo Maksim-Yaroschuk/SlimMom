@@ -17,7 +17,17 @@ export const ExitModal = ({ onClose, handleLogout }) => {
   };
   return createPortal(
     <Overlay onClick={handleBackDropClick}>
-      <ModalWindow style={{ paddingTop: '50px' }}>
+      <ModalWindow
+        style={
+          isMobile
+            ? {
+                paddingTop: '30px',
+                height: '90vh',
+                transform: 'translate(-50%,-55%)',
+              }
+            : { paddingTop: '50px' }
+        }
+      >
         <InnerInfo>
           <h2 style={{ textAlign: 'center' }}>
             Are you sure you want to log out?
