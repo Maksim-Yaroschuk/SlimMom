@@ -8,13 +8,23 @@ const END_POINTS = {
   AddMyProduct: '/api/myProducts/addProduct',
   ListMyProducts: '/api/myProducts/listMyProduct',
   DeleteMyProduct: '/api/myProducts/',
-  GetSearchProducts: 'api/products/searchProducts'
+  GetSearchProducts: '/api/products/searchProducts',
+  UpdateUserInfo: '/api/users/infouser'
 };
 
 export const apiCalorieIntake = async body => {
   const res = await axios.post(END_POINTS.DailyCalorieIntake, body);
   return res.data;
 };
+
+export const apiUpdateInfoUser = async (token, body) => {
+  const res = await axios.patch(END_POINTS.UpdateUserInfo, body, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  })
+  return res.data.result
+}
 
 export const apiAddMyProduct = async (body, token, date) => {
   const res = await axios.post(END_POINTS.AddMyProduct, body, {

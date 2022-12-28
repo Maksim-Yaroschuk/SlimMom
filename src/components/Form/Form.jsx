@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 import { Box } from 'components/Box';
 import { ButtonForm } from './Form.styled';
 import {
@@ -15,8 +16,12 @@ import {
   Paragraph,
 } from './Form.styled';
 import { saveInStor } from 'services/local/storage';
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsLoggedIn, getToken } from 'redux/authSelectors'
+import { apiUpdateInfoUser } from 'services/api/api';
+import { apiCalorieIntake } from 'services/api/api';
+import { routes } from 'components/Routes/routes';
+import { setInfoUser } from 'redux/authSlice';
 
 const schema = yup.object().shape({
   height: yup
@@ -48,6 +53,10 @@ const schema = yup.object().shape({
 
 export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 554px)' });
+  const isLogged = useSelector(getIsLoggedIn)
+  const token = useSelector(getToken)
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const startValues = {
     height: '',
@@ -57,12 +66,23 @@ export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
     bloodType: '1',
   };
 
-  const handleSubmit = values => {
+  const handleSubmit = async values => {
     const params = { ...values };
     schema.validate(params);
     setUserParams(params);
     saveInStor('params', params);
     openModal(true);
+    if(isLogged) {
+      const {height, age, currentWeight, desiredWeight, bloodType} = params
+      const data = await apiCalorieIntake(params);
+      if (data) {
+        const {dailyRate, notAllowedProducts, notAllowedProductsAll} = data
+        const body = {height, age, currentWeight, desiredWeight, bloodType, dailyRate, notAllowedProducts, notAllowedProductsAll}
+        await apiUpdateInfoUser(token, body)
+        // navigate(routes.diary);
+        dispatch(setInfoUser(body))
+      }
+    }
   };
 
   return (
@@ -163,8 +183,7 @@ export const WeightForm = ({ openModal, setUserParams, initialValues }) => {
               </CheckboxContainer>
             </li>
           </List>
-          <ButtonWrapper disabled={!initialValues}
-              onClick={() => openModal()}>
+          <ButtonWrapper disabled={!initialValues}>
             <ButtonForm type="submit">Start losing weight</ButtonForm>
           </ButtonWrapper>
         </Form>
