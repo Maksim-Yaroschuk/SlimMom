@@ -65,7 +65,7 @@ export const Modal = ({ onClose, children, userParams }) => {
         )}
         {children}
         <ButtonClose type="button" onClick={onClose}></ButtonClose>
-        <CloseArrow color="black" size="20px" left="20px" onClick={onClose} />
+        <CloseArrow size="20px" left="20px" onClick={onClose} />
       </ModalWindow>
     </Overlay>,
     modalRoot
