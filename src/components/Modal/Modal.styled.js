@@ -27,12 +27,12 @@ export const ModalWindow = styled.div`
   width: 100vw;
   height: 100vh;
   border-radius: 5px;
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     top: 435px;
     border-radius: 0px;
     box-shadow: none;
   }
-  @media screen and (min-width: 767px) {
+  @media (min-width: 767px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,7 +54,7 @@ export const ButtonClose = styled(MdClose)`
   :focus {
     color: ${p => p.theme.colors.hover};
   }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     display: none;
   }
 `;
@@ -68,7 +68,7 @@ export const CloseArrow = styled(FiCornerDownLeft)`
   :focus {
     color: ${p => p.theme.colors.hover};
   }
-  @media only screen and (min-width: 767px) {
+  @media (min-width: 767px) {
     display: none;
     visibility: hidden;
   }
