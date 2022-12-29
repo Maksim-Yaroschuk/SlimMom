@@ -33,7 +33,7 @@ const schema = yup.object().shape({
   email: yup
     .string()
     .email('Invalid email')
-    .typeError('Age must be a number')
+    .typeError('Email must be an email')
     .required('Email is required field'),
 });
 
@@ -92,7 +92,7 @@ const RegisterPage = () => {
               <li>
                 <label>
                   <Input type="email" name="email" placeholder="Email *" />
-                  <ErrorMessage name="age" component={Error} />
+                  <ErrorMessage name="email" component={Error} />
                 </label>
               </li>
 
