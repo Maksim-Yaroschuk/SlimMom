@@ -28,7 +28,7 @@ export const ModalWindow = styled.div`
   height: 100vh;
   border-radius: 5px;
   @media (max-width: 767px) {
-    top: 480px;
+    top: 470px;
     border-radius: 0px;
     box-shadow: none;
   }

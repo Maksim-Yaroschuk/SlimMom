@@ -4,12 +4,16 @@ import { apiCalorieIntake } from 'services/api/api';
 import DailyCalorieIntake from 'components/DailyCalorieIntake/DailyCalorieIntake';
 import { Overlay, ModalWindow, CloseArrow, ButtonClose } from './Modal.styled';
 import { Loader } from 'components/Loader/Loader';
+import { useLocation } from 'react-router-dom';
+import { routes } from 'components/Routes/routes';
+import { useMediaQuery } from 'react-responsive';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ onClose, children, userParams }) => {
   const [backResponse, setBackResponse] = useState(null);
-
+  const location = useLocation();
+  const isMobile = useMediaQuery({ query: '(max-width: 426px)' });
   useEffect(() => {
     if (!userParams) {
       return;
@@ -54,7 +58,14 @@ export const Modal = ({ onClose, children, userParams }) => {
 
   return createPortal(
     <Overlay onClick={handleBackDropClick}>
-      <ModalWindow onClose={onClose}>
+      <ModalWindow
+        onClose={onClose}
+        style={
+          location.pathname === routes.home && isMobile
+            ? { top: '460px' }
+            : null
+        }
+      >
         {backResponse ? (
           <DailyCalorieIntake
             backResponse={backResponse}
