@@ -11,7 +11,8 @@ import {
   SearchBox,
   SearchItem,
   NameError,
-  GramsError
+  GramsError,
+  SearchItemNotRecommended
 } from './DiaryAddProductForm.styled';
 import AddIcon from "../../images/svg/add.svg"
 import { useState } from 'react';
@@ -20,6 +21,7 @@ import { getToken } from 'redux/authSelectors';
 import { selectDate } from 'redux/productsSelectors';
 import { setProducts } from 'redux/productsSlice';
 import { apiAddMyProduct, apiGetSearchProducts } from 'services/api/api';
+import { getUserInfo } from 'redux/authSelectors';
 
 const schema = yup.object().shape({
   productName: yup
@@ -42,6 +44,7 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
   };
   const [searchProducts, setSearchProducts] = useState([])
   const [visible, setVisible] = useState(false)
+  const userInfo = useSelector(getUserInfo)
 
   const search = async (value) => {
     try {
@@ -55,7 +58,7 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
   const handleSubmit = async (values, { resetForm }) => {
     schema.validate(values)
     const {productName, productWeight} = values
-    const body = {productName, productWeight, date}
+    const body = {productName, productWeight: parseInt(productWeight), date}
     try {
       const result = await apiAddMyProduct(body, token, date)
       if(result.length>0) {
@@ -64,7 +67,7 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
         dispatch(setProducts([]))
       }
     } catch (error) {
-      console.log(error);
+      alert("Oops.. Product not found!")
     }
     mobile && onClose()
     resetForm()
@@ -117,6 +120,9 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
             </FormWrapper>
             <SearchBox className={visible ? "visible" : null}>
               {searchProducts !=="" && searchProducts.length !== 0 && searchProducts.map((product) => {
+                if(userInfo.notAllowedProductsAll.find(el => el === product.title.ua)) {
+                  return <SearchItemNotRecommended key={product._id} onClick={() => handleClick(setFieldValue, product.title.ua)}>{product.title.ua}</SearchItemNotRecommended>
+                }
                 return <SearchItem key={product._id} onClick={() => handleClick(setFieldValue, product.title.ua)}>{product.title.ua}</SearchItem>
               })}
             </SearchBox>

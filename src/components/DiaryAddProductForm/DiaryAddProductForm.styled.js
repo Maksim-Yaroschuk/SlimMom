@@ -181,3 +181,22 @@ export const SearchItem = styled.li`
     background-color: ${p => p.theme.colors.backgroundGray};
   }
 `;
+
+export const SearchItemNotRecommended = styled.li`
+cursor: pointer;
+padding: 5px 10px;
+font-family: ${p => p.theme.fonts.body};
+border-bottom: ${p => p.theme.borders.normal};
+background-color: #f5503b;
+color: white;
+
+&:hover {
+  background-color: #bf3e2e;
+}
+
+&::after {
+  content: 'Not recommended';
+  font-size: 10px;
+  margin-left: 10px;
+}
+`
