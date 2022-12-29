@@ -1,5 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { useLogInUserMutation } from 'redux/auth';
@@ -38,6 +40,7 @@ const LoginPage = () => {
   const [loginUser, { status }] = useLogInUserMutation();
   const dispatch = useDispatch();
   const { isChristmas } = useContext(ThemeContext);
+  const [isShowPassword, setIsShowPassword] = useState(false);
 
   const handleSubmit = async (values, { resetForm }) => {
     const user = await loginUser(values).unwrap();
@@ -49,6 +52,9 @@ const LoginPage = () => {
 
   const handleClick = () => {
     navigate(routes.register);
+  };
+  const handleShowPassword = () => {
+    setIsShowPassword(!isShowPassword);
   };
 
   return (
@@ -77,10 +83,32 @@ const LoginPage = () => {
               <li>
                 <label>
                   <Input
-                    type="password"
+                    type={isShowPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password *"
+                    maxLength="16"
                   />
+                  {isShowPassword ? (
+                    <AiFillEyeInvisible
+                      onClick={handleShowPassword}
+                      style={{
+                        position: 'relative',
+                        top: '5px',
+                        left: '-16px',
+                        color: '#FC842D',
+                      }}
+                    />
+                  ) : (
+                    <AiFillEye
+                      onClick={handleShowPassword}
+                      style={{
+                        position: 'relative',
+                        top: '5px',
+                        left: '-16px',
+                        color: '#FC842D',
+                      }}
+                    />
+                  )}
                   <ErrorMessage name="password" component={Error} />
                   {status === 'rejected' && (
                     <Error>Email or password is wrong</Error>
