@@ -103,7 +103,7 @@ const RegisterPage = () => {
               </li>
 
               <li>
-                <label>
+                <label style={{ position: 'relative' }}>
                   <Input
                     type={isShowPassword ? 'text' : 'password'}
                     name="password"
@@ -114,9 +114,9 @@ const RegisterPage = () => {
                     <AiFillEyeInvisible
                       onClick={handleShowPassword}
                       style={{
-                        position: 'relative',
-                        top: '5px',
-                        left: '-16px',
+                        position: 'absolute',
+                        top: '0px',
+                        left: '250px',
                         color: '#FC842D',
                       }}
                     />
@@ -124,9 +124,9 @@ const RegisterPage = () => {
                     <AiFillEye
                       onClick={handleShowPassword}
                       style={{
-                        position: 'relative',
-                        top: '5px',
-                        left: '-16px',
+                        position: 'absolute',
+                        top: '0px',
+                        left: '250px',
                         color: '#FC842D',
                       }}
                     />
