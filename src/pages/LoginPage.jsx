@@ -44,7 +44,7 @@ const LoginPage = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     const user = await loginUser(values).unwrap();
-    console.log('login user', user);
+    // console.log('login user', user);
     dispatch(setUser(user));
     navigate(routes.diary);
     resetForm();
