@@ -86,7 +86,7 @@ const LoginPage = () => {
                     type={isShowPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password *"
-                    maxlength="16"
+                    maxLength="16"
                   />
                   {isShowPassword ? (
                     <AiFillEyeInvisible
