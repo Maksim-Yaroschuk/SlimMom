@@ -23,7 +23,7 @@ export const ExitModal = ({ onClose, handleLogout }) => {
             ? {
                 paddingTop: '30px',
                 height: '90vh',
-                transform: 'translate(-50%,-55%)',
+                transform: 'translate(-50%,-62%)',
               }
             : { paddingTop: '50px' }
         }
