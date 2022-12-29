@@ -55,7 +55,7 @@ export const DiaryAddProductForm = ({onClose, isModalOpened}) => {
   const handleSubmit = async (values, { resetForm }) => {
     schema.validate(values)
     const {productName, productWeight} = values
-    const body = {productName, productWeight, date}
+    const body = {productName, productWeight: parseInt(productWeight), date}
     try {
       const result = await apiAddMyProduct(body, token, date)
       if(result.length>0) {
