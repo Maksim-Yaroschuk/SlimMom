@@ -12,6 +12,7 @@ import { PublicRoute } from './Routes/PublicRoute';
 import { ThemeProvider } from 'styled-components';
 import { theme, christmasTheme } from './Theme/Theme';
 import { ThemeContext } from './Context/Context';
+import { DesktopApp } from './DesktopApp/DesktopApp';
 
 const Login = lazy(() => import('../pages/LoginPage'));
 const Register = lazy(() => import('../pages/RegisterPage'));
@@ -83,6 +84,14 @@ export const App = () => {
               element={
                 <PrivateRoute>
                   <Calculator />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="desktop"
+              element={
+                <PrivateRoute>
+                  <DesktopApp />
                 </PrivateRoute>
               }
             />
