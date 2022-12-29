@@ -1,5 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Formik, ErrorMessage, Form } from 'formik';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+
 import * as yup from 'yup';
 import { Error, Input, List } from 'components/Form/Form.styled';
 import { Button } from 'components/Button/Button';
@@ -53,6 +55,7 @@ const RegisterPage = () => {
   const [registerUser, { status }] = useRegisterUserMutation();
   const dispatch = useDispatch();
   const [loginUser] = useLogInUserMutation();
+  const [isShowPassword, setIsShowPassword] = useState(false);
 
   const handleSubmit = async (values, { resetForm }) => {
     const userDataForRegisterAll = { ...values, ...userDataForRegister };
@@ -67,6 +70,9 @@ const RegisterPage = () => {
   };
   const handleClick = () => {
     navigate(routes.login);
+  };
+  const handleShowPassword = () => {
+    setIsShowPassword(!isShowPassword);
   };
 
   return (
@@ -99,10 +105,32 @@ const RegisterPage = () => {
               <li>
                 <label>
                   <Input
-                    type="password"
+                    type={isShowPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password *"
+                    maxlength="16"
                   />
+                  {isShowPassword ? (
+                    <AiFillEyeInvisible
+                      onClick={handleShowPassword}
+                      style={{
+                        position: 'relative',
+                        top: '5px',
+                        left: '-16px',
+                        color: '#FC842D',
+                      }}
+                    />
+                  ) : (
+                    <AiFillEye
+                      onClick={handleShowPassword}
+                      style={{
+                        position: 'relative',
+                        top: '5px',
+                        left: '-16px',
+                        color: '#FC842D',
+                      }}
+                    />
+                  )}
                   <ErrorMessage name="password" component={Error} />
                 </label>
               </li>
